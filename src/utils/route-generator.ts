@@ -2,6 +2,7 @@ import type { RouteRecordRaw } from 'vue-router'
 
 // 引入 BasicLayout
 const BasicLayout = () => import('@/layouts/BasicLayout.vue')
+const BlankLayout = () => import('@/layouts/BlankLayout.vue')
 
 // Vite 的 Glob 导入，用于构建组件映射表
 const modules = import.meta.glob('../views/**/*.vue')
@@ -33,6 +34,8 @@ export const generateRoutes = (routes: BackendRoute[]): RouteRecordRaw[] => {
     // 1. 处理 Layout 组件
     if (tmp.component === 'Layout') {
       tmp.component = BasicLayout
+    } else if (tmp.component === 'BlankLayout') {
+      tmp.component = BlankLayout
     } else if (typeof tmp.component === 'string') {
       // 2. 处理普通组件映射
       // 假设后端返回的是 "dashboard/Analysis"，我们需要映射到 "../views/dashboard/Analysis.vue"

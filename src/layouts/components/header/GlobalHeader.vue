@@ -4,10 +4,12 @@ import { MenuUnfoldOutlined, MenuFoldOutlined, SettingOutlined } from '@ant-desi
 import { useSettingStore } from '@/stores/setting'
 import AppMenu from '../common/AppMenu.vue'
 import AppLogo from '../common/AppLogo.vue'
+import type { RouteRecordRaw } from 'vue-router'
 
 // 接收侧边栏折叠状态
 defineProps<{
   collapsed: boolean
+  menuList?: RouteRecordRaw[]
 }>()
 
 // 定义事件
@@ -87,7 +89,12 @@ const headerStyle = computed(() => {
 
     <!-- 顶部导航模式或混合模式下的菜单 -->
     <div class="header-menu">
-      <AppMenu v-if="navMode === 'top' || navMode === 'mix'" :theme="theme" mode="horizontal" />
+      <AppMenu
+        v-if="navMode === 'top' || navMode === 'mix'"
+        :theme="theme"
+        mode="horizontal"
+        :menu-list="menuList"
+      />
     </div>
 
     <div class="header-right">

@@ -3,10 +3,13 @@ import { computed } from 'vue'
 import { useSettingStore } from '@/stores/setting'
 import AppMenu from '../common/AppMenu.vue'
 import AppLogo from '../common/AppLogo.vue'
+import type { RouteRecordRaw } from 'vue-router'
 
 // 接收父组件传递的 collapsed 状态
 defineProps<{
   collapsed: boolean
+  menuList?: RouteRecordRaw[]
+  basePath?: string
 }>()
 
 const settingStore = useSettingStore()
@@ -64,7 +67,7 @@ const siderStyle = computed(() => {
   >
     <!-- 在侧边栏模式和混合模式下显示 Logo -->
     <AppLogo v-if="navMode !== 'top'" :collapsed="collapsed" :show-title="true" :theme="theme" />
-    <AppMenu :theme="theme" mode="inline" />
+    <AppMenu :theme="theme" mode="inline" :menu-list="menuList" :base-path="basePath" />
   </a-layout-sider>
 </template>
 

@@ -11,11 +11,15 @@ defineOptions({
 const props = defineProps<{
   mode?: 'vertical' | 'vertical-right' | 'horizontal' | 'inline'
   theme?: 'light' | 'dark'
+  menuList?: RouteRecordRaw[]
+  basePath?: string
 }>()
 
 const router = useRouter()
 const route = useRoute()
 const permissionStore = usePermissionStore()
+
+const menus = computed(() => props.menuList || permissionStore.routes)
 
 const selectedKeys = computed(() => [route.path])
 const openKeys = ref<string[]>([])
@@ -59,9 +63,9 @@ const handleMenuClick = ({ key }: { key: string }) => {
     class="app-menu"
     @click="handleMenuClick"
   >
-    <template v-for="item in permissionStore.routes" :key="item.path">
+    <template v-for="item in menus" :key="item.path">
       <template v-if="!item.meta?.hidden">
-        <SubMenu :item="item" />
+        <SubMenu :item="item" :base-path="basePath" />
       </template>
     </template>
   </a-menu>

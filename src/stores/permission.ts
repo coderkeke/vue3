@@ -59,13 +59,13 @@ const mockAsyncRoutes = [
         path: 'menu1',
         name: 'Menu1',
         meta: { title: '菜单1' },
-        component: 'nested/menu1/Menu1-2', // 临时指向一个存在的组件作为占位，实际应该是 RouterView 或父级组件
+        component: 'nested/menu1/index', // 使用带内容的父级组件
         children: [
           {
             path: 'menu1-1',
             name: 'Menu1-1',
             meta: { title: '菜单1-1' },
-            component: 'nested/menu1/menu1-1/Menu1-1-1', // 同上
+            component: 'BlankLayout', // 使用 BlankLayout 以便渲染子路由
             children: [
               {
                 path: 'menu1-1-1',

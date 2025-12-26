@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { useMenuStore } from '@/stores/menu'
+import { usePermissionStore } from '@/stores/permission'
 import SubMenu from './SubMenu.vue'
 
-defineProps<{
+defineOptions({
+  name: 'AppMenu',
+})
+
+const props = defineProps<{
   mode?: 'vertical' | 'vertical-right' | 'horizontal' | 'inline'
   theme?: 'light' | 'dark'
 }>()
 
 const router = useRouter()
 const route = useRoute()
-const menuStore = useMenuStore()
+const permissionStore = usePermissionStore()
 
 const selectedKeys = computed(() => [route.path])
 const openKeys = ref<string[]>([])
@@ -28,9 +32,15 @@ watch(
     parts.forEach((part) => {
       currentPath += `/${part}`
       keys.push(currentPath)
+      keys.push(currentPath + '_sub')
     })
     // 合并新的 openKeys，避免重复
-    openKeys.value = [...new Set([...openKeys.value, ...keys])]
+    // 如果是水平模式（horizontal），通常不需要自动展开 openKeys，因为它们是悬浮触发的
+    // 但在某些场景下如果希望保持选中项的高亮路径，可以保留。
+    // 不过为了修复“混合模式下头部菜单自动弹出”的问题，我们在 horizontal 模式下不强制设置 openKeys
+    if (props.mode !== 'horizontal') {
+      openKeys.value = [...new Set([...openKeys.value, ...keys])]
+    }
   },
   { immediate: true },
 )
@@ -49,8 +59,10 @@ const handleMenuClick = ({ key }: { key: string }) => {
     class="app-menu"
     @click="handleMenuClick"
   >
-    <template v-for="item in menuStore.menuList" :key="item.path">
-      <SubMenu :item="item" />
+    <template v-for="item in permissionStore.routes" :key="item.path">
+      <template v-if="!item.meta?.hidden">
+        <SubMenu :item="item" />
+      </template>
     </template>
   </a-menu>
 </template>

@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48be051e-53e1-426b-a423-6ef742f5cb80" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/src/layouts/BasicLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/BasicLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/header/GlobalHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/header/GlobalHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/sider/SiderMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/sider/SiderMenu.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/directives/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/constantRoutes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/guard/permission.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/permission.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/route-generator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/UserLogin.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/error/ForbiddenPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/error/NotFoundPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/components/common/AppMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/common/AppMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/components/common/SubMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/common/SubMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/menu.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/Analysis.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/AnalysisBoard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/Workplace.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/WorkplaceBoard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nested/Menu2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nested/NestedMenu2.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/vite-env.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1766645474064</updated>
       <workItem from="1766645475396" duration="1374000" />
-      <workItem from="1766710917207" duration="7044000" />
+      <workItem from="1766710917207" duration="9240000" />
     </task>
     <servers />
   </component>

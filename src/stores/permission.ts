@@ -98,6 +98,37 @@ export const usePermissionStore = defineStore('permission', () => {
         // 在这里可以根据 userStore 中的 roles 进行过滤，或者直接使用后端返回的已过滤路由
         const accessedRoutes = generateRoutes(mockAsyncRoutes)
 
+        // 动态计算根路径重定向
+        // 找到第一个可访问的路由作为首页
+        let firstPath = ''
+        const findFirstPath = (routes: RouteRecordRaw[], basePath = '') => {
+          for (const route of routes) {
+            // 处理路径拼接，注意去除重复的斜杠
+            const routePath = route.path.startsWith('/') 
+              ? route.path 
+              : `${basePath.replace(/\/$/, '')}/${route.path}`
+
+            if (route.children && route.children.length > 0) {
+              findFirstPath(route.children, routePath)
+              if (firstPath) return
+            } else if (!route.meta?.hidden && !route.redirect) {
+              // 找到第一个非隐藏且非重定向的叶子节点
+              firstPath = routePath
+              return
+            }
+          }
+        }
+        findFirstPath(accessedRoutes)
+        console.log(firstPath,'firstPath');
+        
+        if (firstPath) {
+          accessedRoutes.push({
+            path: '/',
+            redirect: firstPath,
+            meta: { hidden: true },
+          })
+        }
+
         // 动态添加 404 路由到最后
         accessedRoutes.push({
           path: '/:pathMatch(.*)*',

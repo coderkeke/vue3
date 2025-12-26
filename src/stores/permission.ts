@@ -100,43 +100,51 @@ export const usePermissionStore = defineStore('permission', () => {
 
         // 动态计算根路径重定向
         // 找到第一个可访问的路由作为首页
-        let firstPath = ''
-        const findFirstPath = (routes: RouteRecordRaw[], basePath = '') => {
+        const findFirstPath = (routes: RouteRecordRaw[], basePath = ''): string | null => {
           for (const route of routes) {
-            // 处理路径拼接，注意去除重复的斜杠
+            // 跳过隐藏路由
+            if (route.meta?.hidden) {
+              continue
+            }
+
+            // 处理路径拼接
             const routePath = route.path.startsWith('/') 
               ? route.path 
               : `${basePath.replace(/\/$/, '')}/${route.path}`
 
+            // 如果有子路由，递归查找
             if (route.children && route.children.length > 0) {
-              findFirstPath(route.children, routePath)
-              if (firstPath) return
-            } else if (!route.meta?.hidden && !route.redirect) {
-              // 找到第一个非隐藏且非重定向的叶子节点
-              firstPath = routePath
-              return
+              const childPath = findFirstPath(route.children, routePath)
+              if (childPath) return childPath
+            } else if (!route.redirect) {
+              // 找到第一个非重定向的叶子节点
+              return routePath
             }
           }
+          return null
         }
-        findFirstPath(accessedRoutes)
         
-        if (firstPath) {
-          accessedRoutes.push({
-            path: '/',
-            redirect: firstPath,
-            meta: { hidden: true },
-          })
-        }
-
-        // 动态添加 404 路由到最后
-        accessedRoutes.push({
-          path: '/:pathMatch(.*)*',
-          redirect: '/404',
-          name: 'NotFoundRedirect',
+        const firstPath = findFirstPath(accessedRoutes)
+        
+        // 如果计算失败，兜底跳转到 /dashboard/analysis
+        const redirectPath = firstPath || '/dashboard/analysis'
+        
+        // 确保根路径重定向覆盖默认行为
+        accessedRoutes.unshift({
+          path: '/',
+          redirect: redirectPath,
           meta: { hidden: true },
         })
 
-        addRoutes.value = accessedRoutes
+        // 动态添加 404 路由到最后
+         accessedRoutes.push({
+             path: '/:pathMatch(.*)*',
+             redirect: '/exception/404',
+             name: 'NotFoundRedirect',
+             meta: { hidden: true },
+          })
+
+         addRoutes.value = accessedRoutes
         routes.value = constantRoutes.concat(accessedRoutes)
         resolve(accessedRoutes)
       }, 100)

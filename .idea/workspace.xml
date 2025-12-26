@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48be051e-53e1-426b-a423-6ef742f5cb80" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/src/layouts/BasicLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/BasicLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/common/AppMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/common/AppMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/header/GlobalHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/header/GlobalHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/sider/SiderMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/sider/SiderMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/constantRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/constantRoutes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stores/permission.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/permission.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/route-generator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/route-generator.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1766645474064</updated>
       <workItem from="1766645475396" duration="1374000" />
-      <workItem from="1766710917207" duration="10469000" />
+      <workItem from="1766710917207" duration="11105000" />
     </task>
     <servers />
   </component>

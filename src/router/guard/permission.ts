@@ -35,13 +35,19 @@ router.beforeEach(async (to, from, next) => {
           // 2. 生成动态路由
           const accessRoutes = await permissionStore.generateRoutesAction()
           
+          // 移除 constantRoutes 中定义的临时通配符路由，防止它拦截所有路径（因为它在路由表最前面）
+          if (router.hasRoute('NotFoundRedirect')) {
+            router.removeRoute('NotFoundRedirect')
+          }
+
           // 3. 动态添加路由
           accessRoutes.forEach((route) => {
             router.addRoute(route)
           })
           
           // 4. 确保路由添加完成，replace: true 替换当前历史记录
-          next({ ...to, replace: true })
+          // 使用 path 属性重定向，避免保留旧的 name (如 NotFoundRedirect)
+          next({ path: to.path, query: to.query, replace: true })
         } catch {
           // 出错需重置 Token 并跳转登录页
           await userStore.logout()

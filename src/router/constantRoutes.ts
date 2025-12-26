@@ -19,6 +19,28 @@ export const constantRoutes: RouteRecordRaw[] = [
     component: () => import('@/views/error/ForbiddenPage.vue'), // 假设有一个 403.vue
     meta: { title: '403', hidden: true },
   },
+  // 异常页面（带 Layout），不需要后端动态返回，属于前端基础架构的一部分
+  {
+    path: '/exception',
+    name: 'Exception',
+    component: () => import('@/layouts/BasicLayout.vue'),
+    redirect: '/exception/403',
+    meta: { title: '异常页', icon: 'WarningOutlined', hidden: true },
+    children: [
+      {
+        path: '403',
+        name: 'Exception403',
+        component: () => import('@/views/error/ForbiddenPage.vue'),
+        meta: { title: '403', hidden: true },
+      },
+      {
+        path: '404',
+        name: 'Exception404',
+        component: () => import('@/views/error/NotFoundPage.vue'),
+        meta: { title: '404', hidden: true },
+      },
+    ],
+  },
   // 临时通配符路由，防止初始化时报 No match found 警告
   // 动态路由加载完成后会被覆盖
   {

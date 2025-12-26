@@ -1,13 +1,19 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useSettingStore } from '@/stores/setting'
+
 defineProps<{
   collapsed?: boolean
   showTitle?: boolean
   theme?: 'dark' | 'light'
 }>()
+
+const settingStore = useSettingStore()
+const headerHeight = computed(() => settingStore.projectConfig.layout.headerHeight)
 </script>
 
 <template>
-  <div class="logo" :class="theme">
+  <div class="logo" :class="theme" :style="{ height: `${headerHeight}px` }">
     <img src="/vite.svg" alt="logo" />
     <h1 v-if="showTitle && !collapsed">Vue3 Admin</h1>
   </div>
@@ -15,7 +21,6 @@ defineProps<{
 
 <style scoped lang="less">
 .logo {
-  height: 64px;
   padding: 0 24px;
   display: flex;
   align-items: center;

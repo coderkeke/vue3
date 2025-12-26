@@ -29,56 +29,35 @@ const openSettingDrawer = () => {
 
 <template>
   <a-layout class="layout-container">
-    <!-- 情况1：侧边栏模式 (Sider 在左，Header 在右) -->
-    <template v-if="navMode === 'side'">
-      <SiderMenu :collapsed="collapsed" />
-      <a-layout class="layout-content-wrapper">
+    <!-- 侧边栏 (Side) 和 混合模式 (Mix) 下显示侧边栏 -->
+    <!-- 顶部模式 (Top) 下隐藏侧边栏 -->
+    <SiderMenu v-if="navMode !== 'top'" :collapsed="collapsed" />
+
+    <a-layout class="layout-content-wrapper">
+      <div class="layout-scroll-container">
+        <!-- Header -->
         <GlobalHeader
           :collapsed="collapsed"
           @toggle="toggleCollapsed"
           @open-setting="openSettingDrawer"
         />
-        <div class="layout-scroll-container">
-          <a-layout-content
-            :style="{
-              margin: '24px 16px',
-              padding: '24px',
-              background: '#fff',
-              minHeight: '280px',
-            }"
-          >
-            <router-view />
-          </a-layout-content>
-          <GlobalFooter />
-        </div>
-      </a-layout>
-    </template>
 
-    <!-- 情况2：顶部导航模式 (Header 在上，无 Sider) -->
-    <!-- 情况3：混合模式 (Header 在上，Sider 在下) -->
-    <template v-else>
-      <GlobalHeader
-        :collapsed="collapsed"
-        @toggle="toggleCollapsed"
-        @open-setting="openSettingDrawer"
-      />
-      <a-layout class="layout-content-wrapper" :class="{ 'mix-layout': navMode === 'mix' }">
-        <SiderMenu v-if="navMode === 'mix'" :collapsed="collapsed" />
-        <div class="layout-scroll-container">
+        <!-- Content -->
+        <div class="layout-body">
           <a-layout-content
             :style="{
-              margin: '24px 16px',
               padding: '24px',
               background: '#fff',
               minHeight: '280px',
+              marginBottom: '24px',
             }"
           >
             <router-view />
           </a-layout-content>
           <GlobalFooter />
         </div>
-      </a-layout>
-    </template>
+      </div>
+    </a-layout>
 
     <!-- 全局配置抽屉 -->
     <SettingDrawer v-model:open="settingDrawerOpen" />
@@ -96,15 +75,21 @@ const openSettingDrawer = () => {
   flex: 1;
   display: flex;
   flex-direction: column;
-
-  &.mix-layout {
-    flex-direction: row; // 混合模式下，Sider 和 内容区左右排列
-  }
 }
 
 .layout-scroll-container {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5; // 确保背景色为灰色
+}
+
+.layout-body {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px; // 增加内边距
 }
 </style>

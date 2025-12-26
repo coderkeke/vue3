@@ -1,0 +1,50 @@
+<script setup lang="ts">
+defineProps<{
+  collapsed?: boolean
+  showTitle?: boolean
+  theme?: 'dark' | 'light'
+}>()
+</script>
+
+<template>
+  <div class="logo" :class="theme">
+    <img src="/vite.svg" alt="logo" />
+    <h1 v-if="showTitle && !collapsed">Vue3 Admin</h1>
+  </div>
+</template>
+
+<style scoped lang="less">
+.logo {
+  height: 64px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  overflow: hidden;
+
+  img {
+    height: 32px;
+    width: 32px;
+  }
+
+  h1 {
+    margin: 0 0 0 12px;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.3s;
+  }
+
+  &.light {
+    h1 {
+      color: #001529;
+    }
+  }
+
+  &.dark {
+    h1 {
+      color: white;
+    }
+  }
+}
+</style>

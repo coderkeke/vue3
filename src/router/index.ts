@@ -5,13 +5,19 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('../views/Home.vue'),
-    },
-    {
-      path: '/antd',
-      name: 'antd',
-      component: () => import('../views/AntdDemo.vue'),
+      component: () => import('../layouts/BasicLayout.vue'),
+      children: [
+        {
+          path: '',
+          name: 'home',
+          component: () => import('../views/Home.vue'),
+        },
+        {
+          path: 'antd-demo',
+          name: 'antd',
+          component: () => import('../views/AntdDemo.vue'),
+        },
+      ],
     },
   ],
 })

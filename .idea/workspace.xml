@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48be051e-53e1-426b-a423-6ef742f5cb80" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/http/request.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mock/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mock/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/request.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/AntdDemo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/AntdDemo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1766645474064</updated>
       <workItem from="1766645475396" duration="1374000" />
-      <workItem from="1766710917207" duration="2670000" />
+      <workItem from="1766710917207" duration="5849000" />
     </task>
     <servers />
   </component>

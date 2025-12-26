@@ -1,9 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { useCounterStore } from '../stores/counter'
 import { storeToRefs } from 'pinia'
-import request from '../utils/request'
+import {
+  getUserInfo,
+  getLegacyOrders,
+  getLegacyError,
+  type UserInfo,
+  type OrderItem,
+} from '@/api/demo'
 import { message } from 'ant-design-vue'
+import { useRequest } from '@/hooks/useRequest'
 
 // Pinia Store
 const counterStore = useCounterStore()
@@ -15,22 +22,47 @@ const dateValue = ref(null)
 const switchChecked = ref(true)
 const sliderValue = ref(30)
 
-// Mock API Test
-const userInfo = ref(null)
-const loading = ref(false)
+// ----------------------------------------------------------------------------
+// 使用 useRequest Hook 简化逻辑
+// ----------------------------------------------------------------------------
 
-const fetchUserInfo = async () => {
-  loading.value = true
-  try {
-    const res = await request.get('/user/info')
-    userInfo.value = res.data
-    message.success('获取 Mock 数据成功')
-  } catch (error) {
-    console.error(error)
-  } finally {
-    loading.value = false
-  }
-}
+// 1. 获取用户信息 (自动管理 loading 和 data)
+const {
+  loading: userInfoLoading,
+  data: userInfo,
+  run: fetchUserInfo,
+} = useRequest<UserInfo>(getUserInfo, {
+  manual: true,
+  onSuccess: (data) => {
+    message.success(`标准接口调用成功: ${data.name}`)
+  },
+})
+
+// 2. 获取老系统订单
+const {
+  loading: legacyLoading,
+  data: legacyOrders,
+  run: fetchLegacyData,
+} = useRequest<OrderItem[]>(getLegacyOrders, {
+  manual: true,
+  initialData: [], // 设置初始值为空数组
+  onSuccess: () => {
+    message.success('老系统接口调用成功')
+  },
+})
+
+// 3. 测试错误
+const { run: testLegacyError } = useRequest(getLegacyError, {
+  manual: true,
+  onError: (e) => {
+    console.log('Caught error in hook:', e)
+    // 拦截器已经报过错了，这里不需要重复 message.error
+  },
+})
+
+// 合并 loading 状态给按钮使用 (可选)
+// 也可以分别绑定，这里为了简单直接复用原有的 loading 变量名逻辑，但要注意它是 Ref
+// 为了演示，我们在 template 里分别使用 userInfoLoading 和 legacyLoading
 </script>
 
 <template>
@@ -54,14 +86,33 @@ const fetchUserInfo = async () => {
 
           <!-- Mock API Demo Section -->
           <a-card title="Mock API 测试" class="card-section">
-            <a-button type="primary" :loading="loading" @click="fetchUserInfo"
-              >获取 Mock 用户信息</a-button
-            >
-            <div v-if="userInfo" style="margin-top: 16px">
-              <p>Name: {{ userInfo.name }}</p>
-              <p>Roles: {{ userInfo.roles.join(', ') }}</p>
-              <a-avatar :src="userInfo.avatar" />
-            </div>
+            <a-space direction="vertical" style="width: 100%">
+              <a-space>
+                <a-button type="primary" :loading="userInfoLoading" @click="fetchUserInfo">
+                  获取标准数据
+                </a-button>
+                <a-button :loading="legacyLoading" @click="fetchLegacyData">
+                  获取老系统数据
+                </a-button>
+                <a-button danger @click="testLegacyError"> 测试错误处理</a-button>
+              </a-space>
+
+              <div v-if="userInfo" class="info-box">
+                <h4>标准后端数据 (UserCenter):</h4>
+                <p>Name: {{ userInfo.name }}</p>
+                <p>Source: {{ userInfo.source }}</p>
+                <a-avatar :src="userInfo.avatar" />
+              </div>
+
+              <div v-if="legacyOrders && legacyOrders.length" class="info-box">
+                <h4>老系统数据 (Legacy):</h4>
+                <ul>
+                  <li v-for="order in legacyOrders" :key="order.id">
+                    {{ order.name }} - ${{ order.price }}
+                  </li>
+                </ul>
+              </div>
+            </a-space>
           </a-card>
         </a-col>
 

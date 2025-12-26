@@ -1,5 +1,6 @@
 import { createService } from './index'
 import type { UnifiedResponse } from './types'
+import type { InternalAxiosRequestConfig } from 'axios'
 
 // --------------------------------------------------------------------------
 // 场景 1: 标准后端 (Standard Backend)
@@ -8,14 +9,16 @@ import type { UnifiedResponse } from './types'
 export const userApi = createService({
   baseURL: '/api/user', // 对应 nginx location /api/user
   transform: {
-    transformResponse: (res: any): UnifiedResponse => {
+    transformResponse: (res: unknown): UnifiedResponse => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const response = res as any
       // 适配逻辑
       return {
-        success: res.code === 200,
-        data: res.data,
-        message: res.msg || res.message || 'ok',
-        code: res.code,
-        origin: res
+        success: response.code === 200,
+        data: response.data,
+        message: response.msg || response.message || 'ok',
+        code: response.code,
+        origin: response
       }
     }
   }
@@ -28,17 +31,19 @@ export const userApi = createService({
 export const legacyApi = createService({
   baseURL: '/api/legacy', // 对应 nginx location /api/legacy
   transform: {
-    transformResponse: (res: any): UnifiedResponse => {
+    transformResponse: (res: unknown): UnifiedResponse => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const response = res as any
       // 适配逻辑：注意这里 ret 是字符串 '0'，字段叫 result
       return {
-        success: res.ret === '0',
-        data: res.result, // 将 result 映射到统一的 data
-        message: res.message || 'ok',
-        code: res.ret,
-        origin: res
+        success: response.ret === '0',
+        data: response.result, // 将 result 映射到统一的 data
+        message: response.message || 'ok',
+        code: response.ret,
+        origin: response
       }
     },
-    beforeRequest: (config) => {
+    beforeRequest: (config: InternalAxiosRequestConfig) => {
       // 假设老系统需要特殊的 header
       config.headers['X-Legacy-System'] = 'v1.0'
       return config

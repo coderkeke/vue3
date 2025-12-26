@@ -3,9 +3,17 @@ import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import { viteMockServe } from 'vite-plugin-mock'
+import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@api': path.resolve(__dirname, 'src/api'),
+      '@http': path.resolve(__dirname, 'src/http'),
+    },
+  },
   plugins: [
     vue(),
     Components({

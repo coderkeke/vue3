@@ -119,7 +119,6 @@ export const usePermissionStore = defineStore('permission', () => {
           }
         }
         findFirstPath(accessedRoutes)
-        console.log(firstPath,'firstPath');
         
         if (firstPath) {
           accessedRoutes.push({

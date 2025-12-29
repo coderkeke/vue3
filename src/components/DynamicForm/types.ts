@@ -28,7 +28,7 @@ export interface FormSchema {
   component?: ComponentType;
   // 组件参数 (Props for the component, e.g., placeholder, disabled)
   // 支持函数动态返回 (Supports dynamic props via function)
-  componentProps?: Record<string, unknown> | ((opt: { model: Record<string, unknown>; field: string }) => Record<string, unknown>);
+  componentProps?: Record<string, unknown> | ((opt: { model: Record<string, any>; field: string }) => Record<string, unknown>);
   // 组件事件 (Events for the component, e.g., onChange, onBlur)
   componentEvents?: Record<string, unknown>;
   // Form Item Props (Props for a-form-item, e.g., label, help, extra)

@@ -25,6 +25,12 @@ const mockAsyncRoutes = [
         component: 'demo/TableDemo',
         meta: { title: '查询表格' },
       },
+      {
+        path: 'chart',
+        name: 'ChartDemo',
+        component: 'demo/ChartDemo',
+        meta: { title: '图表演示' },
+      },
     ],
   },
   {

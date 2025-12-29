@@ -13,6 +13,12 @@ const settingStore = useSettingStore()
 const permissionStore = usePermissionStore()
 const route = useRoute()
 
+// 判断是否为嵌入模式 (兼容空值 ?embedded 和布尔值字符串)
+const isEmbedded = computed(() => {
+  const val = route.query.embedded
+  return val !== undefined && val !== 'false' && val !== '0'
+})
+
 // 从 Store 获取侧边栏折叠状态
 const collapsed = computed(() => settingStore.projectConfig.collapsed)
 // 从 Store 获取导航模式
@@ -79,11 +85,11 @@ const openSettingDrawer = () => {
 </script>
 
 <template>
-  <a-layout class="layout-container">
+  <a-layout class="layout-container" :class="{ 'layout-embedded': isEmbedded }">
     <!-- 侧边栏 (Side) 和 混合模式 (Mix) 下显示侧边栏 -->
     <!-- 顶部模式 (Top) 下隐藏侧边栏 -->
     <SiderMenu
-      v-if="navMode !== 'top'"
+      v-if="!isEmbedded && navMode !== 'top'"
       :collapsed="collapsed"
       :menu-list="sideMenus"
       :base-path="activeTopMenuPath"
@@ -93,6 +99,7 @@ const openSettingDrawer = () => {
       <div class="layout-scroll-container">
         <!-- Header -->
         <GlobalHeader
+          v-if="!isEmbedded"
           :collapsed="collapsed"
           :menu-list="headerMenus"
           @toggle="toggleCollapsed"
@@ -100,24 +107,20 @@ const openSettingDrawer = () => {
         />
 
         <!-- Content -->
-        <div class="layout-body">
+        <div class="layout-body" :class="{ 'layout-body-embedded': isEmbedded }">
           <a-layout-content
-            :style="{
-              padding: '24px',
-              background: '#fff',
-              minHeight: '280px',
-              marginBottom: '24px',
-            }"
+            class="content-wrapper"
+            :class="{ 'content-wrapper-embedded': isEmbedded }"
           >
             <router-view />
           </a-layout-content>
-          <GlobalFooter />
+          <GlobalFooter v-if="!isEmbedded" />
         </div>
       </div>
     </a-layout>
 
     <!-- 全局配置抽屉 -->
-    <SettingDrawer v-model:open="settingDrawerOpen" />
+    <SettingDrawer v-if="!isEmbedded" v-model:open="settingDrawerOpen" />
   </a-layout>
 </template>
 
@@ -134,6 +137,15 @@ const openSettingDrawer = () => {
   flex-direction: column;
 }
 
+.layout-embedded {
+  .layout-content-wrapper {
+    height: 100vh;
+  }
+  .layout-scroll-container {
+    background-color: transparent;
+  }
+}
+
 .layout-scroll-container {
   flex: 1;
   overflow-y: auto;
@@ -148,5 +160,22 @@ const openSettingDrawer = () => {
   display: flex;
   flex-direction: column;
   padding: 24px 16px; // 增加内边距
+}
+
+.layout-body-embedded {
+  padding: 0;
+}
+
+.content-wrapper {
+  padding: 24px;
+  background: #fff;
+  min-height: 280px;
+  margin-bottom: 24px;
+}
+
+.content-wrapper-embedded {
+  padding: 0;
+  min-height: 100%;
+  margin-bottom: 0;
 }
 </style>

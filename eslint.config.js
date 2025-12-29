@@ -15,5 +15,10 @@ export default [
 
   ...pluginVue.configs['flat/recommended'],
   ...vueTs(),
+  {
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'warn',
+    },
+  },
   skipFormatting,
 ]

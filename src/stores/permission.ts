@@ -7,6 +7,21 @@ import { generateRoutes } from '@/utils/route-generator'
 // 模拟后端返回的路由数据
 const mockAsyncRoutes = [
   {
+    path: '/demo',
+    name: 'Demo',
+    component: 'Layout',
+    redirect: '/demo/form',
+    meta: { title: '组件演示', icon: 'AppstoreOutlined' },
+    children: [
+      {
+        path: 'form',
+        name: 'FormDemo',
+        component: 'demo/FormDemo',
+        meta: { title: '动态表单' },
+      },
+    ],
+  },
+  {
     path: '/dashboard',
     name: 'Dashboard',
     component: 'Layout',

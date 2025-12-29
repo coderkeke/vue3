@@ -42,6 +42,8 @@ declare module 'vue' {
     ASpace: typeof import('ant-design-vue/es')['Space']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ASwitch: typeof import('ant-design-vue/es')['Switch']
+    ATable: typeof import('ant-design-vue/es')['Table']
+    ATag: typeof import('ant-design-vue/es')['Tag']
     DynamicForm: typeof import('./src/components/DynamicForm/DynamicForm.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

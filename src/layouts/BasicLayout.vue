@@ -139,7 +139,7 @@ const openSettingDrawer = () => {
 
 .layout-embedded {
   .layout-content-wrapper {
-    height: 100vh;
+    height: 100%;
   }
   .layout-scroll-container {
     background-color: transparent;

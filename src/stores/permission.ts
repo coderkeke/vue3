@@ -19,6 +19,12 @@ const mockAsyncRoutes = [
         component: 'demo/FormDemo',
         meta: { title: '动态表单' },
       },
+      {
+        path: 'table',
+        name: 'TableDemo',
+        component: 'demo/TableDemo',
+        meta: { title: '查询表格' },
+      },
     ],
   },
   {

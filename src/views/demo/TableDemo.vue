@@ -170,16 +170,6 @@ const handleSearch = () => {
 // 重置
 const handleReset = () => {
   formRef.value?.resetFields()
-  // resetFields 会清空 searchParams (如果是通过 v-model 绑定的)
-  // 如果 DynamicForm 的 resetFields 实现正确，它应该会重置 model
-  // 我们手动确保一下 searchParams 被清空或重置
-  // 由于 searchParams 是 reactive，DynamicForm 修改它会生效
-  // 但为了保险，我们可以手动再调用一次查询，或者在 nextTick 后调用
-
-  // 这里的 searchParams 是 v-model:model 绑定的对象
-  // resetFields 通常会将表单项重置为 defaultValue 或 undefined
-  // 所以 searchParams 中的字段会被清空
-
   pagination.current = 1
   fetchData()
 }

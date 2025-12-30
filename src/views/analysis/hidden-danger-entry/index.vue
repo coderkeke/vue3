@@ -1,8 +1,8 @@
 <template>
-  <div class="page-container">
+  <div class="p-4">
     <DynamicForm :model="selectedFilters" :schemas="schemas" :row-props="{ gutter: [16, 16] }">
       <template #action>
-        <div style="text-align: right">
+        <div class="text-right">
           <a-space>
             <a-button type="primary" @click="handleSearch">查询</a-button>
             <a-button @click="handleReset">重置</a-button>
@@ -11,7 +11,7 @@
       </template>
     </DynamicForm>
 
-    <div class="operation-bar">
+    <div class="my-4 flex justify-end">
       <a-space>
         <a-upload
           name="file"
@@ -27,7 +27,7 @@
       </a-space>
     </div>
 
-    <div class="table-container">
+    <div class="mt-4">
       <a-table
         :columns="columns"
         :data-source="tableData"
@@ -242,14 +242,4 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-.page-container {
-  padding: 16px;
-}
-.operation-bar {
-  margin: 16px 0;
-}
-.table-container {
-  margin-top: 16px;
-}
-</style>
+<style scoped></style>

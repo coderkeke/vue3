@@ -30,7 +30,7 @@ export class HttpService {
         // 默认处理：例如添加 Token
         const token = localStorage.getItem('token')
         if (token && config.headers) {
-          config.headers['Token'] = `${token}`
+          config.headers['Authorization'] = `Bearer ${token}`
         }
         return config
       },

@@ -97,7 +97,6 @@ const fetchData = async () => {
           component: 'Select',
           componentProps: {
             options: options.map((opt) => {
-              console.log('opt:', opt)
               const labelStr = opt[col]
               return {
                 label: `${labelStr} (${opt.count})`,

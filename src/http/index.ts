@@ -1,6 +1,9 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig, type AxiosResponse } from 'axios'
 import { message } from 'ant-design-vue'
+import router from '@/router'
 import type { CreateServiceOptions, UnifiedResponse } from './types.ts'
+
+let isRelogging = false
 
 export class HttpService {
   private instance: AxiosInstance
@@ -84,7 +87,19 @@ export class HttpService {
       const status = error.response?.status
       switch (status) {
         case 400: msg = '请求错误(400)'; break
-        case 401: msg = '未授权，请重新登录(401)'; break
+        case 401:
+          if (isRelogging) return
+          isRelogging = true
+          msg = '未授权，请重新登录(401)'
+          localStorage.removeItem('token')
+          router.push({
+            path: '/login',
+            query: { redirect: router.currentRoute.value.fullPath },
+          })
+          setTimeout(() => {
+            isRelogging = false
+          }, 3000)
+          break
         case 403: msg = '拒绝访问(403)'; break
         case 404: msg = '请求出错(404)'; break
         case 500: msg = '服务器错误(500)'; break

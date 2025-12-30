@@ -5,24 +5,86 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.trae/api.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.trae/api.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/AntdDemo-Z7tdJ7HX.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/BasicLayout-DTknj7nL.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/Chart-Di9owH7T.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/ChartDemo-B0gjEFXO.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/DynamicForm-B9jY9TnE.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/FormDemo-pOnYkfpt.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/Home-Beow50A0.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/TableDemo-B4QYmjXl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/UserLogin-BZ01-YiR.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/_plugin-vue_export-helper-t17CR7cw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/hidden-danger-entry-Cv5i4oG4.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/menu1-BlCoOdRS.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="37Yfp6b0YUp6QUUVxBS4DYNyfMs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\workspace\\vue3\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="" />
+      <created>1767085108185</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1767085108185</updated>
+      <workItem from="1767085110142" duration="524000" />
+      <workItem from="1767085672164" duration="491000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />

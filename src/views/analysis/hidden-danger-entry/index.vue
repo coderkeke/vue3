@@ -18,9 +18,10 @@
           :show-upload-list="false"
           :custom-request="handleUpload"
           accept=".xlsx, .xls"
+          :disabled="uploadLoading"
         >
-          <a-button type="primary">
-            <UploadOutlined />
+          <a-button type="primary" :loading="uploadLoading">
+            <UploadOutlined v-if="!uploadLoading" />
             导入Excel
           </a-button>
         </a-upload>
@@ -62,6 +63,7 @@ import { message } from 'ant-design-vue'
 
 const filterLoading = ref(false)
 const tableLoading = ref(false)
+const uploadLoading = ref(false)
 const schemas = ref<FormSchema[]>([])
 const selectedFilters = ref<Record<string, unknown>>({})
 const tableData = ref<Record<string, unknown>[]>([])
@@ -223,6 +225,7 @@ const handleTableChange = (pag: TablePaginationConfig) => {
 
 const handleUpload = async (options: any) => {
   const { file, onSuccess, onError } = options
+  uploadLoading.value = true
   try {
     await uploadExcelFile(file)
     message.success('导入成功')
@@ -233,6 +236,8 @@ const handleUpload = async (options: any) => {
     console.error('导入失败:', error)
     message.error('导入失败')
     onError(error)
+  } finally {
+    uploadLoading.value = false
   }
 }
 

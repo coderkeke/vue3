@@ -27,6 +27,6 @@ export interface ChartDataResponse {
     }>
 }
 
-export const getChartStats = (columnName: string, conditions?: Record<string, unknown>) => {
-    return excelApi.post<ChartDataResponse>(`/excel/dynamic/db/column-stats`, {conditions, columnName})
+export const getChartStats = (columnName: string, conditionsMap?: Record<string, unknown>) => {
+    return excelApi.post<ChartDataResponse>(`/excel/dynamic/db/column-stats`, {conditionsMap, columnName})
 }

@@ -39,18 +39,10 @@ const fetchData = async () => {
 
       const timeList = Array.from(timeSet).sort()
       const levelList = Array.from(levelSet)
-
-      // 定义高优先级
-      const highPriorityLevels = ['重大隐患', '较大隐患']
-
       const series = levelList.map((level) => {
-        const isHighPriority = highPriorityLevels.some((k) => level.includes(k))
         return {
           name: level,
-          type: 'bar', // 全部回归柱状图
-          stack: isHighPriority ? 'high' : 'low', // 分组堆叠
-          xAxisIndex: isHighPriority ? 0 : 1, // 对应不同的 Grid
-          yAxisIndex: isHighPriority ? 0 : 1,
+          type: 'bar', // 全部用柱状图
           emphasis: { focus: 'series' },
           data: timeList.map((time) => dataMap.get(time)?.get(level) || 0),
         }
@@ -60,42 +52,18 @@ const fetchData = async () => {
         title: { text: '发现时间与隐患级别趋势', left: 'center' },
         tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
         legend: { data: levelList, top: 'bottom' },
-        axisPointer: { link: [{ xAxisIndex: 'all' }] }, // 联动两个图表的指示器
-        grid: [
-          // 上半部分：展示重大/较大隐患
-          { left: '60', right: '20', top: '10%', height: '35%' },
-          // 下半部分：展示一般/较小隐患
-          { left: '60', right: '20', top: '55%', height: '35%' },
-        ],
+        grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
         xAxis: [
           {
             type: 'category',
             data: timeList,
-            gridIndex: 0,
-            axisLabel: { show: false }, // 隐藏上图的X轴标签
-            axisTick: { show: false },
-          },
-          {
-            type: 'category',
-            data: timeList,
-            gridIndex: 1,
-            position: 'bottom',
             axisLabel: { rotate: 45 },
           },
         ],
         yAxis: [
           {
             type: 'value',
-            gridIndex: 0,
-            name: '重大/较大',
-            nameLocation: 'end',
-            splitLine: { show: true, lineStyle: { type: 'dashed' } },
-          },
-          {
-            type: 'value',
-            gridIndex: 1,
-            name: '一般/较小',
-            nameLocation: 'end',
+            name: '隐患数量',
             splitLine: { show: true, lineStyle: { type: 'dashed' } },
           },
         ],

@@ -20,24 +20,26 @@ const fetchData = async () => {
     const data = res.data as unknown as ChartDataResponse
     if (data && data.success) {
       const stats = data.stats
-      
+
       option.value = {
         title: { text: '整改责任单位统计', left: 'center' },
         tooltip: { trigger: 'axis' },
         grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
-        xAxis: { 
-          type: 'category', 
+        xAxis: {
+          type: 'category',
           boundaryGap: false,
-          data: stats.map(i => String(i['整改责任单位'])),
-          axisLabel: { interval: 0, rotate: 45 }
+          data: stats.map((i) => String(i['整改责任单位'])),
+          axisLabel: { interval: 0, rotate: 45 },
         },
         yAxis: { type: 'value' },
-        series: [{
-          name: '数量',
-          type: 'line',
-          data: stats.map(i => i.count),
-          areaStyle: {}
-        }]
+        series: [
+          {
+            name: '数量',
+            type: 'line',
+            data: stats.map((i) => i.count),
+            areaStyle: {},
+          },
+        ],
       }
     }
   } finally {

@@ -1,6 +1,6 @@
 <template>
   <a-card :bordered="false" :loading="loading">
-    <BasicChart :options="option" height="300px" />
+    <BasicChart :options="option" height="400px" />
   </a-card>
 </template>
 <script setup lang="ts">

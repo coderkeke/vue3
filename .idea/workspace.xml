@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/dist/assets/AntdDemo-Z7tdJ7HX.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/BasicLayout-DTknj7nL.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/Chart-Di9owH7T.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/ChartDemo-B0gjEFXO.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/DynamicForm-B9jY9TnE.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/FormDemo-pOnYkfpt.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/Home-Beow50A0.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/TableDemo-B4QYmjXl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/UserLogin-BZ01-YiR.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/_plugin-vue_export-helper-t17CR7cw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/hidden-danger-entry-Cv5i4oG4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/menu1-BlCoOdRS.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/vite.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/http/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/menu.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/components/common/AppLogo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/common/AppLogo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/components/common/GlobalFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/common/GlobalFooter.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,20 +27,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\workspace\\vue3\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/workspace/vue3/public",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\workspace\\vue3\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\vue3\public" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -68,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1767085108185</updated>
       <workItem from="1767085110142" duration="524000" />
-      <workItem from="1767085672164" duration="491000" />
+      <workItem from="1767085672164" duration="1481000" />
     </task>
     <servers />
   </component>

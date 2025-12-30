@@ -14,8 +14,8 @@ const headerHeight = computed(() => settingStore.projectConfig.layout.headerHeig
 
 <template>
   <div class="logo" :class="theme" :style="{ height: `${headerHeight}px` }">
-    <img src="/vite.svg" alt="logo" />
-    <h1 v-if="showTitle && !collapsed">Vue3 Admin</h1>
+    <img src="/logo.jpg" alt="logo" />
+    <h1 v-if="showTitle && !collapsed">隐患分析系统</h1>
   </div>
 </template>
 

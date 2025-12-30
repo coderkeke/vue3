@@ -7,7 +7,7 @@ const mockAsyncRoutes: BackendRoute[] = [
     name: 'AnalysisRoot',
     component: 'Layout',
     redirect: '/analysis/hidden-danger',
-    meta: { title: '隐患分析', icon: 'BarChartOutlined' },
+    meta: { title: '隐患', icon: 'BarChartOutlined' },
     children: [
       {
         path: 'hidden-danger',

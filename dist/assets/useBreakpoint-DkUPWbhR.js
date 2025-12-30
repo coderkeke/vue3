@@ -1,1 +1,0 @@
-import{a as e}from"./Col-Czvnh7xb.js";import{An as t,Zn as n,jn as r}from"./index-IbQU_uUx.js";function i(){let i=n({}),a=null,o=e();return t(()=>{a=o.value.subscribe(e=>{i.value=e})}),r(()=>{o.value.unsubscribe(a)}),i}var a=i;export{a as t};

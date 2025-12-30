@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/public/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/menu.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/common/AppLogo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/common/AppLogo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/common/GlobalFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/common/GlobalFooter.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1767085108185</updated>
       <workItem from="1767085110142" duration="524000" />
-      <workItem from="1767085672164" duration="1481000" />
+      <workItem from="1767085672164" duration="1751000" />
     </task>
     <servers />
   </component>

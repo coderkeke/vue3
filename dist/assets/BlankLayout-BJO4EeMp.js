@@ -1,0 +1,1 @@
+import{Ln as e,Nn as t,hn as n}from"./index-IbQU_uUx.js";import{t as r}from"./_plugin-vue_export-helper-t17CR7cw.js";var i={};function a(r,i){let a=e(`router-view`);return t(),n(a)}var o=r(i,[[`render`,a]]);export{o as default};

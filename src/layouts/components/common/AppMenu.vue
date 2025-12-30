@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter, useRoute, type RouteRecordRaw } from 'vue-router'
 import { usePermissionStore } from '@/stores/permission'
 import SubMenu from './SubMenu.vue'
 

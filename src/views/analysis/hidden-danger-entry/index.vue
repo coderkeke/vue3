@@ -1,31 +1,43 @@
 <template>
-  <div class="p-4">
-    <a-card title="数据筛选" :loading="filterLoading">
-      <DynamicForm :model="selectedFilters" :schemas="schemas" :row-props="{ gutter: [16, 16] }">
-        <template #action>
-          <div style="text-align: right">
-            <a-space>
-              <a-button type="primary" @click="handleSearch">查询</a-button>
-              <a-button @click="handleReset">重置</a-button>
-            </a-space>
-          </div>
-        </template>
-      </DynamicForm>
-    </a-card>
+  <div class="page-container">
+    <DynamicForm :model="selectedFilters" :schemas="schemas" :row-props="{ gutter: [16, 16] }">
+      <template #action>
+        <div style="text-align: right">
+          <a-space>
+            <a-button type="primary" @click="handleSearch">查询</a-button>
+            <a-button @click="handleReset">重置</a-button>
+          </a-space>
+        </div>
+      </template>
+    </DynamicForm>
 
-    <div class="mt-4">
-      <a-card title="隐患数据列表">
-        <a-table
-          :columns="columns"
-          :data-source="tableData"
-          :loading="tableLoading"
-          :pagination="pagination"
-          row-key="id"
-          :scroll="{ x: 1000 }"
-          @change="handleTableChange"
+    <div class="operation-bar">
+      <a-space>
+        <a-upload
+          name="file"
+          :show-upload-list="false"
+          :custom-request="handleUpload"
+          accept=".xlsx, .xls"
         >
-        </a-table>
-      </a-card>
+          <a-button type="primary">
+            <UploadOutlined />
+            导入Excel
+          </a-button>
+        </a-upload>
+      </a-space>
+    </div>
+
+    <div class="table-container">
+      <a-table
+        :columns="columns"
+        :data-source="tableData"
+        :loading="tableLoading"
+        :pagination="pagination"
+        row-key="id"
+        :scroll="{ x: 1000 }"
+        @change="handleTableChange"
+      >
+      </a-table>
     </div>
   </div>
 </template>
@@ -38,12 +50,15 @@ import { ref, onMounted, reactive } from 'vue'
 import {
   getFilterOptions,
   getTableData,
+  uploadExcelFile,
   type FilterData,
   type TableDataResponse,
 } from '@/api/analysis'
 import DynamicForm from '@/components/DynamicForm/DynamicForm.vue'
 import type { FormSchema } from '@/components/DynamicForm/types'
 import type { TablePaginationConfig, TableColumnType } from 'ant-design-vue'
+import { UploadOutlined } from '@ant-design/icons-vue'
+import { message } from 'ant-design-vue'
 
 const filterLoading = ref(false)
 const tableLoading = ref(false)
@@ -206,10 +221,35 @@ const handleTableChange = (pag: TablePaginationConfig) => {
   fetchTableData(pag.current || 1, pag.pageSize || 10)
 }
 
+const handleUpload = async (options: any) => {
+  const { file, onSuccess, onError } = options
+  try {
+    await uploadExcelFile(file)
+    message.success('导入成功')
+    onSuccess()
+    // 导入成功后刷新表格数据
+    fetchTableData(1, pagination.pageSize)
+  } catch (error) {
+    console.error('导入失败:', error)
+    message.error('导入失败')
+    onError(error)
+  }
+}
+
 onMounted(() => {
   fetchFilterData()
   fetchTableData()
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.page-container {
+  padding: 16px;
+}
+.operation-bar {
+  margin: 16px 0;
+}
+.table-container {
+  margin-top: 16px;
+}
+</style>

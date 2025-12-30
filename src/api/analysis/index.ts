@@ -54,3 +54,13 @@ export interface TableDataResponse {
 export const getTableData = (params: { conditions?: string, limit?: number, offset?: number }) => {
     return smartApi.post<TableDataResponse>('/excel/dynamic/db/table-data', params)
 }
+
+export const uploadExcelFile = (file: File) => {
+    const formData = new FormData()
+    formData.append('file', file)
+    return smartApi.post('/excel/dynamic/db/upload-and-sqlite', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+}

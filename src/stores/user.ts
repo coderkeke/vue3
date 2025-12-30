@@ -1,43 +1,33 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { loginApi, getUserInfoApi, logoutApi, type UserInfo } from '@/api/user'
 
 export const useUserStore = defineStore('user', () => {
   const token = ref<string>('')
   const permissions = ref<string[]>([])
-  const userInfo = ref<Record<string, unknown>>({})
+  const userInfo = ref<UserInfo>({} as UserInfo)
 
   const login = async () => {
-    // 模拟登录请求
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        token.value = 'mock-token-' + Date.now()
-        userInfo.value = { name: 'Admin', avatar: '' }
-        // 将 Token 存入 localStorage (实际项目中建议使用 Cookie 或封装的 Storage 工具)
-        localStorage.setItem('token', token.value)
-        resolve()
-      }, 500)
-    })
+    // 调用登录接口
+    token.value = await loginApi({ username: 'admin' })
+    // 将 Token 存入 localStorage (实际项目中建议使用 Cookie 或封装的 Storage 工具)
+    localStorage.setItem('token', token.value)
   }
 
   const getInfo = async () => {
-    // 模拟获取用户信息和权限
-    return new Promise<{ permissions: string[]; userInfo: Record<string, unknown> }>((resolve) => {
-      setTimeout(() => {
-        const data = {
-          permissions: ['dashboard:view', 'system:user:list', 'system:user:add'],
-          userInfo: { name: 'Admin', avatar: '' },
-        }
-        permissions.value = data.permissions
-        userInfo.value = data.userInfo
-        resolve(data)
-      }, 200)
-    })
+    // 调用获取用户信息接口
+    const data = await getUserInfoApi()
+    permissions.value = data.permissions
+    userInfo.value = data.userInfo
+    return data
   }
 
-  const logout = () => {
+  const logout = async () => {
+    // 调用退出登录接口
+    await logoutApi()
     token.value = ''
     permissions.value = []
-    userInfo.value = {}
+    userInfo.value = {} as UserInfo
     localStorage.removeItem('token')
   }
 

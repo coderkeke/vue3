@@ -51,5 +51,26 @@ export const legacyApi = createService({
   }
 })
 
+// --------------------------------------------------------------------------
+// 场景 3: Excel 分析后端 (Excel Backend)
+// 结构: { success: true, allColumnCount: 16, columnStats: {...}, ... }
+// --------------------------------------------------------------------------
+export const excelApi = createService({
+  baseURL: '', // 直接使用根路径，或者配合 proxy
+  transform: {
+    transformResponse: (res: unknown): UnifiedResponse => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const response = res as any
+      return {
+        success: response.success === true,
+        data: response, // 数据就在根对象上
+        message: response.message || 'ok',
+        code: response.success ? 200 : 500,
+        origin: response
+      }
+    }
+  }
+})
+
 // 默认导出 userApi 方便兼容
 export default userApi

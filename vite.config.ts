@@ -28,4 +28,12 @@ export default defineConfig({
       enable: true,
     }),
   ],
+  server: {
+    proxy: {
+      '/excel': {
+        target: 'http://192.168.133.70:8080',
+        changeOrigin: true,
+      },
+    },
+  },
 })

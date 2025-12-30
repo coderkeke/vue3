@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48be051e-53e1-426b-a423-6ef742f5cb80" name="更改" comment="" />
+    <list default="true" id="48be051e-53e1-426b-a423-6ef742f5cb80" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/guard/permission.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/guard/permission.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/permission.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/permission.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/route-generator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/route-generator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +33,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/workspace/vue3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/workspace/tool2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -60,6 +67,8 @@
       <updated>1766645474064</updated>
       <workItem from="1766645475396" duration="1374000" />
       <workItem from="1766710917207" duration="11732000" />
+      <workItem from="1766975052672" duration="5283000" />
+      <workItem from="1767065372765" duration="502000" />
     </task>
     <servers />
   </component>

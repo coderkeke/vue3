@@ -6,7 +6,6 @@ const BlankLayout = () => import('@/layouts/BlankLayout.vue')
 
 // Vite 的 Glob 导入，用于构建组件映射表
 const modules = import.meta.glob('../views/**/*.vue')
-
 export interface BackendRoute {
   path: string
   name?: string

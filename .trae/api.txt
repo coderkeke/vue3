@@ -1,33 +1,22 @@
 
 
-## 用户登录
+## 上传Excel并导入SQLite
 
 
-**接口地址**:`/auth/login`
+**接口地址**:`/smart-api/excel/dynamic/db/upload-and-sqlite`
 
 
 **请求方式**:`POST`
 
 
-**请求数据类型**:`application/json`
+**请求数据类型**:`multipart/form-data`
 
 
 **响应数据类型**:`*/*`
 
 
-**接口描述**:<p>用户名密码登录，验证成功后返回token</p>
+**接口描述**:<p>读取Excel文件，将数据批量导入SQLite数据库t_hidden_dangers_smart</p>
 
-
-
-**请求示例**:
-
-
-```javascript
-{
-  "password": "SNPI2025@",
-  "username": "admin"
-}
-```
 
 
 **请求参数**:
@@ -38,11 +27,7 @@
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|password|密码|query|true|string||
-|username|用户名|query|true|string||
-|requestBody|requestBody|body|false|LoginRequest|LoginRequest|
-|&emsp;&emsp;password|||false|string||
-|&emsp;&emsp;username|||false|string||
+|file|Excel文件|body|true|string||
 
 
 **响应状态**:
@@ -50,7 +35,7 @@
 
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
-|200|OK|LoginResponse|
+|200|OK||
 |201|Created||
 |401|Unauthorized||
 |403|Forbidden||
@@ -60,20 +45,10 @@
 **响应参数**:
 
 
-| 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
-|message||string||
-|success||boolean||
-|token||string||
-|username||string||
+暂无
 
 
 **响应示例**:
-```javascript
-{
-  "success": true,
-  "message": "登录成功",
-  "token": "8d77850b-2b6d-4b0d-9f30-f84238b3c3f7",
-  "username": "admin"
-}
+```text
+string
 ```

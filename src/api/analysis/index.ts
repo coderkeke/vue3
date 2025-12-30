@@ -30,3 +30,27 @@ export interface ChartDataResponse {
 export const getChartStats = (columnName: string, conditionsMap?: Record<string, unknown>) => {
     return smartApi.post<ChartDataResponse>(`/excel/dynamic/db/column-stats`, {conditionsMap, columnName})
 }
+
+export interface PaginationInfo {
+    offset: number
+    limit: number
+    totalPages: number
+    hasPrevious: boolean
+    hasNext: boolean
+    currentPage: number
+    totalCount: number
+    currentSize: number
+}
+
+export interface TableDataResponse {
+    pagination: PaginationInfo
+    data: Record<string, unknown>[]
+    success: boolean
+    conditions: Record<string, unknown>
+    conditionsFormat: string
+    tableName: string
+}
+
+export const getTableData = (params: { conditions?: string, limit?: number, offset?: number }) => {
+    return smartApi.post<TableDataResponse>('/excel/dynamic/db/table-data', params)
+}

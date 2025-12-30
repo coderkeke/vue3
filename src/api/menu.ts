@@ -42,6 +42,12 @@ const mockAsyncRoutes: BackendRoute[] = [
         component: 'analysis/hidden-danger/index',
         meta: { title: '隐患分析' },
       },
+      {
+        path: 'entry',
+        name: 'AnalysisHiddenDangerEntry',
+        component: 'analysis/hidden-danger-entry/index',
+        meta: { title: '隐患录入' },
+      },
     ],
   },
   {

@@ -15,7 +15,7 @@ router.beforeEach(async (to, from, next) => {
   const permissionStore = usePermissionStore()
 
   // 简单的 Token 判断 (实际应从 userStore 或 localStorage 获取)
-  const hasToken = true || localStorage.getItem('token')
+  const hasToken = localStorage.getItem('token')
 
   if (hasToken) {
     if (to.path === '/login') {

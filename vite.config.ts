@@ -30,7 +30,7 @@ export default defineConfig({
   ],
   server: {
     proxy: {
-      '/excel': {
+      '/smart-api': {
         target: 'http://192.168.133.70:8080',
         changeOrigin: true,
       },

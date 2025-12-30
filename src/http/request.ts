@@ -52,11 +52,12 @@ export const legacyApi = createService({
 })
 
 // --------------------------------------------------------------------------
-// 场景 3: Excel 分析后端 (Excel Backend)
-// 结构: { success: true, allColumnCount: 16, columnStats: {...}, ... }
+// 场景 3 & 4: 智能分析与认证后端 (Smart API Backend)
+// BasePath: /smart-api
+// 地址: http://192.168.133.70:8080
 // --------------------------------------------------------------------------
-export const excelApi = createService({
-  baseURL: '', // 直接使用根路径，或者配合 proxy
+export const smartApi = createService({
+  baseURL: '/smart-api',
   transform: {
     transformResponse: (res: unknown): UnifiedResponse => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

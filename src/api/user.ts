@@ -1,7 +1,9 @@
+import { smartApi } from '@/http/request'
+
 // 用户登录参数接口
 export interface LoginParams {
   username: string
-  password?: string
+  password: string
   mobile?: string
   captcha?: string
 }
@@ -14,14 +16,9 @@ export interface UserInfo {
 }
 
 // 登录接口
-export const loginApi = (params: LoginParams) => {
-  return new Promise<string>((resolve) => {
-    setTimeout(() => {
-      // 模拟生成 Token
-      const token = 'mock-token-' + Date.now()
-      resolve(token)
-    }, 500)
-  })
+export const loginApi = async (params: LoginParams) => {
+  const res = await smartApi.post<{ token: string }>('/auth/login', params)
+  return res.data.token
 }
 
 // 获取用户信息接口

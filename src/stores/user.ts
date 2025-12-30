@@ -1,15 +1,15 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { loginApi, getUserInfoApi, logoutApi, type UserInfo } from '@/api/user'
+import { loginApi, getUserInfoApi, logoutApi, type UserInfo, type LoginParams } from '@/api/user'
 
 export const useUserStore = defineStore('user', () => {
   const token = ref<string>('')
   const permissions = ref<string[]>([])
   const userInfo = ref<UserInfo>({} as UserInfo)
 
-  const login = async () => {
+  const login = async (params: LoginParams) => {
     // 调用登录接口
-    token.value = await loginApi({ username: 'admin' })
+    token.value = await loginApi(params)
     // 将 Token 存入 localStorage (实际项目中建议使用 Cookie 或封装的 Storage 工具)
     localStorage.setItem('token', token.value)
   }

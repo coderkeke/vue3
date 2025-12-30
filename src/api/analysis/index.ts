@@ -1,4 +1,4 @@
-import {excelApi} from '@/http/request'
+import {smartApi} from '@/http/request'
 
 export interface FilterOption {
     count: number
@@ -16,7 +16,7 @@ export interface FilterData {
 }
 
 export const getFilterOptions = () => {
-    return excelApi.get<FilterData>('/excel/dynamic/db/all-columns-stats')
+    return smartApi.get<FilterData>('/excel/dynamic/db/all-columns-stats')
 }
 
 export interface ChartDataResponse {
@@ -28,5 +28,5 @@ export interface ChartDataResponse {
 }
 
 export const getChartStats = (columnName: string, conditionsMap?: Record<string, unknown>) => {
-    return excelApi.post<ChartDataResponse>(`/excel/dynamic/db/column-stats`, {conditionsMap, columnName})
+    return smartApi.post<ChartDataResponse>(`/excel/dynamic/db/column-stats`, {conditionsMap, columnName})
 }

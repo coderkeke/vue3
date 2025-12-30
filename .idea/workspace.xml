@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/analysis/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/analysis/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/guard/permission.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/guard/permission.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/UserLogin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UserLogin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

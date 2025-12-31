@@ -39,7 +39,7 @@ const getChartOption = (data: { name: string; value: number }[]) => {
         right: null,
         bottom: null,
         sizeRange: [12, 60],
-        rotationRange: [-90, 90],
+        rotationRange: [0, 0],
         rotationStep: 45,
         gridSize: 8,
         drawOutOfBound: false,

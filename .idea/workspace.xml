@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/echarts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/echarts.ts" afterDir="false" />
-    </list>
+    <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +59,7 @@
       <updated>1767085108185</updated>
       <workItem from="1767085110142" duration="524000" />
       <workItem from="1767085672164" duration="4405000" />
-      <workItem from="1767144451042" duration="2367000" />
+      <workItem from="1767144451042" duration="3784000" />
     </task>
     <servers />
   </component>

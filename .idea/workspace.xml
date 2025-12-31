@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/BusinessBarChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/BusinessBarChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/CategoryBarChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/CategoryBarChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/CategoryWordCloud.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/CategoryWordCloud.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/LevelBarChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/LevelBarChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/PropertyPieChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/PropertyPieChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/SourcePieChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/SourcePieChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/TimeStackBarChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/TimeStackBarChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/UnitLineChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/UnitLineChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/menu.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,24 +26,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/workspace/vue3/public&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\workspace\\vue3\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/workspace/vue3/.trae/documents",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\workspace\\vue3\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\vue3\.trae\documents" />
+      <recent name="D:\workspace\vue3\.trae" />
       <recent name="D:\workspace\vue3\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\vue3\.trae\documents" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -68,7 +69,7 @@
       <updated>1767085108185</updated>
       <workItem from="1767085110142" duration="524000" />
       <workItem from="1767085672164" duration="4405000" />
-      <workItem from="1767144451042" duration="4975000" />
+      <workItem from="1767144451042" duration="9018000" />
     </task>
     <servers />
   </component>

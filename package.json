@@ -17,7 +17,7 @@
     "@vueuse/core": "^14.1.0",
     "ant-design-vue": "^4.2.6",
     "axios": "^1.13.2",
-    "echarts": "^6.0.0",
+    "echarts": "^5.5.1",
     "echarts-wordcloud": "^2.1.0",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",

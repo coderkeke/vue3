@@ -33,7 +33,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/smart-api': {
-        target: 'http://192.168.133.70:8080',
+        target: 'http://192.168.133.40:8080',
         changeOrigin: true,
       },
     },

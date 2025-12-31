@@ -55,10 +55,11 @@ export const getTableData = (params: { conditions?: string, limit?: number, offs
     return smartApi.post<TableDataResponse>('/excel/dynamic/db/table-data', params)
 }
 
-export const uploadExcelFile = (file: File) => {
+export const uploadExcelFile = (file: File, clearTable: boolean = false) => {
     const formData = new FormData()
     formData.append('file', file)
-    return smartApi.post('/excel/dynamic/db/upload-and-sqlite', formData, {
+    formData.append('clearTable', String(clearTable))
+    return smartApi.post('/excel/dynamic/db/upload-and-sqlite-advanced', formData, {
         headers: {
             'Content-Type': 'multipart/form-data'
         }

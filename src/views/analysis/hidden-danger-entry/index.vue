@@ -12,21 +12,38 @@
     </DynamicForm>
 
     <div class="my-4 flex justify-end">
-      <a-space>
-        <a-upload
+      <a-button type="primary" @click="openImportModal">
+        <UploadOutlined />
+        导入Excel
+      </a-button>
+    </div>
+
+    <!-- Import Modal -->
+    <a-modal v-model:open="importModalVisible" title="导入Excel数据" :footer="null" :width="500">
+      <div class="p-4">
+        <div class="mb-4 flex items-center">
+          <span class="mr-2">是否清除旧数据：</span>
+          <a-switch v-model:checked="clearTable" checked-children="是" un-checked-children="否" />
+          <span class="ml-2 text-gray-400 text-sm">
+            {{ clearTable ? '将清空现有数据后导入' : '将在现有数据基础上追加' }}
+          </span>
+        </div>
+
+        <a-upload-dragger
           name="file"
           :show-upload-list="false"
           :custom-request="handleUpload"
           accept=".xlsx, .xls"
           :disabled="uploadLoading"
         >
-          <a-button type="primary" :loading="uploadLoading">
-            <UploadOutlined v-if="!uploadLoading" />
-            导入Excel
-          </a-button>
-        </a-upload>
-      </a-space>
-    </div>
+          <p class="ant-upload-drag-icon">
+            <InboxOutlined />
+          </p>
+          <p class="ant-upload-text">点击或拖拽文件到此处上传</p>
+          <p class="ant-upload-hint">支持 .xlsx, .xls 格式文件</p>
+        </a-upload-dragger>
+      </div>
+    </a-modal>
 
     <div class="mt-4">
       <a-table
@@ -58,12 +75,14 @@ import {
 import DynamicForm from '@/components/DynamicForm/DynamicForm.vue'
 import type { FormSchema } from '@/components/DynamicForm/types'
 import type { TablePaginationConfig, TableColumnType } from 'ant-design-vue'
-import { UploadOutlined } from '@ant-design/icons-vue'
+import { UploadOutlined, InboxOutlined } from '@ant-design/icons-vue'
 import { message } from 'ant-design-vue'
 
 const filterLoading = ref(false)
 const tableLoading = ref(false)
 const uploadLoading = ref(false)
+const clearTable = ref(false)
+const importModalVisible = ref(false)
 const schemas = ref<FormSchema[]>([])
 const selectedFilters = ref<Record<string, unknown>>({})
 const tableData = ref<Record<string, unknown>[]>([])
@@ -223,15 +242,21 @@ const handleTableChange = (pag: TablePaginationConfig) => {
   fetchTableData(pag.current || 1, pag.pageSize || 10)
 }
 
+const openImportModal = () => {
+  importModalVisible.value = true
+  clearTable.value = false // 默认重置为不清除
+}
+
 const handleUpload = async (options: any) => {
   const { file, onSuccess, onError } = options
   uploadLoading.value = true
   try {
-    await uploadExcelFile(file)
+    await uploadExcelFile(file, clearTable.value)
     message.success('导入成功')
     onSuccess()
     // 导入成功后刷新表格数据
     fetchTableData(1, pagination.pageSize)
+    importModalVisible.value = false // 关闭模态框
   } catch (error) {
     console.error('导入失败:', error)
     message.error('导入失败')

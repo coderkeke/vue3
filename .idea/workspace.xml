@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/menu.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.trae/rules.md" beforeDir="false" afterPath="$PROJECT_DIR$/.trae/rules.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/analysis/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/analysis/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/CategoryWordCloud.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/CategoryWordCloud.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/analysis/report/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/report/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,12 +69,23 @@
       <updated>1767085108185</updated>
       <workItem from="1767085110142" duration="524000" />
       <workItem from="1767085672164" duration="4405000" />
-      <workItem from="1767144451042" duration="9018000" />
+      <workItem from="1767144451042" duration="10302000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="GitHub.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

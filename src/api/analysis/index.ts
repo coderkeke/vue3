@@ -51,7 +51,7 @@ export interface TableDataResponse {
     tableName: string
 }
 
-export const getTableData = (params: { conditions?: string, limit?: number, offset?: number }) => {
+export const getTableData = (params: { conditions?: string, limit?: number, offset?: number; [key: string]: any }) => {
     return smartApi.post<TableDataResponse>('/excel/dynamic/db/table-data', params)
 }
 

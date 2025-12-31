@@ -48,15 +48,19 @@ const getChartOption = (data: { name: string; value: number }[]) => {
           fontFamily: 'sans-serif',
           fontWeight: 'bold',
           color: function () {
-            return (
-              'rgb(' +
-              [
-                Math.round(Math.random() * 160),
-                Math.round(Math.random() * 160),
-                Math.round(Math.random() * 160),
-              ].join(',') +
-              ')'
-            )
+            // 鲜艳的色盘
+            const colors = [
+              '#5470c6',
+              '#91cc75',
+              '#fac858',
+              '#ee6666',
+              '#73c0de',
+              '#3ba272',
+              '#fc8452',
+              '#9a60b4',
+              '#ea7ccc',
+            ]
+            return colors[Math.floor(Math.random() * colors.length)]
           },
         },
         emphasis: {

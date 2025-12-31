@@ -23,18 +23,20 @@ const fetchData = async () => {
         title: { text: '隐患总类别分布', left: 'center' },
         tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
         grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
-        xAxis: { 
-          type: 'category', 
-          data: data.stats.map(i => String(i['隐患总类别'])),
-          axisLabel: { interval: 0, rotate: 30 }
+        xAxis: {
+          type: 'category',
+          data: data.stats.map((i) => String(i['隐患总类别'])),
+          axisLabel: { interval: 0, rotate: 30 },
         },
         yAxis: { type: 'value' },
-        series: [{
-          name: '数量',
-          type: 'bar',
-          data: data.stats.map(i => i.count),
-          itemStyle: { color: '#91CC75' }
-        }]
+        series: [
+          {
+            name: '数量',
+            type: 'bar',
+            data: data.stats.map((i) => i.count),
+            itemStyle: { color: '#91CC75' },
+          },
+        ],
       }
     }
   } finally {

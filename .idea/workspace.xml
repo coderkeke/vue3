@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="" />
+    <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/BusinessBarChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/BusinessBarChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/CategoryBarChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/CategoryBarChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/CategoryWordCloud.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/CategoryWordCloud.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/LevelBarChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/LevelBarChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/PropertyPieChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/PropertyPieChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/SourcePieChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/SourcePieChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/TimeStackBarChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/TimeStackBarChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/UnitLineChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/components/UnitLineChart.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +68,7 @@
       <updated>1767085108185</updated>
       <workItem from="1767085110142" duration="524000" />
       <workItem from="1767085672164" duration="4405000" />
-      <workItem from="1767144451042" duration="3784000" />
+      <workItem from="1767144451042" duration="4975000" />
     </task>
     <servers />
   </component>

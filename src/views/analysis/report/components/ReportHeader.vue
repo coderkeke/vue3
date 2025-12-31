@@ -5,7 +5,6 @@
       <p class="subtitle">全面 · 深入 · 智能 · 实时</p>
       <div class="report-meta">
         <span class="meta-item"> <CalendarOutlined /> 报告生成日期：{{ currentDate }} </span>
-        <span class="meta-item"> <UserOutlined /> 生成用户：{{ currentUser }} </span>
       </div>
     </div>
     <div class="header-actions export-ignore">
@@ -18,11 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import { CalendarOutlined, UserOutlined, DownloadOutlined } from '@ant-design/icons-vue'
+import { CalendarOutlined, DownloadOutlined } from '@ant-design/icons-vue'
 
 defineProps<{
   currentDate: string
-  currentUser: string
   exportLoading: boolean
   onExport: () => void
 }>()

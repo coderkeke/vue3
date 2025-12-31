@@ -24,7 +24,6 @@
       <!-- 1. Report Header -->
       <ReportHeader
         :current-date="currentDate"
-        :current-user="currentUser"
         :export-loading="exportLoading"
         :on-export="exportReport"
       />
@@ -92,7 +91,6 @@ defineOptions({
 const reportRef = ref<HTMLElement | null>(null)
 const exportLoading = ref(false)
 const currentDate = dayjs().format('YYYY年MM月DD日')
-const currentUser = '安全管理员'
 
 // 1. Initialize Logic
 const {

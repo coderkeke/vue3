@@ -42,8 +42,7 @@ export function useReportData(searchParams: Ref<Record<string, unknown>>): UseRe
   const topUnit = ref('-')
 
   // Chart Options
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const wordCloudOption = ref<ECOption | any>(null)
+  const wordCloudOption = ref<ECOption | any>(null) // eslint-disable-line @typescript-eslint/no-explicit-any
   const levelPieOption = ref<ECOption | null>(null)
   const sourceBarOption = ref<ECOption | null>(null)
   const businessBarOption = ref<ECOption | null>(null)
@@ -141,13 +140,24 @@ export function useReportData(searchParams: Ref<Record<string, unknown>>): UseRe
     const res = await getChartStats('隐患来源', searchParams.value)
     const data = res.data as unknown as ChartDataResponse
     if (data && data.success) {
+      const sorted = data.stats.sort((a, b) => b.count - a.count)
+      
       sourceBarOption.value = {
         tooltip: { trigger: 'axis' },
-        grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
-        xAxis: { type: 'value' },
-        yAxis: { type: 'category', data: data.stats.map((i) => String(i['隐患来源'])) },
+        grid: { containLabel: true, bottom: '10%' },
+        xAxis: {
+          type: 'category',
+          data: sorted.map((i) => String(i['隐患来源'])),
+          axisLabel: { interval: 0, rotate: 30 },
+        },
+        yAxis: { type: 'value' },
         series: [
-          { type: 'bar', data: data.stats.map((i) => i.count), itemStyle: { color: '#52c41a' } },
+          { 
+            type: 'bar', 
+            data: sorted.map((i) => i.count), 
+            itemStyle: { color: '#52c41a' },
+            label: { show: true, position: 'top' }
+          },
         ],
       }
     }

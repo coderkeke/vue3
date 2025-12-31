@@ -1,6 +1,6 @@
 <template>
   <div class="report-container">
-    <div class="report-content" ref="reportRef">
+    <div ref="reportRef" class="report-content">
       <!-- 2. Filters -->
       <a-card class="filter-card export-ignore" :bordered="false" :loading="filterLoading">
         <DynamicForm
@@ -25,7 +25,7 @@
       <ReportHeader
         :current-date="currentDate"
         :export-loading="exportLoading"
-        :on-export="exportReport"
+        :on-export="() => exportReport(`隐患数据分析报告_${currentDate}.docx`)"
       />
 
       <!-- 3. Report Summary -->
@@ -66,13 +66,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import dayjs from 'dayjs'
-import { asBlob } from 'html-docx-js-typescript'
-import { saveAs } from 'file-saver'
 import DynamicForm from '@/components/DynamicForm/DynamicForm.vue'
 
 // Composables
 import { useReportFilter } from './composables/useReportFilter'
 import { useReportData } from './composables/useReportData'
+import { useReportExport } from './composables/useReportExport'
 
 // Components
 import ReportHeader from './components/ReportHeader.vue'
@@ -89,7 +88,6 @@ defineOptions({
 })
 
 const reportRef = ref<HTMLElement | null>(null)
-const exportLoading = ref(false)
 const currentDate = dayjs().format('YYYY年MM月DD日')
 
 // 1. Initialize Logic
@@ -121,74 +119,7 @@ const {
 } = useReportData(searchParams)
 
 // 2. Export Logic
-const exportReport = async () => {
-  if (!reportRef.value) return
-  exportLoading.value = true
-  try {
-    // 1. Clone the report element
-    const clone = reportRef.value.cloneNode(true) as HTMLElement
-
-    // 2. Remove elements with 'export-ignore' class
-    const ignoredElements = clone.querySelectorAll('.export-ignore')
-    ignoredElements.forEach((el) => el.remove())
-
-    // 3. Handle Charts (Canvas to Image)
-    // Find all chart containers in the original live DOM
-    const liveChartContainers = reportRef.value.querySelectorAll('.chart-inner')
-    // Find all chart containers in the clone
-    const clonedChartContainers = clone.querySelectorAll('.chart-inner')
-
-    // Replace canvas with image in clone
-    for (let i = 0; i < liveChartContainers.length; i++) {
-      const liveContainer = liveChartContainers[i]
-      const clonedContainer = clonedChartContainers[i]
-      if (!liveContainer || !clonedContainer) continue
-
-      const canvas = liveContainer.querySelector('canvas')
-
-      if (canvas instanceof HTMLCanvasElement && clonedContainer) {
-        const dataURL = canvas.toDataURL('image/png')
-        // 创建图片元素
-        const img = document.createElement('img')
-        img.src = dataURL
-        img.style.width = '100%'
-        // 清空克隆容器并添加图片
-        clonedContainer.innerHTML = ''
-        clonedContainer.appendChild(img)
-      }
-    }
-
-    const content = `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="UTF-8">
-          <style>
-             body { font-family: 'SimSun', serif; }
-             h1 { text-align: center; font-size: 24px; color: #333; }
-             .report-section { margin-bottom: 30px; }
-             table { width: 100%; border-collapse: collapse; }
-             th, td { border: 1px solid #000; padding: 8px; text-align: left; }
-             img { max-width: 100%; }
-          </style>
-        </head>
-        <body>
-          ${clone.innerHTML}
-        </body>
-      </html>
-    `
-    const blob = (await asBlob(content, {
-      orientation: 'portrait',
-      margins: { top: 720, right: 720, bottom: 720, left: 720 },
-    })) as Blob
-    // 4. 触发下载
-    saveAs(blob, `隐患数据分析报告_${currentDate}.docx`)
-  } catch (error) {
-    console.error('Export failed:', error)
-  } finally {
-    exportLoading.value = false
-  }
-}
+const { exportLoading, exportReport } = useReportExport(reportRef)
 
 // 3. Lifecycle
 onMounted(async () => {

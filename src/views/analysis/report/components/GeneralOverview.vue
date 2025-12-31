@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="chart-item">
-          <h4>隐患来源构成</h4>
+          <h4>隐患来源分布</h4>
           <div class="chart-wrapper">
             <BasicChart :options="sourceBarOption" height="100%" />
           </div>
@@ -58,7 +58,7 @@ import type { ECOption } from '@/utils/echarts'
 defineProps<{
   levelPieOption: ECOption | null
   sourceBarOption: ECOption | null
-  wordCloudOption: ECOption | null
+  wordCloudOption: ECOption | any // eslint-disable-line @typescript-eslint/no-explicit-any
   propertyPieOption: ECOption | null
   businessBarOption: ECOption | null
 }>()

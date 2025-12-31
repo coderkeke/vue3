@@ -15,8 +15,15 @@
 
     <div class="mt-4">
       <a-card title="图表展示">
-        <!-- 第一行: 级别(柱) & 类别(柱) -->
+        <!-- 第一行: 隐患类别词云 -->
         <a-row :gutter="[16, 16]">
+          <a-col :span="24">
+            <CategoryWordCloud :conditions="searchParams" />
+          </a-col>
+        </a-row>
+
+        <!-- 第二行: 级别(柱) & 类别(柱) -->
+        <a-row :gutter="[16, 16]" class="mt-4">
           <a-col :xs="24" :md="12">
             <LevelBarChart :conditions="searchParams" />
           </a-col>
@@ -25,7 +32,7 @@
           </a-col>
         </a-row>
 
-        <!-- 第二行: 来源(饼) & 业务属性(饼) -->
+        <!-- 第三行: 来源(饼) & 业务属性(饼) -->
         <a-row :gutter="[16, 16]" class="mt-4">
           <a-col :xs="24" :md="12">
             <SourcePieChart :conditions="searchParams" />
@@ -35,7 +42,7 @@
           </a-col>
         </a-row>
 
-        <!-- 第三行: 业态(条形) & 整改单位(折线) -->
+        <!-- 第四行: 业态(条形) & 整改单位(折线) -->
         <a-row :gutter="[16, 16]" class="mt-4">
           <a-col :xs="24" :lg="12">
             <BusinessBarChart :conditions="searchParams" />
@@ -45,7 +52,7 @@
           </a-col>
         </a-row>
 
-        <!-- 第四行: 发现时间(堆叠柱) -->
+        <!-- 第五行: 发现时间(堆叠柱) -->
         <a-row :gutter="[16, 16]" class="mt-4">
           <a-col :span="24">
             <TimeStackBarChart :conditions="searchParams" />
@@ -72,6 +79,7 @@ import PropertyPieChart from './components/PropertyPieChart.vue'
 import BusinessBarChart from './components/BusinessBarChart.vue'
 import UnitLineChart from './components/UnitLineChart.vue'
 import TimeStackBarChart from './components/TimeStackBarChart.vue'
+import CategoryWordCloud from './components/CategoryWordCloud.vue'
 
 const loading = ref(false)
 const schemas = ref<FormSchema[]>([])

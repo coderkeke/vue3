@@ -2,6 +2,9 @@
 // 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
 import * as echarts from 'echarts/core'
 
+// 引入词云扩展
+import 'echarts-wordcloud'
+
 // 引入柱状图图表，图表后缀都为 Chart
 import { BarChart, LineChart, PieChart, MapChart, PictorialBarChart, RadarChart, ScatterChart } from 'echarts/charts'
 

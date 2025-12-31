@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useSettingStore } from '@/stores/setting'
+import logo from '@/assets/images/logo.jpg'
 
 defineProps<{
   collapsed?: boolean
@@ -14,7 +15,7 @@ const headerHeight = computed(() => settingStore.projectConfig.layout.headerHeig
 
 <template>
   <div class="logo" :class="theme" :style="{ height: `${headerHeight}px` }">
-    <img src="/logo.jpg" alt="logo" />
+    <img :src="logo" alt="logo" />
     <h1 v-if="showTitle && !collapsed">隐患分析系统</h1>
   </div>
 </template>

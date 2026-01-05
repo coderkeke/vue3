@@ -8,6 +8,8 @@ import { ref, watch, onMounted } from 'vue'
 import { getChartStats, type ChartDataResponse } from '@/api/analysis'
 import { BasicChart } from '@/components/Chart'
 import type { ECOption } from '@/utils/echarts'
+import type { BarSeriesOption } from 'echarts/charts'
+import { getHiddenDangerColor, HIDDEN_DANGER_ORDER } from '../constants'
 
 const props = defineProps<{ conditions: Record<string, unknown> }>()
 const loading = ref(false)
@@ -38,12 +40,18 @@ const fetchData = async () => {
       })
 
       const timeList = Array.from(timeSet).sort()
-      const levelList = Array.from(levelSet)
-      const series = levelList.map((level) => {
+      const levelList = Array.from(levelSet).sort((a, b) => {
+        const indexA = HIDDEN_DANGER_ORDER.indexOf(a)
+        const indexB = HIDDEN_DANGER_ORDER.indexOf(b)
+        return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB)
+      })
+      const series: BarSeriesOption[] = levelList.map((level) => {
         return {
           name: level,
           type: 'bar', // 全部用柱状图
+          stack: 'total',
           emphasis: { focus: 'series' },
+          itemStyle: { color: getHiddenDangerColor(level) },
           data: timeList.map((time) => dataMap.get(time)?.get(level) || 0),
         }
       })
@@ -67,7 +75,7 @@ const fetchData = async () => {
             splitLine: { show: true, lineStyle: { type: 'dashed' } },
           },
         ],
-        series: series as any,
+        series: series,
       }
     }
   } finally {

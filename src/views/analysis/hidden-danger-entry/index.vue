@@ -248,7 +248,11 @@ const openImportModal = () => {
   clearTable.value = false // 默认重置为不清除
 }
 
-const handleUpload = async (options: any) => {
+const handleUpload = async (options: {
+  file: File
+  onSuccess: () => void
+  onError: (err: unknown) => void
+}) => {
   const { file, onSuccess, onError } = options
   uploadLoading.value = true
   try {

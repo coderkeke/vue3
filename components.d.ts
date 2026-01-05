@@ -43,7 +43,6 @@ declare module 'vue' {
     ASwitch: typeof import('ant-design-vue/es')['Switch']
     ATable: typeof import('ant-design-vue/es')['Table']
     ATag: typeof import('ant-design-vue/es')['Tag']
-    AUpload: typeof import('ant-design-vue/es')['Upload']
     AUploadDragger: typeof import('ant-design-vue/es')['UploadDragger']
     BasicChart: typeof import('./src/components/Chart/src/BasicChart.vue')['default']
     DynamicForm: typeof import('./src/components/DynamicForm/DynamicForm.vue')['default']

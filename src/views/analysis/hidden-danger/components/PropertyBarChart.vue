@@ -16,25 +16,25 @@ const option = ref<ECOption | null>(null)
 const fetchData = async () => {
   loading.value = true
   try {
-    const res = await getChartStats('隐患总类别', props.conditions)
+    const res = await getChartStats('隐患业务属性', props.conditions)
     const data = res.data as unknown as ChartDataResponse
     if (data && data.success) {
       option.value = {
-        title: { text: '隐患总类别分布', left: 'center' },
+        title: { text: '隐患业务属性分布', left: 'center' },
         tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-        grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
-        xAxis: {
+        grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+        xAxis: { type: 'value' },
+        yAxis: {
           type: 'category',
-          data: data.stats.map((i) => String(i['隐患总类别'])),
-          axisLabel: { interval: 0, rotate: 30 },
+          data: data.stats.map((i) => String(i['隐患业务属性'])),
+          axisTick: { alignWithLabel: true },
         },
-        yAxis: { type: 'value' },
         series: [
           {
             name: '数量',
             type: 'bar',
             data: data.stats.map((i) => i.count),
-            itemStyle: { color: '#91CC75' },
+            label: { show: true, position: 'right' },
           },
         ],
       }

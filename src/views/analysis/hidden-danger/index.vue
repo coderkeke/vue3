@@ -25,20 +25,20 @@
         <!-- 第二行: 级别(柱) & 类别(柱) -->
         <a-row :gutter="[16, 16]" class="mt-4">
           <a-col :xs="24" :md="12">
-            <LevelBarChart :conditions="searchParams" />
+            <LevelPieChart :conditions="searchParams" />
           </a-col>
           <a-col :xs="24" :md="12">
-            <CategoryBarChart :conditions="searchParams" />
+            <CategoryLineChart :conditions="searchParams" />
           </a-col>
         </a-row>
 
         <!-- 第三行: 来源(饼) & 业务属性(饼) -->
         <a-row :gutter="[16, 16]" class="mt-4">
           <a-col :xs="24" :md="12">
-            <SourcePieChart :conditions="searchParams" />
+            <SourceBarChart :conditions="searchParams" />
           </a-col>
           <a-col :xs="24" :md="12">
-            <PropertyPieChart :conditions="searchParams" />
+            <PropertyBarChart :conditions="searchParams" />
           </a-col>
         </a-row>
 
@@ -72,10 +72,10 @@ import { getFilterOptions, type FilterData } from '@/api/analysis'
 import DynamicForm from '@/components/DynamicForm/DynamicForm.vue'
 import type { FormSchema } from '@/components/DynamicForm/types'
 
-import LevelBarChart from './components/LevelBarChart.vue'
-import CategoryBarChart from './components/CategoryBarChart.vue'
-import SourcePieChart from './components/SourcePieChart.vue'
-import PropertyPieChart from './components/PropertyPieChart.vue'
+import LevelPieChart from './components/LevelPieChart.vue'
+import CategoryLineChart from './components/CategoryLineChart.vue'
+import SourceBarChart from './components/SourceBarChart.vue'
+import PropertyBarChart from './components/PropertyBarChart.vue'
 import BusinessBarChart from './components/BusinessBarChart.vue'
 import UnitLineChart from './components/UnitLineChart.vue'
 import TimeStackBarChart from './components/TimeStackBarChart.vue'

@@ -16,23 +16,28 @@ const option = ref<ECOption | null>(null)
 const fetchData = async () => {
   loading.value = true
   try {
-    const res = await getChartStats('业务属性', props.conditions)
+    const res = await getChartStats('隐患类别', props.conditions)
     const data = res.data as unknown as ChartDataResponse
     if (data && data.success) {
       option.value = {
-        title: { text: '业务属性分布', left: 'center' },
-        tooltip: { trigger: 'item' },
-        legend: { orient: 'vertical', left: 'left' },
-        series: [{
-          name: '业务属性',
-          type: 'pie',
-          radius: ['40%', '70%'],
-          avoidLabelOverlap: false,
-          itemStyle: { borderRadius: 10, borderColor: '#fff', borderWidth: 2 },
-          label: { show: false, position: 'center' },
-          emphasis: { label: { show: true, fontSize: 20, fontWeight: 'bold' } },
-          data: data.stats.map(i => ({ value: i.count, name: String(i['业务属性']) }))
-        }]
+        title: { text: '隐患类别分布', left: 'center' },
+        tooltip: { trigger: 'axis' },
+        grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
+        xAxis: {
+          type: 'category',
+          data: data.stats.map((i) => String(i['隐患类别'])),
+          axisLabel: { interval: 0, rotate: 30 },
+        },
+        yAxis: { type: 'value' },
+        series: [
+          {
+            name: '数量',
+            type: 'line',
+            data: data.stats.map((i) => i.count),
+            itemStyle: { color: '#91CC75' },
+            smooth: true,
+          },
+        ],
       }
     }
   } finally {

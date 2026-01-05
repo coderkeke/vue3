@@ -1,33 +1,36 @@
 
 
-## 上传Excel并导入SQLite
+## 获取词云数据（POST方式）
 
 
-**接口地址**:`/smart-api/excel/dynamic/db/upload-and-sqlite`
+**接口地址**:`/smart-api/excel/dynamic/db/wordcloud/data`
 
 
 **请求方式**:`POST`
 
 
-**请求数据类型**:`multipart/form-data`
+**请求数据类型**:`application/json`
 
 
 **响应数据类型**:`*/*`
 
 
-**接口描述**:<p>读取Excel文件，将数据批量导入SQLite数据库t_hidden_dangers_smart</p>
+**接口描述**:<p>POST方式查询 t_hidden_dangers_keywords 表中的关键词和频率数据，支持JSON参数格式</p>
 
 
 
 **请求参数**:
-
+{
+  "limit": 1000,
+  "minFrequency": 2
+}
 
 **请求参数**:
 
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|file|Excel文件|body|true|string||
+|request|查询参数|body|true|object||
 
 
 **响应状态**:
@@ -50,5 +53,4019 @@
 
 **响应示例**:
 ```text
-string
+{
+  "data": [
+    {
+      "keyword": "新疆维吾尔自治区",
+      "frequency": 2
+    },
+    {
+      "keyword": "股份有限公司",
+      "frequency": 2
+    },
+    {
+      "keyword": "发电机润滑泵",
+      "frequency": 2
+    },
+    {
+      "keyword": "未及时清理",
+      "frequency": 14
+    },
+    {
+      "keyword": "未及时更新",
+      "frequency": 6
+    },
+    {
+      "keyword": "NaClO",
+      "frequency": 2
+    },
+    {
+      "keyword": "BHLNB",
+      "frequency": 2
+    },
+    {
+      "keyword": "kVGIS",
+      "frequency": 2
+    },
+    {
+      "keyword": "电缆沟盖板",
+      "frequency": 2
+    },
+    {
+      "keyword": "空气过滤器",
+      "frequency": 2
+    },
+    {
+      "keyword": "未及时处理",
+      "frequency": 2
+    },
+    {
+      "keyword": "设备管理",
+      "frequency": 13
+    },
+    {
+      "keyword": "技术中心",
+      "frequency": 10
+    },
+    {
+      "keyword": "灭火器箱",
+      "frequency": 10
+    },
+    {
+      "keyword": "有限公司",
+      "frequency": 6
+    },
+    {
+      "keyword": "安全检查",
+      "frequency": 6
+    },
+    {
+      "keyword": "随意放置",
+      "frequency": 5
+    },
+    {
+      "keyword": "散热风扇",
+      "frequency": 5
+    },
+    {
+      "keyword": "作业人员",
+      "frequency": 5
+    },
+    {
+      "keyword": "固定螺栓",
+      "frequency": 5
+    },
+    {
+      "keyword": "运维人员",
+      "frequency": 5
+    },
+    {
+      "keyword": "LOAD",
+      "frequency": 4
+    },
+    {
+      "keyword": "环境污染",
+      "frequency": 4
+    },
+    {
+      "keyword": "扎带断裂",
+      "frequency": 4
+    },
+    {
+      "keyword": "次氯酸钠",
+      "frequency": 3
+    },
+    {
+      "keyword": "网络设备",
+      "frequency": 3
+    },
+    {
+      "keyword": "数据分析",
+      "frequency": 3
+    },
+    {
+      "keyword": "操作规程",
+      "frequency": 3
+    },
+    {
+      "keyword": "压力不足",
+      "frequency": 3
+    },
+    {
+      "keyword": "BSVG",
+      "frequency": 3
+    },
+    {
+      "keyword": "发电机组",
+      "frequency": 3
+    },
+    {
+      "keyword": "污水处理",
+      "frequency": 3
+    },
+    {
+      "keyword": "标识缺失",
+      "frequency": 3
+    },
+    {
+      "keyword": "密封不严",
+      "frequency": 3
+    },
+    {
+      "keyword": "安全监控",
+      "frequency": 2
+    },
+    {
+      "keyword": "未见异常",
+      "frequency": 2
+    },
+    {
+      "keyword": "领导小组",
+      "frequency": 2
+    },
+    {
+      "keyword": "VBMS",
+      "frequency": 2
+    },
+    {
+      "keyword": "控制系统",
+      "frequency": 2
+    },
+    {
+      "keyword": "电源开关",
+      "frequency": 2
+    },
+    {
+      "keyword": "电磁辐射",
+      "frequency": 2
+    },
+    {
+      "keyword": "可乘之机",
+      "frequency": 2
+    },
+    {
+      "keyword": "控股公司",
+      "frequency": 2
+    },
+    {
+      "keyword": "松动脱落",
+      "frequency": 2
+    },
+    {
+      "keyword": "不可逆的",
+      "frequency": 2
+    },
+    {
+      "keyword": "操作人员",
+      "frequency": 2
+    },
+    {
+      "keyword": "教育培训",
+      "frequency": 2
+    },
+    {
+      "keyword": "电量不足",
+      "frequency": 2
+    },
+    {
+      "keyword": "水冷系统",
+      "frequency": 2
+    },
+    {
+      "keyword": "PSTU",
+      "frequency": 2
+    },
+    {
+      "keyword": "风电场",
+      "frequency": 45
+    },
+    {
+      "keyword": "控制柜",
+      "frequency": 37
+    },
+    {
+      "keyword": "逆变器",
+      "frequency": 21
+    },
+    {
+      "keyword": "SVG",
+      "frequency": 20
+    },
+    {
+      "keyword": "发现号",
+      "frequency": 15
+    },
+    {
+      "keyword": "主时钟",
+      "frequency": 14
+    },
+    {
+      "keyword": "办公室",
+      "frequency": 14
+    },
+    {
+      "keyword": "照明灯",
+      "frequency": 14
+    },
+    {
+      "keyword": "蓄电池",
+      "frequency": 13
+    },
+    {
+      "keyword": "接地线",
+      "frequency": 13
+    },
+    {
+      "keyword": "未封堵",
+      "frequency": 12
+    },
+    {
+      "keyword": "电缆沟",
+      "frequency": 12
+    },
+    {
+      "keyword": "呼吸器",
+      "frequency": 12
+    },
+    {
+      "keyword": "标识牌",
+      "frequency": 12
+    },
+    {
+      "keyword": "宝日布",
+      "frequency": 11
+    },
+    {
+      "keyword": "可能会",
+      "frequency": 11
+    },
+    {
+      "keyword": "长时间",
+      "frequency": 11
+    },
+    {
+      "keyword": "小动物",
+      "frequency": 11
+    },
+    {
+      "keyword": "主厂房",
+      "frequency": 11
+    },
+    {
+      "keyword": "防护罩",
+      "frequency": 10
+    },
+    {
+      "keyword": "传感器",
+      "frequency": 10
+    },
+    {
+      "keyword": "开关柜",
+      "frequency": 10
+    },
+    {
+      "keyword": "温度计",
+      "frequency": 10
+    },
+    {
+      "keyword": "配电箱",
+      "frequency": 10
+    },
+    {
+      "keyword": "SGS",
+      "frequency": 9
+    },
+    {
+      "keyword": "打印机",
+      "frequency": 9
+    },
+    {
+      "keyword": "SOC",
+      "frequency": 8
+    },
+    {
+      "keyword": "III",
+      "frequency": 8
+    },
+    {
+      "keyword": "吉木乃",
+      "frequency": 8
+    },
+    {
+      "keyword": "防雨罩",
+      "frequency": 8
+    },
+    {
+      "keyword": "消防栓",
+      "frequency": 8
+    },
+    {
+      "keyword": "警示牌",
+      "frequency": 8
+    },
+    {
+      "keyword": "电源线",
+      "frequency": 8
+    },
+    {
+      "keyword": "齿轮箱",
+      "frequency": 8
+    },
+    {
+      "keyword": "润滑油",
+      "frequency": 7
+    },
+    {
+      "keyword": "安全帽",
+      "frequency": 7
+    },
+    {
+      "keyword": "钢丝绳",
+      "frequency": 7
+    },
+    {
+      "keyword": "密封圈",
+      "frequency": 7
+    },
+    {
+      "keyword": "责任人",
+      "frequency": 7
+    },
+    {
+      "keyword": "塑料布",
+      "frequency": 6
+    },
+    {
+      "keyword": "开关站",
+      "frequency": 6
+    },
+    {
+      "keyword": "安全带",
+      "frequency": 6
+    },
+    {
+      "keyword": "阿尔山",
+      "frequency": 6
+    },
+    {
+      "keyword": "控制室",
+      "frequency": 6
+    },
+    {
+      "keyword": "防静电",
+      "frequency": 6
+    },
+    {
+      "keyword": "UPS",
+      "frequency": 6
+    },
+    {
+      "keyword": "消防沙",
+      "frequency": 6
+    },
+    {
+      "keyword": "未粘贴",
+      "frequency": 6
+    },
+    {
+      "keyword": "有杂物",
+      "frequency": 6
+    },
+    {
+      "keyword": "洁厕灵",
+      "frequency": 5
+    },
+    {
+      "keyword": "安全锁",
+      "frequency": 5
+    },
+    {
+      "keyword": "陈方平",
+      "frequency": 5
+    },
+    {
+      "keyword": "中秋节",
+      "frequency": 5
+    },
+    {
+      "keyword": "节假日",
+      "frequency": 5
+    },
+    {
+      "keyword": "情况下",
+      "frequency": 5
+    },
+    {
+      "keyword": "会议室",
+      "frequency": 5
+    },
+    {
+      "keyword": "未更新",
+      "frequency": 5
+    },
+    {
+      "keyword": "脚手架",
+      "frequency": 5
+    },
+    {
+      "keyword": "中控室",
+      "frequency": 5
+    },
+    {
+      "keyword": "无标识",
+      "frequency": 5
+    },
+    {
+      "keyword": "安全工",
+      "frequency": 5
+    },
+    {
+      "keyword": "卫生间",
+      "frequency": 5
+    },
+    {
+      "keyword": "空压机",
+      "frequency": 5
+    },
+    {
+      "keyword": "塔筒门",
+      "frequency": 5
+    },
+    {
+      "keyword": "油位低",
+      "frequency": 5
+    },
+    {
+      "keyword": "服务器",
+      "frequency": 5
+    },
+    {
+      "keyword": "mms",
+      "frequency": 4
+    },
+    {
+      "keyword": "罗志航",
+      "frequency": 4
+    },
+    {
+      "keyword": "充放电",
+      "frequency": 4
+    },
+    {
+      "keyword": "soc",
+      "frequency": 4
+    },
+    {
+      "keyword": "保险丝",
+      "frequency": 4
+    },
+    {
+      "keyword": "及时性",
+      "frequency": 4
+    },
+    {
+      "keyword": "托克逊",
+      "frequency": 4
+    },
+    {
+      "keyword": "项目部",
+      "frequency": 4
+    },
+    {
+      "keyword": "电解液",
+      "frequency": 4
+    },
+    {
+      "keyword": "观测点",
+      "frequency": 4
+    },
+    {
+      "keyword": "验电器",
+      "frequency": 4
+    },
+    {
+      "keyword": "有效性",
+      "frequency": 4
+    },
+    {
+      "keyword": "检查卡",
+      "frequency": 4
+    },
+    {
+      "keyword": "控制器",
+      "frequency": 4
+    },
+    {
+      "keyword": "中广核",
+      "frequency": 4
+    },
+    {
+      "keyword": "定检时",
+      "frequency": 4
+    },
+    {
+      "keyword": "dcs",
+      "frequency": 4
+    },
+    {
+      "keyword": "防火墙",
+      "frequency": 4
+    },
+    {
+      "keyword": "负责人",
+      "frequency": 4
+    },
+    {
+      "keyword": "冷却水",
+      "frequency": 4
+    },
+    {
+      "keyword": "柳园风",
+      "frequency": 4
+    },
+    {
+      "keyword": "生活区",
+      "frequency": 4
+    },
+    {
+      "keyword": "调节阀",
+      "frequency": 4
+    },
+    {
+      "keyword": "指示灯",
+      "frequency": 4
+    },
+    {
+      "keyword": "下半年",
+      "frequency": 4
+    },
+    {
+      "keyword": "加热器",
+      "frequency": 4
+    },
+    {
+      "keyword": "电暖器",
+      "frequency": 4
+    },
+    {
+      "keyword": "国庆节",
+      "frequency": 3
+    },
+    {
+      "keyword": "容站貌",
+      "frequency": 3
+    },
+    {
+      "keyword": "公开栏",
+      "frequency": 3
+    },
+    {
+      "keyword": "管理员",
+      "frequency": 3
+    },
+    {
+      "keyword": "双电源",
+      "frequency": 3
+    },
+    {
+      "keyword": "排风扇",
+      "frequency": 3
+    },
+    {
+      "keyword": "接入网",
+      "frequency": 3
+    },
+    {
+      "keyword": "安全大",
+      "frequency": 3
+    },
+    {
+      "keyword": "智远航",
+      "frequency": 3
+    },
+    {
+      "keyword": "DCS",
+      "frequency": 3
+    },
+    {
+      "keyword": "陈家庆",
+      "frequency": 3
+    },
+    {
+      "keyword": "电子秤",
+      "frequency": 3
+    },
+    {
+      "keyword": "更衣室",
+      "frequency": 3
+    },
+    {
+      "keyword": "超负荷",
+      "frequency": 3
+    },
+    {
+      "keyword": "手电筒",
+      "frequency": 3
+    },
+    {
+      "keyword": "责任书",
+      "frequency": 3
+    },
+    {
+      "keyword": "敖家山",
+      "frequency": 3
+    },
+    {
+      "keyword": "电热毯",
+      "frequency": 3
+    },
+    {
+      "keyword": "货运站",
+      "frequency": 3
+    },
+    {
+      "keyword": "废弃物",
+      "frequency": 3
+    },
+    {
+      "keyword": "混凝土",
+      "frequency": 3
+    },
+    {
+      "keyword": "电缆线",
+      "frequency": 3
+    },
+    {
+      "keyword": "数据线",
+      "frequency": 3
+    },
+    {
+      "keyword": "PCS",
+      "frequency": 3
+    },
+    {
+      "keyword": "GTC",
+      "frequency": 3
+    },
+    {
+      "keyword": "信息化",
+      "frequency": 3
+    },
+    {
+      "keyword": "湿度计",
+      "frequency": 3
+    },
+    {
+      "keyword": "存放在",
+      "frequency": 3
+    },
+    {
+      "keyword": "应急灯",
+      "frequency": 3
+    },
+    {
+      "keyword": "FJP",
+      "frequency": 3
+    },
+    {
+      "keyword": "消火栓",
+      "frequency": 3
+    },
+    {
+      "keyword": "对讲机",
+      "frequency": 3
+    },
+    {
+      "keyword": "变压器",
+      "frequency": 3
+    },
+    {
+      "keyword": "后柜门",
+      "frequency": 3
+    },
+    {
+      "keyword": "交换机",
+      "frequency": 3
+    },
+    {
+      "keyword": "PDU",
+      "frequency": 3
+    },
+    {
+      "keyword": "mcc",
+      "frequency": 3
+    },
+    {
+      "keyword": "预防性",
+      "frequency": 3
+    },
+    {
+      "keyword": "电暖气",
+      "frequency": 3
+    },
+    {
+      "keyword": "刹车片",
+      "frequency": 3
+    },
+    {
+      "keyword": "未放置",
+      "frequency": 3
+    },
+    {
+      "keyword": "配电房",
+      "frequency": 3
+    },
+    {
+      "keyword": "值班室",
+      "frequency": 3
+    },
+    {
+      "keyword": "除湿机",
+      "frequency": 3
+    },
+    {
+      "keyword": "继电器",
+      "frequency": 3
+    },
+    {
+      "keyword": "安质环",
+      "frequency": 3
+    },
+    {
+      "keyword": "职业病",
+      "frequency": 3
+    },
+    {
+      "keyword": "垃圾桶",
+      "frequency": 3
+    },
+    {
+      "keyword": "主蒸汽",
+      "frequency": 3
+    },
+    {
+      "keyword": "过滤器",
+      "frequency": 3
+    },
+    {
+      "keyword": "有异物",
+      "frequency": 3
+    },
+    {
+      "keyword": "大亚湾",
+      "frequency": 3
+    },
+    {
+      "keyword": "防火漆",
+      "frequency": 3
+    },
+    {
+      "keyword": "未关闭",
+      "frequency": 3
+    },
+    {
+      "keyword": "避雷器",
+      "frequency": 3
+    },
+    {
+      "keyword": "运至今",
+      "frequency": 2
+    },
+    {
+      "keyword": "宁波广",
+      "frequency": 2
+    },
+    {
+      "keyword": "抗疲劳",
+      "frequency": 2
+    },
+    {
+      "keyword": "内部网",
+      "frequency": 2
+    },
+    {
+      "keyword": "电池包",
+      "frequency": 2
+    },
+    {
+      "keyword": "类似于",
+      "frequency": 2
+    },
+    {
+      "keyword": "闪电式",
+      "frequency": 2
+    },
+    {
+      "keyword": "ppm",
+      "frequency": 2
+    },
+    {
+      "keyword": "制动闸",
+      "frequency": 2
+    },
+    {
+      "keyword": "等级分",
+      "frequency": 2
+    },
+    {
+      "keyword": "肺水肿",
+      "frequency": 2
+    },
+    {
+      "keyword": "PTS",
+      "frequency": 2
+    },
+    {
+      "keyword": "HCl",
+      "frequency": 2
+    },
+    {
+      "keyword": "脏乱差",
+      "frequency": 2
+    },
+    {
+      "keyword": "台金风",
+      "frequency": 2
+    },
+    {
+      "keyword": "热水壶",
+      "frequency": 2
+    },
+    {
+      "keyword": "普遍性",
+      "frequency": 2
+    },
+    {
+      "keyword": "短期内",
+      "frequency": 2
+    },
+    {
+      "keyword": "排气阀",
+      "frequency": 2
+    },
+    {
+      "keyword": "路沿石",
+      "frequency": 2
+    },
+    {
+      "keyword": "HRB",
+      "frequency": 2
+    },
+    {
+      "keyword": "补光灯",
+      "frequency": 2
+    },
+    {
+      "keyword": "防坠器",
+      "frequency": 2
+    },
+    {
+      "keyword": "群体性",
+      "frequency": 2
+    },
+    {
+      "keyword": "贴标签",
+      "frequency": 2
+    },
+    {
+      "keyword": "使用者",
+      "frequency": 2
+    },
+    {
+      "keyword": "功能性",
+      "frequency": 2
+    },
+    {
+      "keyword": "楼照明",
+      "frequency": 2
+    },
+    {
+      "keyword": "SDH",
+      "frequency": 2
+    },
+    {
+      "keyword": "遵义市",
+      "frequency": 2
+    },
+    {
+      "keyword": "新项目",
+      "frequency": 2
+    },
+    {
+      "keyword": "注意力",
+      "frequency": 2
+    },
+    {
+      "keyword": "作用于",
+      "frequency": 2
+    },
+    {
+      "keyword": "VCP",
+      "frequency": 2
+    },
+    {
+      "keyword": "蓄水池",
+      "frequency": 2
+    },
+    {
+      "keyword": "值班员",
+      "frequency": 2
+    },
+    {
+      "keyword": "时登塔",
+      "frequency": 2
+    },
+    {
+      "keyword": "连接点",
+      "frequency": 2
+    },
+    {
+      "keyword": "防火板",
+      "frequency": 2
+    },
+    {
+      "keyword": "周期性",
+      "frequency": 2
+    },
+    {
+      "keyword": "锂离子",
+      "frequency": 2
+    },
+    {
+      "keyword": "传动轴",
+      "frequency": 2
+    },
+    {
+      "keyword": "不可逆",
+      "frequency": 2
+    },
+    {
+      "keyword": "png",
+      "frequency": 2
+    },
+    {
+      "keyword": "金海号",
+      "frequency": 2
+    },
+    {
+      "keyword": "近距离",
+      "frequency": 2
+    },
+    {
+      "keyword": "安具室",
+      "frequency": 2
+    },
+    {
+      "keyword": "归及清",
+      "frequency": 2
+    },
+    {
+      "keyword": "升降梯",
+      "frequency": 2
+    },
+    {
+      "keyword": "防护服",
+      "frequency": 2
+    },
+    {
+      "keyword": "基础性",
+      "frequency": 2
+    },
+    {
+      "keyword": "邱家仑",
+      "frequency": 2
+    },
+    {
+      "keyword": "铝扣板",
+      "frequency": 2
+    },
+    {
+      "keyword": "cms",
+      "frequency": 2
+    },
+    {
+      "keyword": "花露水",
+      "frequency": 2
+    },
+    {
+      "keyword": "护目镜",
+      "frequency": 2
+    },
+    {
+      "keyword": "排水口",
+      "frequency": 2
+    },
+    {
+      "keyword": "大规模",
+      "frequency": 2
+    },
+    {
+      "keyword": "水轮机",
+      "frequency": 2
+    },
+    {
+      "keyword": "隐蔽性",
+      "frequency": 2
+    },
+    {
+      "keyword": "洗手池",
+      "frequency": 2
+    },
+    {
+      "keyword": "拦污栅",
+      "frequency": 2
+    },
+    {
+      "keyword": "金智号",
+      "frequency": 2
+    },
+    {
+      "keyword": "时照明",
+      "frequency": 2
+    },
+    {
+      "keyword": "马蜂窝",
+      "frequency": 2
+    },
+    {
+      "keyword": "电磁锁",
+      "frequency": 2
+    },
+    {
+      "keyword": "电焊机",
+      "frequency": 2
+    },
+    {
+      "keyword": "档案盒",
+      "frequency": 2
+    },
+    {
+      "keyword": "XQZ",
+      "frequency": 2
+    },
+    {
+      "keyword": "密封胶",
+      "frequency": 2
+    },
+    {
+      "keyword": "温度表",
+      "frequency": 2
+    },
+    {
+      "keyword": "电缆桩",
+      "frequency": 2
+    },
+    {
+      "keyword": "HRF",
+      "frequency": 2
+    },
+    {
+      "keyword": "未打开",
+      "frequency": 2
+    },
+    {
+      "keyword": "磷酸盐",
+      "frequency": 2
+    },
+    {
+      "keyword": "集装箱",
+      "frequency": 2
+    },
+    {
+      "keyword": "灾难性",
+      "frequency": 2
+    },
+    {
+      "keyword": "交接班",
+      "frequency": 2
+    },
+    {
+      "keyword": "物流园",
+      "frequency": 2
+    },
+    {
+      "keyword": "巡检卡",
+      "frequency": 2
+    },
+    {
+      "keyword": "分离器",
+      "frequency": 2
+    },
+    {
+      "keyword": "结构性",
+      "frequency": 2
+    },
+    {
+      "keyword": "可回收",
+      "frequency": 2
+    },
+    {
+      "keyword": "试验室",
+      "frequency": 2
+    },
+    {
+      "keyword": "有裂痕",
+      "frequency": 2
+    },
+    {
+      "keyword": "烟感器",
+      "frequency": 2
+    },
+    {
+      "keyword": "气象站",
+      "frequency": 2
+    },
+    {
+      "keyword": "稳定性",
+      "frequency": 2
+    },
+    {
+      "keyword": "污水井",
+      "frequency": 2
+    },
+    {
+      "keyword": "运安全",
+      "frequency": 2
+    },
+    {
+      "keyword": "遥控器",
+      "frequency": 2
+    },
+    {
+      "keyword": "进水口",
+      "frequency": 2
+    },
+    {
+      "keyword": "元器件",
+      "frequency": 2
+    },
+    {
+      "keyword": "发热量",
+      "frequency": 2
+    },
+    {
+      "keyword": "电抗器",
+      "frequency": 2
+    },
+    {
+      "keyword": "西南角",
+      "frequency": 2
+    },
+    {
+      "keyword": "防尘网",
+      "frequency": 2
+    },
+    {
+      "keyword": "私家车",
+      "frequency": 2
+    },
+    {
+      "keyword": "李炳晗",
+      "frequency": 2
+    },
+    {
+      "keyword": "防火门",
+      "frequency": 2
+    },
+    {
+      "keyword": "监护人",
+      "frequency": 2
+    },
+    {
+      "keyword": "核心区",
+      "frequency": 2
+    },
+    {
+      "keyword": "路由器",
+      "frequency": 2
+    },
+    {
+      "keyword": "控制线",
+      "frequency": 2
+    },
+    {
+      "keyword": "发生器",
+      "frequency": 2
+    },
+    {
+      "keyword": "浏览器",
+      "frequency": 2
+    },
+    {
+      "keyword": "螺丝刀",
+      "frequency": 2
+    },
+    {
+      "keyword": "告示牌",
+      "frequency": 2
+    },
+    {
+      "keyword": "记录仪",
+      "frequency": 2
+    },
+    {
+      "keyword": "唐永刚",
+      "frequency": 2
+    },
+    {
+      "keyword": "联系人",
+      "frequency": 2
+    },
+    {
+      "keyword": "测温仪",
+      "frequency": 2
+    },
+    {
+      "keyword": "工作站",
+      "frequency": 2
+    },
+    {
+      "keyword": "接线图",
+      "frequency": 2
+    },
+    {
+      "keyword": "垃圾箱",
+      "frequency": 2
+    },
+    {
+      "keyword": "年月日",
+      "frequency": 2
+    },
+    {
+      "keyword": "宿舍楼",
+      "frequency": 2
+    },
+    {
+      "keyword": "危险源",
+      "frequency": 2
+    },
+    {
+      "keyword": "波纹管",
+      "frequency": 2
+    },
+    {
+      "keyword": "油脂库",
+      "frequency": 2
+    },
+    {
+      "keyword": "有可能",
+      "frequency": 2
+    },
+    {
+      "keyword": "冷却塔",
+      "frequency": 2
+    },
+    {
+      "keyword": "打印纸",
+      "frequency": 2
+    },
+    {
+      "keyword": "GIS",
+      "frequency": 2
+    },
+    {
+      "keyword": "可能性",
+      "frequency": 2
+    },
+    {
+      "keyword": "不一致",
+      "frequency": 2
+    },
+    {
+      "keyword": "不具备",
+      "frequency": 2
+    },
+    {
+      "keyword": "制动器",
+      "frequency": 2
+    },
+    {
+      "keyword": "压力表",
+      "frequency": 2
+    },
+    {
+      "keyword": "过滤网",
+      "frequency": 2
+    },
+    {
+      "keyword": "减速器",
+      "frequency": 2
+    },
+    {
+      "keyword": "分配器",
+      "frequency": 2
+    },
+    {
+      "keyword": "温湿度",
+      "frequency": 2
+    },
+    {
+      "keyword": "档案室",
+      "frequency": 2
+    },
+    {
+      "keyword": "插线板",
+      "frequency": 2
+    },
+    {
+      "keyword": "安全绳",
+      "frequency": 2
+    },
+    {
+      "keyword": "保护套",
+      "frequency": 2
+    },
+    {
+      "keyword": "凝结水",
+      "frequency": 2
+    },
+    {
+      "keyword": "发电量",
+      "frequency": 2
+    },
+    {
+      "keyword": "综合楼",
+      "frequency": 2
+    },
+    {
+      "keyword": "摩托车",
+      "frequency": 2
+    },
+    {
+      "keyword": "显示屏",
+      "frequency": 2
+    },
+    {
+      "keyword": "升降机",
+      "frequency": 2
+    },
+    {
+      "keyword": "有垃圾",
+      "frequency": 2
+    },
+    {
+      "keyword": "开闭所",
+      "frequency": 2
+    },
+    {
+      "keyword": "每半年",
+      "frequency": 2
+    },
+    {
+      "keyword": "办公楼",
+      "frequency": 2
+    },
+    {
+      "keyword": "急救箱",
+      "frequency": 2
+    },
+    {
+      "keyword": "绝缘层",
+      "frequency": 2
+    },
+    {
+      "keyword": "散热器",
+      "frequency": 2
+    },
+    {
+      "keyword": "唐永强",
+      "frequency": 2
+    },
+    {
+      "keyword": "说明书",
+      "frequency": 2
+    },
+    {
+      "keyword": "直流电",
+      "frequency": 2
+    },
+    {
+      "keyword": "xMW",
+      "frequency": 2
+    },
+    {
+      "keyword": "排水沟",
+      "frequency": 2
+    },
+    {
+      "keyword": "RFE",
+      "frequency": 2
+    },
+    {
+      "keyword": "入口处",
+      "frequency": 2
+    },
+    {
+      "keyword": "有杂草",
+      "frequency": 2
+    },
+    {
+      "keyword": "污染物",
+      "frequency": 2
+    },
+    {
+      "keyword": "安全链",
+      "frequency": 2
+    },
+    {
+      "keyword": "AGC",
+      "frequency": 2
+    },
+    {
+      "keyword": "孔滤棉",
+      "frequency": 2
+    },
+    {
+      "keyword": "未配置",
+      "frequency": 2
+    },
+    {
+      "keyword": "变流器",
+      "frequency": 2
+    },
+    {
+      "keyword": "有油污",
+      "frequency": 2
+    },
+    {
+      "keyword": "密封条",
+      "frequency": 2
+    },
+    {
+      "keyword": "灭火器",
+      "frequency": 2
+    },
+    {
+      "keyword": "继保室",
+      "frequency": 2
+    },
+    {
+      "keyword": "升压站",
+      "frequency": 2
+    },
+    {
+      "keyword": "发电机",
+      "frequency": 2
+    },
+    {
+      "keyword": "急救包",
+      "frequency": 2
+    },
+    {
+      "keyword": "导致",
+      "frequency": 133
+    },
+    {
+      "keyword": "设备",
+      "frequency": 100
+    },
+    {
+      "keyword": "破损",
+      "frequency": 66
+    },
+    {
+      "keyword": "螺栓",
+      "frequency": 66
+    },
+    {
+      "keyword": "风机",
+      "frequency": 55
+    },
+    {
+      "keyword": "管理",
+      "frequency": 52
+    },
+    {
+      "keyword": "无法",
+      "frequency": 51
+    },
+    {
+      "keyword": "轮毂",
+      "frequency": 43
+    },
+    {
+      "keyword": "电站",
+      "frequency": 40
+    },
+    {
+      "keyword": "巡视",
+      "frequency": 39
+    },
+    {
+      "keyword": "清理",
+      "frequency": 38
+    },
+    {
+      "keyword": "叶片",
+      "frequency": 38
+    },
+    {
+      "keyword": "作业",
+      "frequency": 36
+    },
+    {
+      "keyword": "电源",
+      "frequency": 36
+    },
+    {
+      "keyword": "磨损",
+      "frequency": 35
+    },
+    {
+      "keyword": "光光",
+      "frequency": 33
+    },
+    {
+      "keyword": "过程",
+      "frequency": 31
+    },
+    {
+      "keyword": "固定",
+      "frequency": 31
+    },
+    {
+      "keyword": "开关",
+      "frequency": 30
+    },
+    {
+      "keyword": "触电",
+      "frequency": 28
+    },
+    {
+      "keyword": "绝缘",
+      "frequency": 28
+    },
+    {
+      "keyword": "箱变",
+      "frequency": 28
+    },
+    {
+      "keyword": "风扇",
+      "frequency": 27
+    },
+    {
+      "keyword": "标签",
+      "frequency": 27
+    },
+    {
+      "keyword": "装置",
+      "frequency": 27
+    },
+    {
+      "keyword": "现场",
+      "frequency": 26
+    },
+    {
+      "keyword": "检修",
+      "frequency": 26
+    },
+    {
+      "keyword": "防护",
+      "frequency": 25
+    },
+    {
+      "keyword": "断裂",
+      "frequency": 25
+    },
+    {
+      "keyword": "应急",
+      "frequency": 24
+    },
+    {
+      "keyword": "组件",
+      "frequency": 24
+    },
+    {
+      "keyword": "电池",
+      "frequency": 24
+    },
+    {
+      "keyword": "电场",
+      "frequency": 23
+    },
+    {
+      "keyword": "事故",
+      "frequency": 22
+    },
+    {
+      "keyword": "汽机",
+      "frequency": 22
+    },
+    {
+      "keyword": "螺丝",
+      "frequency": 22
+    },
+    {
+      "keyword": "维护",
+      "frequency": 21
+    },
+    {
+      "keyword": "严重",
+      "frequency": 21
+    },
+    {
+      "keyword": "管道",
+      "frequency": 21
+    },
+    {
+      "keyword": "随意",
+      "frequency": 21
+    },
+    {
+      "keyword": "线缆",
+      "frequency": 20
+    },
+    {
+      "keyword": "运维",
+      "frequency": 20
+    },
+    {
+      "keyword": "空调",
+      "frequency": 19
+    },
+    {
+      "keyword": "放置",
+      "frequency": 19
+    },
+    {
+      "keyword": "场站",
+      "frequency": 19
+    },
+    {
+      "keyword": "灰尘",
+      "frequency": 18
+    },
+    {
+      "keyword": "连湖",
+      "frequency": 18
+    },
+    {
+      "keyword": "缺陷",
+      "frequency": 18
+    },
+    {
+      "keyword": "脱落",
+      "frequency": 18
+    },
+    {
+      "keyword": "支架",
+      "frequency": 17
+    },
+    {
+      "keyword": "较多",
+      "frequency": 17
+    },
+    {
+      "keyword": "室内",
+      "frequency": 17
+    },
+    {
+      "keyword": "油脂",
+      "frequency": 17
+    },
+    {
+      "keyword": "部分",
+      "frequency": 17
+    },
+    {
+      "keyword": "异常",
+      "frequency": 17
+    },
+    {
+      "keyword": "电线",
+      "frequency": 16
+    },
+    {
+      "keyword": "过期",
+      "frequency": 16
+    },
+    {
+      "keyword": "堆积",
+      "frequency": 16
+    },
+    {
+      "keyword": "监控",
+      "frequency": 16
+    },
+    {
+      "keyword": "告警",
+      "frequency": 15
+    },
+    {
+      "keyword": "系统",
+      "frequency": 15
+    },
+    {
+      "keyword": "不足",
+      "frequency": 15
+    },
+    {
+      "keyword": "容易",
+      "frequency": 15
+    },
+    {
+      "keyword": "下方",
+      "frequency": 15
+    },
+    {
+      "keyword": "区域",
+      "frequency": 15
+    },
+    {
+      "keyword": "小城",
+      "frequency": 14
+    },
+    {
+      "keyword": "积水",
+      "frequency": 14
+    },
+    {
+      "keyword": "粘贴",
+      "frequency": 14
+    },
+    {
+      "keyword": "恢复",
+      "frequency": 14
+    },
+    {
+      "keyword": "日常",
+      "frequency": 14
+    },
+    {
+      "keyword": "水泵",
+      "frequency": 14
+    },
+    {
+      "keyword": "孔洞",
+      "frequency": 14
+    },
+    {
+      "keyword": "卡钳",
+      "frequency": 14
+    },
+    {
+      "keyword": "危险",
+      "frequency": 13
+    },
+    {
+      "keyword": "生锈",
+      "frequency": 13
+    },
+    {
+      "keyword": "器具",
+      "frequency": 13
+    },
+    {
+      "keyword": "满足",
+      "frequency": 13
+    },
+    {
+      "keyword": "锅炉",
+      "frequency": 13
+    },
+    {
+      "keyword": "东区",
+      "frequency": 12
+    },
+    {
+      "keyword": "若羌",
+      "frequency": 12
+    },
+    {
+      "keyword": "支撑",
+      "frequency": 12
+    },
+    {
+      "keyword": "大门",
+      "frequency": 12
+    },
+    {
+      "keyword": "沙箱",
+      "frequency": 12
+    },
+    {
+      "keyword": "异物",
+      "frequency": 12
+    },
+    {
+      "keyword": "摔伤",
+      "frequency": 12
+    },
+    {
+      "keyword": "温度",
+      "frequency": 12
+    },
+    {
+      "keyword": "引发",
+      "frequency": 12
+    },
+    {
+      "keyword": "质量",
+      "frequency": 12
+    },
+    {
+      "keyword": "尽快",
+      "frequency": 12
+    },
+    {
+      "keyword": "更新",
+      "frequency": 12
+    },
+    {
+      "keyword": "单体",
+      "frequency": 11
+    },
+    {
+      "keyword": "广核",
+      "frequency": 11
+    },
+    {
+      "keyword": "射阳",
+      "frequency": 11
+    },
+    {
+      "keyword": "区号",
+      "frequency": 11
+    },
+    {
+      "keyword": "工具",
+      "frequency": 11
+    },
+    {
+      "keyword": "废油",
+      "frequency": 11
+    },
+    {
+      "keyword": "停机",
+      "frequency": 11
+    },
+    {
+      "keyword": "渗漏",
+      "frequency": 11
+    },
+    {
+      "keyword": "解决",
+      "frequency": 11
+    },
+    {
+      "keyword": "天风",
+      "frequency": 11
+    },
+    {
+      "keyword": "巡检",
+      "frequency": 11
+    },
+    {
+      "keyword": "滑倒",
+      "frequency": 11
+    },
+    {
+      "keyword": "积极",
+      "frequency": 11
+    },
+    {
+      "keyword": "主动",
+      "frequency": 11
+    },
+    {
+      "keyword": "开展",
+      "frequency": 11
+    },
+    {
+      "keyword": "DF",
+      "frequency": 10
+    },
+    {
+      "keyword": "宏基",
+      "frequency": 10
+    },
+    {
+      "keyword": "预制",
+      "frequency": 10
+    },
+    {
+      "keyword": "月度",
+      "frequency": 10
+    },
+    {
+      "keyword": "定检",
+      "frequency": 10
+    },
+    {
+      "keyword": "功能",
+      "frequency": 10
+    },
+    {
+      "keyword": "倾倒",
+      "frequency": 10
+    },
+    {
+      "keyword": "物资",
+      "frequency": 10
+    },
+    {
+      "keyword": "正确",
+      "frequency": 10
+    },
+    {
+      "keyword": "绕组",
+      "frequency": 10
+    },
+    {
+      "keyword": "配电",
+      "frequency": 10
+    },
+    {
+      "keyword": "堆放",
+      "frequency": 10
+    },
+    {
+      "keyword": "漏水",
+      "frequency": 10
+    },
+    {
+      "keyword": "药品",
+      "frequency": 10
+    },
+    {
+      "keyword": "开闭",
+      "frequency": 9
+    },
+    {
+      "keyword": "下移",
+      "frequency": 9
+    },
+    {
+      "keyword": "带班",
+      "frequency": 9
+    },
+    {
+      "keyword": "单元",
+      "frequency": 9
+    },
+    {
+      "keyword": "器材",
+      "frequency": 9
+    },
+    {
+      "keyword": "公司",
+      "frequency": 9
+    },
+    {
+      "keyword": "照明",
+      "frequency": 9
+    },
+    {
+      "keyword": "渗油",
+      "frequency": 9
+    },
+    {
+      "keyword": "到位",
+      "frequency": 9
+    },
+    {
+      "keyword": "场区",
+      "frequency": 9
+    },
+    {
+      "keyword": "控制",
+      "frequency": 9
+    },
+    {
+      "keyword": "短路",
+      "frequency": 9
+    },
+    {
+      "keyword": "不能",
+      "frequency": 9
+    },
+    {
+      "keyword": "储能",
+      "frequency": 9
+    },
+    {
+      "keyword": "不良",
+      "frequency": 9
+    },
+    {
+      "keyword": "人身",
+      "frequency": 9
+    },
+    {
+      "keyword": "挡板",
+      "frequency": 9
+    },
+    {
+      "keyword": "草原",
+      "frequency": 9
+    },
+    {
+      "keyword": "错误",
+      "frequency": 9
+    },
+    {
+      "keyword": "设置",
+      "frequency": 9
+    },
+    {
+      "keyword": "吊车",
+      "frequency": 9
+    },
+    {
+      "keyword": "信息",
+      "frequency": 9
+    },
+    {
+      "keyword": "中断",
+      "frequency": 9
+    },
+    {
+      "keyword": "支路",
+      "frequency": 9
+    },
+    {
+      "keyword": "有效",
+      "frequency": 9
+    },
+    {
+      "keyword": "基础",
+      "frequency": 9
+    },
+    {
+      "keyword": "风蚀",
+      "frequency": 8
+    },
+    {
+      "keyword": "岳山",
+      "frequency": 8
+    },
+    {
+      "keyword": "储体",
+      "frequency": 8
+    },
+    {
+      "keyword": "泰丰",
+      "frequency": 8
+    },
+    {
+      "keyword": "监测",
+      "frequency": 8
+    },
+    {
+      "keyword": "号子",
+      "frequency": 8
+    },
+    {
+      "keyword": "内部",
+      "frequency": 8
+    },
+    {
+      "keyword": "模块",
+      "frequency": 8
+    },
+    {
+      "keyword": "长期",
+      "frequency": 8
+    },
+    {
+      "keyword": "后台",
+      "frequency": 8
+    },
+    {
+      "keyword": "电脑",
+      "frequency": 8
+    },
+    {
+      "keyword": "状态",
+      "frequency": 8
+    },
+    {
+      "keyword": "暂存",
+      "frequency": 8
+    },
+    {
+      "keyword": "压板",
+      "frequency": 8
+    },
+    {
+      "keyword": "水管",
+      "frequency": 8
+    },
+    {
+      "keyword": "孔有",
+      "frequency": 8
+    },
+    {
+      "keyword": "填写",
+      "frequency": 8
+    },
+    {
+      "keyword": "对号",
+      "frequency": 8
+    },
+    {
+      "keyword": "变色",
+      "frequency": 8
+    },
+    {
+      "keyword": "记录",
+      "frequency": 8
+    },
+    {
+      "keyword": "位置",
+      "frequency": 8
+    },
+    {
+      "keyword": "箱内",
+      "frequency": 8
+    },
+    {
+      "keyword": "爬梯",
+      "frequency": 8
+    },
+    {
+      "keyword": "检测",
+      "frequency": 8
+    },
+    {
+      "keyword": "套管",
+      "frequency": 8
+    },
+    {
+      "keyword": "项目",
+      "frequency": 8
+    },
+    {
+      "keyword": "没有",
+      "frequency": 8
+    },
+    {
+      "keyword": "标识",
+      "frequency": 8
+    },
+    {
+      "keyword": "损坏",
+      "frequency": 8
+    },
+    {
+      "keyword": "西潘",
+      "frequency": 7
+    },
+    {
+      "keyword": "眼泉",
+      "frequency": 7
+    },
+    {
+      "keyword": "卓越",
+      "frequency": 7
+    },
+    {
+      "keyword": "广丰",
+      "frequency": 7
+    },
+    {
+      "keyword": "是否",
+      "frequency": 7
+    },
+    {
+      "keyword": "处于",
+      "frequency": 7
+    },
+    {
+      "keyword": "BF",
+      "frequency": 7
+    },
+    {
+      "keyword": "分类",
+      "frequency": 7
+    },
+    {
+      "keyword": "探身",
+      "frequency": 7
+    },
+    {
+      "keyword": "手套",
+      "frequency": 7
+    },
+    {
+      "keyword": "事件",
+      "frequency": 7
+    },
+    {
+      "keyword": "厨房",
+      "frequency": 7
+    },
+    {
+      "keyword": "报出",
+      "frequency": 7
+    },
+    {
+      "keyword": "废弃",
+      "frequency": 7
+    },
+    {
+      "keyword": "除湿",
+      "frequency": 7
+    },
+    {
+      "keyword": "振动",
+      "frequency": 7
+    },
+    {
+      "keyword": "打开",
+      "frequency": 7
+    },
+    {
+      "keyword": "台账",
+      "frequency": 7
+    },
+    {
+      "keyword": "油泵",
+      "frequency": 7
+    },
+    {
+      "keyword": "材料",
+      "frequency": 7
+    },
+    {
+      "keyword": "打火",
+      "frequency": 7
+    },
+    {
+      "keyword": "密封",
+      "frequency": 7
+    },
+    {
+      "keyword": "试验",
+      "frequency": 7
+    },
+    {
+      "keyword": "接头",
+      "frequency": 7
+    },
+    {
+      "keyword": "门口",
+      "frequency": 7
+    },
+    {
+      "keyword": "直接",
+      "frequency": 7
+    },
+    {
+      "keyword": "产生",
+      "frequency": 7
+    },
+    {
+      "keyword": "数据",
+      "frequency": 7
+    },
+    {
+      "keyword": "闭锁",
+      "frequency": 7
+    },
+    {
+      "keyword": "覆盖",
+      "frequency": 7
+    },
+    {
+      "keyword": "时间",
+      "frequency": 7
+    },
+    {
+      "keyword": "定期",
+      "frequency": 7
+    },
+    {
+      "keyword": "油管",
+      "frequency": 7
+    },
+    {
+      "keyword": "机舱",
+      "frequency": 7
+    },
+    {
+      "keyword": "于总",
+      "frequency": 6
+    },
+    {
+      "keyword": "氯气",
+      "frequency": 6
+    },
+    {
+      "keyword": "其余",
+      "frequency": 6
+    },
+    {
+      "keyword": "项在",
+      "frequency": 6
+    },
+    {
+      "keyword": "起重",
+      "frequency": 6
+    },
+    {
+      "keyword": "节日",
+      "frequency": 6
+    },
+    {
+      "keyword": "观光",
+      "frequency": 6
+    },
+    {
+      "keyword": "农义",
+      "frequency": 6
+    },
+    {
+      "keyword": "雷赤",
+      "frequency": 6
+    },
+    {
+      "keyword": "平潭",
+      "frequency": 6
+    },
+    {
+      "keyword": "行动",
+      "frequency": 6
+    },
+    {
+      "keyword": "做好",
+      "frequency": 6
+    },
+    {
+      "keyword": "密码",
+      "frequency": 6
+    },
+    {
+      "keyword": "破坏",
+      "frequency": 6
+    },
+    {
+      "keyword": "身体",
+      "frequency": 6
+    },
+    {
+      "keyword": "修复",
+      "frequency": 6
+    },
+    {
+      "keyword": "信号",
+      "frequency": 6
+    },
+    {
+      "keyword": "接近",
+      "frequency": 6
+    },
+    {
+      "keyword": "作用",
+      "frequency": 6
+    },
+    {
+      "keyword": "对应",
+      "frequency": 6
+    },
+    {
+      "keyword": "损失",
+      "frequency": 6
+    },
+    {
+      "keyword": "看板",
+      "frequency": 6
+    },
+    {
+      "keyword": "制度",
+      "frequency": 6
+    },
+    {
+      "keyword": "老化",
+      "frequency": 6
+    },
+    {
+      "keyword": "泵房",
+      "frequency": 6
+    },
+    {
+      "keyword": "确保",
+      "frequency": 6
+    },
+    {
+      "keyword": "丢弃",
+      "frequency": 6
+    },
+    {
+      "keyword": "后果",
+      "frequency": 6
+    },
+    {
+      "keyword": "个人",
+      "frequency": 6
+    },
+    {
+      "keyword": "受伤",
+      "frequency": 6
+    },
+    {
+      "keyword": "内有",
+      "frequency": 6
+    },
+    {
+      "keyword": "跳闸",
+      "frequency": 6
+    },
+    {
+      "keyword": "水池",
+      "frequency": 6
+    },
+    {
+      "keyword": "防雷",
+      "frequency": 6
+    },
+    {
+      "keyword": "方阵",
+      "frequency": 6
+    },
+    {
+      "keyword": "废物",
+      "frequency": 6
+    },
+    {
+      "keyword": "配置",
+      "frequency": 6
+    },
+    {
+      "keyword": "上锁",
+      "frequency": 6
+    },
+    {
+      "keyword": "循环",
+      "frequency": 6
+    },
+    {
+      "keyword": "相关",
+      "frequency": 6
+    },
+    {
+      "keyword": "护栏",
+      "frequency": 6
+    },
+    {
+      "keyword": "山风",
+      "frequency": 6
+    },
+    {
+      "keyword": "警示",
+      "frequency": 6
+    },
+    {
+      "keyword": "矩阵",
+      "frequency": 6
+    },
+    {
+      "keyword": "通风",
+      "frequency": 6
+    },
+    {
+      "keyword": "表面",
+      "frequency": 6
+    },
+    {
+      "keyword": "掉线",
+      "frequency": 6
+    },
+    {
+      "keyword": "灭火",
+      "frequency": 6
+    },
+    {
+      "keyword": "高温",
+      "frequency": 6
+    },
+    {
+      "keyword": "电流",
+      "frequency": 6
+    },
+    {
+      "keyword": "楼梯",
+      "frequency": 6
+    },
+    {
+      "keyword": "通讯",
+      "frequency": 6
+    },
+    {
+      "keyword": "厂房",
+      "frequency": 6
+    },
+    {
+      "keyword": "卫生",
+      "frequency": 6
+    },
+    {
+      "keyword": "插头",
+      "frequency": 6
+    },
+    {
+      "keyword": "高支",
+      "frequency": 5
+    },
+    {
+      "keyword": "爆破",
+      "frequency": 5
+    },
+    {
+      "keyword": "大宁",
+      "frequency": 5
+    },
+    {
+      "keyword": "GE",
+      "frequency": 5
+    },
+    {
+      "keyword": "毛头",
+      "frequency": 5
+    },
+    {
+      "keyword": "直观",
+      "frequency": 5
+    },
+    {
+      "keyword": "GW",
+      "frequency": 5
+    },
+    {
+      "keyword": "皮带",
+      "frequency": 5
+    },
+    {
+      "keyword": "杜强",
+      "frequency": 5
+    },
+    {
+      "keyword": "旭光",
+      "frequency": 5
+    },
+    {
+      "keyword": "科创",
+      "frequency": 5
+    },
+    {
+      "keyword": "木格",
+      "frequency": 5
+    },
+    {
+      "keyword": "体重",
+      "frequency": 5
+    },
+    {
+      "keyword": "银浪",
+      "frequency": 5
+    },
+    {
+      "keyword": "御马",
+      "frequency": 5
+    },
+    {
+      "keyword": "控股",
+      "frequency": 5
+    },
+    {
+      "keyword": "鸟粪",
+      "frequency": 5
+    },
+    {
+      "keyword": "程寨",
+      "frequency": 5
+    },
+    {
+      "keyword": "偏移",
+      "frequency": 5
+    },
+    {
+      "keyword": "接口",
+      "frequency": 5
+    },
+    {
+      "keyword": "远程",
+      "frequency": 5
+    },
+    {
+      "keyword": "评审",
+      "frequency": 5
+    },
+    {
+      "keyword": "收集",
+      "frequency": 5
+    },
+    {
+      "keyword": "救援",
+      "frequency": 5
+    },
+    {
+      "keyword": "KV",
+      "frequency": 5
+    },
+    {
+      "keyword": "沉降",
+      "frequency": 5
+    },
+    {
+      "keyword": "小时",
+      "frequency": 5
+    },
+    {
+      "keyword": "断线",
+      "frequency": 5
+    },
+    {
+      "keyword": "抱箍",
+      "frequency": 5
+    },
+    {
+      "keyword": "雷霆",
+      "frequency": 5
+    },
+    {
+      "keyword": "结合",
+      "frequency": 5
+    },
+    {
+      "keyword": "任何",
+      "frequency": 5
+    },
+    {
+      "keyword": "广源",
+      "frequency": 5
+    },
+    {
+      "keyword": "主机",
+      "frequency": 5
+    },
+    {
+      "keyword": "电弧",
+      "frequency": 5
+    },
+    {
+      "keyword": "把手",
+      "frequency": 5
+    },
+    {
+      "keyword": "可靠",
+      "frequency": 5
+    },
+    {
+      "keyword": "不严",
+      "frequency": 5
+    },
+    {
+      "keyword": "链条",
+      "frequency": 5
+    },
+    {
+      "keyword": "培训",
+      "frequency": 5
+    },
+    {
+      "keyword": "通道",
+      "frequency": 5
+    },
+    {
+      "keyword": "缠绕",
+      "frequency": 5
+    },
+    {
+      "keyword": "扩大",
+      "frequency": 5
+    },
+    {
+      "keyword": "范围",
+      "frequency": 5
+    },
+    {
+      "keyword": "乱放",
+      "frequency": 5
+    },
+    {
+      "keyword": "区内",
+      "frequency": 5
+    },
+    {
+      "keyword": "补充",
+      "frequency": 5
+    },
+    {
+      "keyword": "扎带",
+      "frequency": 5
+    },
+    {
+      "keyword": "水箱",
+      "frequency": 5
+    },
+    {
+      "keyword": "描述",
+      "frequency": 5
+    },
+    {
+      "keyword": "责任",
+      "frequency": 5
+    },
+    {
+      "keyword": "单位",
+      "frequency": 5
+    },
+    {
+      "keyword": "锁定",
+      "frequency": 5
+    },
+    {
+      "keyword": "哈拉",
+      "frequency": 5
+    },
+    {
+      "keyword": "名称",
+      "frequency": 5
+    },
+    {
+      "keyword": "不同",
+      "frequency": 5
+    },
+    {
+      "keyword": "视频",
+      "frequency": 5
+    },
+    {
+      "keyword": "紧急",
+      "frequency": 5
+    },
+    {
+      "keyword": "判断",
+      "frequency": 5
+    },
+    {
+      "keyword": "甲板",
+      "frequency": 5
+    },
+    {
+      "keyword": "冷却",
+      "frequency": 5
+    },
+    {
+      "keyword": "封闭",
+      "frequency": 5
+    },
+    {
+      "keyword": "电梯",
+      "frequency": 5
+    },
+    {
+      "keyword": "归还",
+      "frequency": 5
+    },
+    {
+      "keyword": "接触",
+      "frequency": 5
+    },
+    {
+      "keyword": "标牌",
+      "frequency": 5
+    },
+    {
+      "keyword": "值班",
+      "frequency": 5
+    },
+    {
+      "keyword": "效果",
+      "frequency": 5
+    },
+    {
+      "keyword": "全达",
+      "frequency": 5
+    },
+    {
+      "keyword": "防止",
+      "frequency": 5
+    },
+    {
+      "keyword": "朝代",
+      "frequency": 5
+    },
+    {
+      "keyword": "柳园",
+      "frequency": 5
+    },
+    {
+      "keyword": "kv",
+      "frequency": 5
+    },
+    {
+      "keyword": "进出",
+      "frequency": 5
+    },
+    {
+      "keyword": "电气",
+      "frequency": 5
+    },
+    {
+      "keyword": "风沙",
+      "frequency": 5
+    },
+    {
+      "keyword": "沙眼",
+      "frequency": 5
+    },
+    {
+      "keyword": "增压",
+      "frequency": 5
+    },
+    {
+      "keyword": "现象",
+      "frequency": 5
+    },
+    {
+      "keyword": "取样",
+      "frequency": 5
+    },
+    {
+      "keyword": "命名",
+      "frequency": 5
+    },
+    {
+      "keyword": "根部",
+      "frequency": 5
+    },
+    {
+      "keyword": "碳刷",
+      "frequency": 5
+    },
+    {
+      "keyword": "存在",
+      "frequency": 5
+    },
+    {
+      "keyword": "自主",
+      "frequency": 4
+    },
+    {
+      "keyword": "枣庄",
+      "frequency": 4
+    },
+    {
+      "keyword": "这批",
+      "frequency": 4
+    },
+    {
+      "keyword": "交清",
+      "frequency": 4
+    },
+    {
+      "keyword": "权限",
+      "frequency": 4
+    },
+    {
+      "keyword": "EC",
+      "frequency": 4
+    },
+    {
+      "keyword": "青河",
+      "frequency": 4
+    },
+    {
+      "keyword": "堵泥",
+      "frequency": 4
+    },
+    {
+      "keyword": "龙骨",
+      "frequency": 4
+    },
+    {
+      "keyword": "刘路",
+      "frequency": 4
+    },
+    {
+      "keyword": "冲绳",
+      "frequency": 4
+    },
+    {
+      "keyword": "连城",
+      "frequency": 4
+    },
+    {
+      "keyword": "宽频",
+      "frequency": 4
+    },
+    {
+      "keyword": "阈值",
+      "frequency": 4
+    },
+    {
+      "keyword": "金塔",
+      "frequency": 4
+    },
+    {
+      "keyword": "阵列",
+      "frequency": 4
+    },
+    {
+      "keyword": "医院",
+      "frequency": 4
+    },
+    {
+      "keyword": "织带",
+      "frequency": 4
+    },
+    {
+      "keyword": "珍珠",
+      "frequency": 4
+    },
+    {
+      "keyword": "核实",
+      "frequency": 4
+    },
+    {
+      "keyword": "袖口",
+      "frequency": 4
+    },
+    {
+      "keyword": "恶劣",
+      "frequency": 4
+    },
+    {
+      "keyword": "潜在",
+      "frequency": 4
+    },
+    {
+      "keyword": "怀疑",
+      "frequency": 4
+    },
+    {
+      "keyword": "YX",
+      "frequency": 4
+    },
+    {
+      "keyword": "石门",
+      "frequency": 4
+    },
+    {
+      "keyword": "噪声",
+      "frequency": 4
+    },
+    {
+      "keyword": "电建",
+      "frequency": 4
+    },
+    {
+      "keyword": "恶化",
+      "frequency": 4
+    },
+    {
+      "keyword": "擂鼓",
+      "frequency": 4
+    },
+    {
+      "keyword": "交通",
+      "frequency": 4
+    },
+    {
+      "keyword": "车棚",
+      "frequency": 4
+    },
+    {
+      "keyword": "KL",
+      "frequency": 4
+    },
+    {
+      "keyword": "墙体",
+      "frequency": 4
+    },
+    {
+      "keyword": "基期",
+      "frequency": 4
+    },
+    {
+      "keyword": "预案",
+      "frequency": 4
+    },
+    {
+      "keyword": "包括",
+      "frequency": 4
+    },
+    {
+      "keyword": "承受",
+      "frequency": 4
+    },
+    {
+      "keyword": "门窗",
+      "frequency": 4
+    },
+    {
+      "keyword": "改进",
+      "frequency": 4
+    },
+    {
+      "keyword": "标示",
+      "frequency": 4
+    },
+    {
+      "keyword": "按钮",
+      "frequency": 4
+    },
+    {
+      "keyword": "阜新",
+      "frequency": 4
+    },
+    {
+      "keyword": "沙岛",
+      "frequency": 4
+    },
+    {
+      "keyword": "高台",
+      "frequency": 4
+    },
+    {
+      "keyword": "岗位",
+      "frequency": 4
+    },
+    {
+      "keyword": "复位",
+      "frequency": 4
+    },
+    {
+      "keyword": "体系",
+      "frequency": 4
+    },
+    {
+      "keyword": "整齐",
+      "frequency": 4
+    },
+    {
+      "keyword": "高处",
+      "frequency": 4
+    },
+    {
+      "keyword": "架空",
+      "frequency": 4
+    },
+    {
+      "keyword": "急救",
+      "frequency": 4
+    },
+    {
+      "keyword": "废料",
+      "frequency": 4
+    },
+    {
+      "keyword": "完善",
+      "frequency": 4
+    },
+    {
+      "keyword": "装设",
+      "frequency": 4
+    },
+    {
+      "keyword": "防汛",
+      "frequency": 4
+    },
+    {
+      "keyword": "未经",
+      "frequency": 4
+    },
+    {
+      "keyword": "蝶阀",
+      "frequency": 4
+    },
+    {
+      "keyword": "基地",
+      "frequency": 4
+    },
+    {
+      "keyword": "高度",
+      "frequency": 4
+    },
+    {
+      "keyword": "柜子",
+      "frequency": 4
+    },
+    {
+      "keyword": "甚至",
+      "frequency": 4
+    },
+    {
+      "keyword": "失去",
+      "frequency": 4
+    },
+    {
+      "keyword": "净空",
+      "frequency": 4
+    },
+    {
+      "keyword": "电网",
+      "frequency": 4
+    },
+    {
+      "keyword": "辨识",
+      "frequency": 4
+    },
+    {
+      "keyword": "就地",
+      "frequency": 4
+    },
+    {
+      "keyword": "出口",
+      "frequency": 4
+    },
+    {
+      "keyword": "油盘",
+      "frequency": 4
+    },
+    {
+      "keyword": "墙皮",
+      "frequency": 4
+    },
+    {
+      "keyword": "用具",
+      "frequency": 4
+    },
+    {
+      "keyword": "动作",
+      "frequency": 4
+    },
+    {
+      "keyword": "墙面",
+      "frequency": 4
+    },
+    {
+      "keyword": "场所",
+      "frequency": 4
+    },
+    {
+      "keyword": "榆次",
+      "frequency": 4
+    },
+    {
+      "keyword": "外壳",
+      "frequency": 4
+    },
+    {
+      "keyword": "期间",
+      "frequency": 4
+    },
+    {
+      "keyword": "底座",
+      "frequency": 4
+    },
+    {
+      "keyword": "旋转",
+      "frequency": 4
+    },
+    {
+      "keyword": "调度",
+      "frequency": 4
+    },
+    {
+      "keyword": "电量",
+      "frequency": 4
+    },
+    {
+      "keyword": "辅助",
+      "frequency": 4
+    },
+    {
+      "keyword": "伤亡",
+      "frequency": 4
+    },
+    {
+      "keyword": "脱开",
+      "frequency": 4
+    },
+    {
+      "keyword": "硬件",
+      "frequency": 4
+    },
+    {
+      "keyword": "安广",
+      "frequency": 4
+    },
+    {
+      "keyword": "启动",
+      "frequency": 4
+    },
+    {
+      "keyword": "电厂",
+      "frequency": 4
+    },
+    {
+      "keyword": "电压",
+      "frequency": 4
+    },
+    {
+      "keyword": "踩踏",
+      "frequency": 4
+    },
+    {
+      "keyword": "库内",
+      "frequency": 4
+    },
+    {
+      "keyword": "合页",
+      "frequency": 4
+    },
+    {
+      "keyword": "屋顶",
+      "frequency": 4
+    },
+    {
+      "keyword": "隔离",
+      "frequency": 4
+    },
+    {
+      "keyword": "警告",
+      "frequency": 4
+    },
+    {
+      "keyword": "折断",
+      "frequency": 4
+    },
+    {
+      "keyword": "药箱",
+      "frequency": 4
+    },
+    {
+      "keyword": "分析",
+      "frequency": 4
+    },
+    {
+      "keyword": "鼓包",
+      "frequency": 4
+    },
+    {
+      "keyword": "地板",
+      "frequency": 4
+    },
+    {
+      "keyword": "危害",
+      "frequency": 4
+    },
+    {
+      "keyword": "天窗",
+      "frequency": 4
+    },
+    {
+      "keyword": "触发",
+      "frequency": 4
+    },
+    {
+      "keyword": "指示",
+      "frequency": 4
+    },
+    {
+      "keyword": "摆动",
+      "frequency": 4
+    },
+    {
+      "keyword": "措施",
+      "frequency": 4
+    },
+    {
+      "keyword": "溢出",
+      "frequency": 4
+    },
+    {
+      "keyword": "穿戴",
+      "frequency": 4
+    },
+    {
+      "keyword": "进水",
+      "frequency": 4
+    },
+    {
+      "keyword": "编号",
+      "frequency": 4
+    },
+    {
+      "keyword": "烧毁",
+      "frequency": 4
+    },
+    {
+      "keyword": "人体",
+      "frequency": 4
+    },
+    {
+      "keyword": "悬挂",
+      "frequency": 4
+    },
+    {
+      "keyword": "过滤",
+      "frequency": 4
+    },
+    {
+      "keyword": "道路",
+      "frequency": 4
+    },
+    {
+      "keyword": "天气",
+      "frequency": 4
+    },
+    {
+      "keyword": "AF",
+      "frequency": 4
+    },
+    {
+      "keyword": "厂家",
+      "frequency": 4
+    },
+    {
+      "keyword": "考核",
+      "frequency": 4
+    },
+    {
+      "keyword": "标志",
+      "frequency": 4
+    },
+    {
+      "keyword": "上方",
+      "frequency": 4
+    },
+    {
+      "keyword": "月份",
+      "frequency": 4
+    },
+    {
+      "keyword": "指定",
+      "frequency": 4
+    },
+    {
+      "keyword": "下降",
+      "frequency": 4
+    },
+    {
+      "keyword": "检验",
+      "frequency": 4
+    },
+    {
+      "keyword": "意外",
+      "frequency": 4
+    },
+    {
+      "keyword": "较大",
+      "frequency": 4
+    },
+    {
+      "keyword": "氧化",
+      "frequency": 4
+    },
+    {
+      "keyword": "细则",
+      "frequency": 4
+    },
+    {
+      "keyword": "烟感",
+      "frequency": 4
+    },
+    {
+      "keyword": "拆除",
+      "frequency": 4
+    },
+    {
+      "keyword": "专项",
+      "frequency": 4
+    },
+    {
+      "keyword": "告知",
+      "frequency": 4
+    },
+    {
+      "keyword": "潮湿",
+      "frequency": 4
+    },
+    {
+      "keyword": "车辆",
+      "frequency": 4
+    },
+    {
+      "keyword": "备用",
+      "frequency": 4
+    },
+    {
+      "keyword": "大量",
+      "frequency": 4
+    },
+    {
+      "keyword": "快速",
+      "frequency": 4
+    },
+    {
+      "keyword": "本体",
+      "frequency": 4
+    },
+    {
+      "keyword": "测量",
+      "frequency": 4
+    },
+    {
+      "keyword": "裂纹",
+      "frequency": 4
+    },
+    {
+      "keyword": "临时",
+      "frequency": 4
+    },
+    {
+      "keyword": "国旗",
+      "frequency": 4
+    },
+    {
+      "keyword": "核心",
+      "frequency": 4
+    },
+    {
+      "keyword": "入口",
+      "frequency": 4
+    },
+    {
+      "keyword": "识别",
+      "frequency": 4
+    },
+    {
+      "keyword": "维修",
+      "frequency": 4
+    },
+    {
+      "keyword": "物品",
+      "frequency": 4
+    },
+    {
+      "keyword": "签字",
+      "frequency": 4
+    },
+    {
+      "keyword": "FJ",
+      "frequency": 4
+    },
+    {
+      "keyword": "关闭",
+      "frequency": 4
+    },
+    {
+      "keyword": "kV",
+      "frequency": 4
+    },
+    {
+      "keyword": "柜门",
+      "frequency": 4
+    },
+    {
+      "keyword": "未关",
+      "frequency": 4
+    },
+    {
+      "keyword": "掉落",
+      "frequency": 4
+    },
+    {
+      "keyword": "指挥",
+      "frequency": 3
+    },
+    {
+      "keyword": "支护",
+      "frequency": 3
+    },
+    {
+      "keyword": "重臂",
+      "frequency": 3
+    },
+    {
+      "keyword": "湖北",
+      "frequency": 3
+    },
+    {
+      "keyword": "引水",
+      "frequency": 3
+    },
+    {
+      "keyword": "专家",
+      "frequency": 3
+    },
+    {
+      "keyword": "放下",
+      "frequency": 3
+    },
+    {
+      "keyword": "共和",
+      "frequency": 3
+    },
+    {
+      "keyword": "盐酸",
+      "frequency": 3
+    },
+    {
+      "keyword": "内在",
+      "frequency": 3
+    },
+    {
+      "keyword": "浮石",
+      "frequency": 3
+    },
+    {
+      "keyword": "擦拭",
+      "frequency": 3
+    },
+    {
+      "keyword": "居住",
+      "frequency": 3
+    },
+    {
+      "keyword": "平洞",
+      "frequency": 3
+    },
+    {
+      "keyword": "高出",
+      "frequency": 3
+    },
+    {
+      "keyword": "添加",
+      "frequency": 3
+    },
+    {
+      "keyword": "NN",
+      "frequency": 3
+    },
+    {
+      "keyword": "过时",
+      "frequency": 3
+    },
+    {
+      "keyword": "光缆",
+      "frequency": 3
+    },
+    {
+      "keyword": "预置",
+      "frequency": 3
+    },
+    {
+      "keyword": "翻浆",
+      "frequency": 3
+    },
+    {
+      "keyword": "广湛",
+      "frequency": 3
+    },
+    {
+      "keyword": "驱鸟",
+      "frequency": 3
+    },
+    {
+      "keyword": "大家",
+      "frequency": 3
+    },
+    {
+      "keyword": "高杆",
+      "frequency": 3
+    },
+    {
+      "keyword": "抽排",
+      "frequency": 3
+    },
+    {
+      "keyword": "TL",
+      "frequency": 3
+    },
+    {
+      "keyword": "慎明",
+      "frequency": 3
+    },
+    {
+      "keyword": "清河",
+      "frequency": 3
+    },
+    {
+      "keyword": "甩动",
+      "frequency": 3
+    },
+    {
+      "keyword": "与其",
+      "frequency": 3
+    },
+    {
+      "keyword": "阳电",
+      "frequency": 3
+    },
+    {
+      "keyword": "伪造",
+      "frequency": 3
+    },
+    {
+      "keyword": "气味",
+      "frequency": 3
+    },
+    {
+      "keyword": "派遣",
+      "frequency": 3
+    },
+    {
+      "keyword": "共享",
+      "frequency": 3
+    },
+    {
+      "keyword": "心理",
+      "frequency": 3
+    },
+    {
+      "keyword": "面积",
+      "frequency": 3
+    },
+    {
+      "keyword": "德风",
+      "frequency": 3
+    },
+    {
+      "keyword": "汇合",
+      "frequency": 3
+    },
+    {
+      "keyword": "面罩",
+      "frequency": 3
+    },
+    {
+      "keyword": "盘点",
+      "frequency": 3
+    },
+    {
+      "keyword": "无异",
+      "frequency": 3
+    },
+    {
+      "keyword": "延长",
+      "frequency": 3
+    },
+    {
+      "keyword": "常温",
+      "frequency": 3
+    },
+    {
+      "keyword": "衰减",
+      "frequency": 3
+    },
+    {
+      "keyword": "可达",
+      "frequency": 3
+    },
+    {
+      "keyword": "尼伦",
+      "frequency": 3
+    },
+    {
+      "keyword": "人力",
+      "frequency": 3
+    },
+    {
+      "keyword": "缺口",
+      "frequency": 3
+    },
+    {
+      "keyword": "广东",
+      "frequency": 3
+    },
+    {
+      "keyword": "常规",
+      "frequency": 3
+    },
+    {
+      "keyword": "肖刘",
+      "frequency": 3
+    },
+    {
+      "keyword": "顺序",
+      "frequency": 3
+    },
+    {
+      "keyword": "参加",
+      "frequency": 3
+    },
+    {
+      "keyword": "蜂巢",
+      "frequency": 3
+    },
+    {
+      "keyword": "残留",
+      "frequency": 3
+    },
+    {
+      "keyword": "驻场",
+      "frequency": 3
+    },
+    {
+      "keyword": "干粉",
+      "frequency": 3
+    },
+    {
+      "keyword": "淹水",
+      "frequency": 3
+    },
+    {
+      "keyword": "失灵",
+      "frequency": 3
+    },
+    {
+      "keyword": "蒸汽",
+      "frequency": 3
+    },
+    {
+      "keyword": "青峰",
+      "frequency": 3
+    },
+    {
+      "keyword": "敖家",
+      "frequency": 3
+    },
+    {
+      "keyword": "体检",
+      "frequency": 3
+    },
+    {
+      "keyword": "走错",
+      "frequency": 3
+    },
+    {
+      "keyword": "整流",
+      "frequency": 3
+    },
+    {
+      "keyword": "额定",
+      "frequency": 3
+    },
+    {
+      "keyword": "最近",
+      "frequency": 3
+    },
+    {
+      "keyword": "大约",
+      "frequency": 3
+    },
+    {
+      "keyword": "水桶",
+      "frequency": 3
+    },
+    {
+      "keyword": "任务",
+      "frequency": 3
+    },
+    {
+      "keyword": "吸热",
+      "frequency": 3
+    },
+    {
+      "keyword": "校验",
+      "frequency": 3
+    },
+    {
+      "keyword": "符庄",
+      "frequency": 3
+    },
+    {
+      "keyword": "陷入",
+      "frequency": 3
+    },
+    {
+      "keyword": "夹层",
+      "frequency": 3
+    },
+    {
+      "keyword": "潮气",
+      "frequency": 3
+    },
+    {
+      "keyword": "植物",
+      "frequency": 3
+    },
+    {
+      "keyword": "场次",
+      "frequency": 3
+    },
+    {
+      "keyword": "有关",
+      "frequency": 3
+    },
+    {
+      "keyword": "延误",
+      "frequency": 3
+    },
+    {
+      "keyword": "可燃",
+      "frequency": 3
+    },
+    {
+      "keyword": "蔓延",
+      "frequency": 3
+    },
+    {
+      "keyword": "航空",
+      "frequency": 3
+    },
+    {
+      "keyword": "困难",
+      "frequency": 3
+    },
+    {
+      "keyword": "噪音",
+      "frequency": 3
+    },
+    {
+      "keyword": "高位",
+      "frequency": 3
+    },
+    {
+      "keyword": "爆炸",
+      "frequency": 3
+    },
+    {
+      "keyword": "升高",
+      "frequency": 3
+    },
+    {
+      "keyword": "连锁",
+      "frequency": 3
+    },
+    {
+      "keyword": "过短",
+      "frequency": 3
+    },
+    {
+      "keyword": "携带",
+      "frequency": 3
+    },
+    {
+      "keyword": "随时",
+      "frequency": 3
+    },
+    {
+      "keyword": "轮换",
+      "frequency": 3
+    },
+    {
+      "keyword": "水杯",
+      "frequency": 3
+    },
+    {
+      "keyword": "不仅",
+      "frequency": 3
+    },
+    {
+      "keyword": "生命",
+      "frequency": 3
+    },
+    {
+      "keyword": "油壶",
+      "frequency": 3
+    },
+    {
+      "keyword": "冷湖",
+      "frequency": 3
+    },
+    {
+      "keyword": "载荷",
+      "frequency": 3
+    },
+    {
+      "keyword": "风力",
+      "frequency": 3
+    },
+    {
+      "keyword": "制作",
+      "frequency": 3
+    },
+    {
+      "keyword": "屋面",
+      "frequency": 3
+    },
+    {
+      "keyword": "综合",
+      "frequency": 3
+    },
+    {
+      "keyword": "仪器",
+      "frequency": 3
+    },
+    {
+      "keyword": "后面",
+      "frequency": 3
+    },
+    {
+      "keyword": "般若",
+      "frequency": 3
+    },
+    {
+      "keyword": "过流",
+      "frequency": 3
+    },
+    {
+      "keyword": "室温",
+      "frequency": 3
+    },
+    {
+      "keyword": "依据",
+      "frequency": 3
+    },
+    {
+      "keyword": "放电",
+      "frequency": 3
+    },
+    {
+      "keyword": "挡雨",
+      "frequency": 3
+    },
+    {
+      "keyword": "风场",
+      "frequency": 3
+    },
+    {
+      "keyword": "过载",
+      "frequency": 3
+    },
+    {
+      "keyword": "引用",
+      "frequency": 3
+    },
+    {
+      "keyword": "年检",
+      "frequency": 3
+    },
+    {
+      "keyword": "时候",
+      "frequency": 3
+    },
+    {
+      "keyword": "长度",
+      "frequency": 3
+    },
+    {
+      "keyword": "画面",
+      "frequency": 3
+    },
+    {
+      "keyword": "调整",
+      "frequency": 3
+    },
+    {
+      "keyword": "马盛",
+      "frequency": 3
+    },
+    {
+      "keyword": "剩余",
+      "frequency": 3
+    },
+    {
+      "keyword": "SF",
+      "frequency": 3
+    },
+    {
+      "keyword": "雄风",
+      "frequency": 3
+    },
+    {
+      "keyword": "监督",
+      "frequency": 3
+    },
+    {
+      "keyword": "从而",
+      "frequency": 3
+    },
+    {
+      "keyword": "中控",
+      "frequency": 3
+    },
+    {
+      "keyword": "较高",
+      "frequency": 3
+    }
+  ],
+  "maxFrequency": 133,
+  "success": true,
+  "limit": 1000,
+  "requestParams": {
+    "limit": 1000,
+    "minFrequency": 2
+  },
+  "minFrequency": 2,
+  "tableName": "t_hidden_dangers_keywords",
+  "dataCount": 1000,
+  "totalFrequency": 6395
+}
 ```

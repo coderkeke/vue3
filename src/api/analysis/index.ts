@@ -65,3 +65,30 @@ export const uploadExcelFile = (file: File, clearTable: boolean = false) => {
         }
     })
 }
+
+export interface WordCloudItem {
+    keyword: string
+    frequency: number
+}
+
+export interface WordCloudResponse {
+    success: boolean
+    data: WordCloudItem[]
+    totalFrequency: number
+    maxFrequency: number
+    minFrequency: number
+    dataCount: number
+    limit: number
+    requestParams: {
+        limit: number
+        minFrequency: number
+    }
+    tableName: string
+}
+
+export const getWordCloudData = (limit: number = 1000, minFrequency: number = 2) => {
+    return smartApi.post<WordCloudResponse>('/excel/dynamic/db/wordcloud/data', {
+        limit,
+        minFrequency
+    })
+}

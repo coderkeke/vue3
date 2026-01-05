@@ -5,7 +5,7 @@
 </template>
 <script setup lang="ts">
 import { ref, watch, onMounted } from 'vue'
-import { getChartStats, type ChartDataResponse } from '@/api/analysis'
+import { getWordCloudData, type WordCloudResponse } from '@/api/analysis'
 import { BasicChart } from '@/components/Chart'
 import type { ECOption } from '@/utils/echarts'
 
@@ -15,10 +15,10 @@ const loading = ref(false)
 const option = ref<ECOption | any>(null)
 
 // 分离配置逻辑
-const getChartOption = (data: { name: string; value: number }[]) => {
+const getChartOption = (data: { name: string; value: number; textStyle?: { color: string } }[]) => {
   return {
     title: {
-      text: '隐患类别词云',
+      text: '隐患关键词云（top50）',
       left: 'center',
       top: 10, // 增加顶部距离
       textStyle: {
@@ -75,13 +75,29 @@ const getChartOption = (data: { name: string; value: number }[]) => {
 const fetchData = async () => {
   loading.value = true
   try {
-    const res = await getChartStats('隐患分类别', props.conditions)
-    const data = res.data as unknown as ChartDataResponse
+    const res = await getWordCloudData(50)
+    const data = res.data as unknown as WordCloudResponse
     if (data && data.success) {
-      const chartData = data.stats.map((i) => ({
-        name: String(i['隐患分类别']),
-        value: i.count,
-      }))
+      // 按频率降序排序
+      const sortedData = data.data.sort((a, b) => b.frequency - a.frequency)
+
+      const chartData = sortedData.map((i, index) => {
+        let color
+        // Top 1 红色
+        if (index === 0) {
+          color = '#ff4d4f'
+        }
+        // Top 2 橙色
+        else if (index === 1) {
+          color = '#fa8c16'
+        }
+
+        return {
+          name: i.keyword,
+          value: i.frequency,
+          textStyle: color ? { color } : undefined,
+        }
+      })
       option.value = getChartOption(chartData)
     }
   } finally {

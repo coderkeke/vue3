@@ -2,7 +2,13 @@
   <a-card :bordered="false" :loading="loading">
     <a-row :gutter="16">
       <a-col :span="12">
-        <BasicChart ref="chart1Ref" :options="option1" height="400px" @click="handleChart1Click" />
+        <BasicChart
+          ref="chart1Ref"
+          :options="option1"
+          :update-options="{ notMerge: false }"
+          height="400px"
+          @click="handleChart1Click"
+        />
       </a-col>
       <a-col :span="12">
         <BasicChart :options="option2" height="400px" />
@@ -41,10 +47,10 @@ const option2 = ref<ECOption | null>(null)
 const selectedLevel1 = ref<string | null>(null)
 const level1Stats = ref<StatItem[]>([])
 
-const renderChart1 = () => {
+const renderChart1 = (keepZoom = false) => {
   if (!level1Stats.value.length) return
 
-  option1.value = {
+  const baseOption: ECOption = {
     title: { text: '隐患类别一级分类', left: 'center' },
     tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
     grid: { left: 50, right: 20, bottom: 80, containLabel: false },
@@ -69,6 +75,30 @@ const renderChart1 = () => {
       },
     ],
   }
+
+  if (!keepZoom) {
+    baseOption.dataZoom = [
+      {
+        type: 'slider',
+        show: true,
+        xAxisIndex: [0],
+        start: 0,
+        end: 60, // 默认显示前 60% 的数据
+        bottom: 10,
+        height: 15, // 设置高度细一点
+        left: '12%', // 距离左边 10%
+        right: '10%', // 距离右边 10%
+      },
+      {
+        type: 'inside',
+        xAxisIndex: [0],
+        start: 0,
+        end: 60,
+      },
+    ]
+  }
+
+  option1.value = baseOption
 }
 
 // Fetch Level 1 Data
@@ -119,6 +149,26 @@ const fetchLevel2Data = async () => {
         },
         tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
         grid: { left: 50, right: 20, bottom: 80, containLabel: false },
+        // 添加数据区域缩放组件，解决数据量大时X轴标签拥挤的问题
+        dataZoom: [
+          {
+            type: 'slider',
+            show: true,
+            xAxisIndex: [0],
+            start: 0,
+            end: 60, // 默认显示前 60% 的数据
+            bottom: 10,
+            height: 15, // 设置高度细一点
+            left: '12%', // 距离左边 10%
+            right: '10%', // 距离右边 10%
+          },
+          {
+            type: 'inside',
+            xAxisIndex: [0],
+            start: 0,
+            end: 60,
+          },
+        ],
         xAxis: {
           type: 'category',
           data: sortedStats.map((i) => String(i['隐患类别_二级分类'])),
@@ -145,7 +195,7 @@ const handleChart1Click = (p: unknown) => {
   const params = p as ChartClickParams
   if (params.name && selectedLevel1.value !== params.name) {
     selectedLevel1.value = params.name
-    renderChart1()
+    renderChart1(true)
     fetchLevel2Data()
   }
 }

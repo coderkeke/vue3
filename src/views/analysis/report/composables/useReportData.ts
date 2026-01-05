@@ -1,5 +1,5 @@
 import { ref, type Ref } from 'vue'
-import { getChartStats, getTableData, type ChartDataResponse } from '@/api/analysis'
+import { getChartStats, getWordCloudData, getTableData, type ChartDataResponse, type WordCloudResponse } from '@/api/analysis'
 import type { ECOption } from '@/utils/echarts'
 import type { LineSeriesOption } from 'echarts/charts'
 
@@ -25,7 +25,7 @@ export interface UseReportDataReturn {
   levelPieOption: Ref<ECOption | null>
   sourceBarOption: Ref<ECOption | null>
   businessBarOption: Ref<ECOption | null>
-  propertyPieOption: Ref<ECOption | null>
+  propertyBarOption: Ref<ECOption | null>
   trendLineOption: Ref<ECOption | null>
   unitBarOption: Ref<ECOption | null>
   categoryBarOption: Ref<ECOption | null>
@@ -46,7 +46,7 @@ export function useReportData(searchParams: Ref<Record<string, unknown>>): UseRe
   const levelPieOption = ref<ECOption | null>(null)
   const sourceBarOption = ref<ECOption | null>(null)
   const businessBarOption = ref<ECOption | null>(null)
-  const propertyPieOption = ref<ECOption | null>(null)
+  const propertyBarOption = ref<ECOption | null>(null)
   const trendLineOption = ref<ECOption | null>(null)
   const unitBarOption = ref<ECOption | null>(null)
   const categoryBarOption = ref<ECOption | null>(null)
@@ -56,13 +56,23 @@ export function useReportData(searchParams: Ref<Record<string, unknown>>): UseRe
 
   // 0. WordCloud
   const initWordCloud = async () => {
-    const res = await getChartStats('隐患分类别', searchParams.value)
-    const data = res.data as unknown as ChartDataResponse
+    const res = await getWordCloudData(100, 2)
+    const data = res.data as unknown as WordCloudResponse
     if (data && data.success) {
-      const chartData = data.stats.map((i) => ({
-        name: String(i['隐患分类别']),
-        value: i.count,
-      }))
+      const sortedData = [...data.data].sort((a, b) => b.frequency - a.frequency)
+      const chartData = sortedData.map((i, index) => {
+        let color
+        if (index === 0) {
+          color = '#ff4d4f'
+        } else if (index === 1) {
+          color = '#fa8c16'
+        }
+        return {
+          name: i.keyword,
+          value: i.frequency,
+          textStyle: color ? { color } : undefined,
+        }
+      })
 
       wordCloudOption.value = {
         tooltip: { show: true },
@@ -165,43 +175,33 @@ export function useReportData(searchParams: Ref<Record<string, unknown>>): UseRe
 
   // 3. Business
   const initBusiness = async () => {
-    const res = await getChartStats('业态', searchParams.value)
+    const res = await getChartStats('业态_一级分类_', searchParams.value)
     const data = res.data as unknown as ChartDataResponse
     if (data && data.success) {
       const sorted = data.stats.sort((a, b) => b.count - a.count)
-      topBusiness.value = String(sorted[0]?.['业态'] || '-')
-
-      businessBarOption.value = {
-        tooltip: { trigger: 'axis' },
-        grid: { containLabel: true, bottom: '10%' },
-        xAxis: {
-          type: 'category',
-          data: sorted.map((i) => String(i['业态'])),
-          axisLabel: { interval: 0, rotate: 30 },
-        },
-        yAxis: { type: 'value' },
-        series: [
-          { type: 'bar', data: sorted.map((i) => i.count), itemStyle: { color: '#1890ff' } },
-        ],
-      }
+      topBusiness.value = String(sorted[0]?.['业态_一级分类_'] || '-')
+      // businessBarOption is handled by BusinessBarChart component
     }
   }
 
   // 4. Property
   const initProperty = async () => {
-    const res = await getChartStats('业务属性', searchParams.value)
+    const res = await getChartStats('隐患业务属性', searchParams.value)
     const data = res.data as unknown as ChartDataResponse
     if (data && data.success) {
-      propertyPieOption.value = {
-        tooltip: { trigger: 'item' },
-        legend: { bottom: '0%' },
+      const sorted = data.stats.sort((a, b) => b.count - a.count)
+      
+      propertyBarOption.value = {
+        tooltip: { trigger: 'axis' },
+        grid: { containLabel: true, bottom: '10%' },
+        xAxis: {
+          type: 'category',
+          data: sorted.map((i) => String(i['隐患业务属性'])),
+          axisLabel: { interval: 0, rotate: 30 },
+        },
+        yAxis: { type: 'value' },
         series: [
-          {
-            type: 'pie',
-            radius: ['40%', '70%'],
-            data: data.stats.map((i) => ({ value: i.count, name: String(i['业务属性']) })),
-            label: { show: false },
-          },
+          { type: 'bar', data: sorted.map((i) => i.count), itemStyle: { color: '#722ed1' } },
         ],
       }
     }
@@ -341,12 +341,13 @@ export function useReportData(searchParams: Ref<Record<string, unknown>>): UseRe
       limit: 1000,
       ...searchParams.value,
     }
-    const res = await getTableData(params)
+    const res = await getTableData(params as Record<string, unknown>)
     if (res.data && res.data.success) {
       const list = res.data.data as ReportItem[]
 
       // Filter out '较小隐患', show '重大隐患' and '一般隐患' etc.
-      const filteredList = list.filter((i) => String(i['隐患级别']) !== '较小隐患')
+      const levels = ['重大隐患', '较大隐患','一般隐患']
+      const filteredList = list.filter((i) => levels.includes(String(i['隐患级别'])))
 
       // 1. Calculate Major Hidden Danger count for each unit
       const unitMajorCounts: Record<string, number> = {}
@@ -406,7 +407,7 @@ export function useReportData(searchParams: Ref<Record<string, unknown>>): UseRe
     levelPieOption,
     sourceBarOption,
     businessBarOption,
-    propertyPieOption,
+    propertyBarOption,
     trendLineOption,
     unitBarOption,
     categoryBarOption,

@@ -7,8 +7,7 @@
           v-if="schemas.length"
           :schemas="schemas"
           :model="selectedFilters"
-          :label-width="100"
-          :action-col-options="{ span: 24 }"
+          :label-col="{ style: { width: '110px' } }"
         >
           <template #action>
             <div style="text-align: right">
@@ -41,8 +40,8 @@
         :level-pie-option="levelPieOption"
         :source-bar-option="sourceBarOption"
         :word-cloud-option="wordCloudOption"
-        :property-pie-option="propertyPieOption"
-        :business-bar-option="businessBarOption"
+        :property-bar-option="propertyBarOption"
+        :conditions="searchParams"
       />
 
       <!-- 5. Trend Analysis -->
@@ -109,8 +108,7 @@ const {
   wordCloudOption,
   levelPieOption,
   sourceBarOption,
-  businessBarOption,
-  propertyPieOption,
+  propertyBarOption,
   trendLineOption,
   unitBarOption,
   categoryBarOption,

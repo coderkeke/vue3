@@ -42,6 +42,7 @@ const columns = [
   { title: '隐患名称', dataIndex: '隐患名称', key: '隐患名称', width: 200, ellipsis: true },
   { title: '隐患级别', dataIndex: '隐患级别', key: '隐患级别', width: 100 },
   { title: '发现时间', dataIndex: '发现时间', key: '发现时间', width: 120 },
+  { title: '隐患描述', dataIndex: '隐患描述', key: '隐患描述', width: 120, ellipsis: true },
   {
     title: '整改责任单位',
     dataIndex: '整改责任单位',
@@ -49,8 +50,8 @@ const columns = [
     width: 150,
     ellipsis: true,
   },
-  { title: '隐患总类别', dataIndex: '隐患总类别', key: '隐患总类别', width: 120, ellipsis: true },
-  { title: '具体要求', dataIndex: '具体要求', key: '具体要求', ellipsis: true },
+  { title: '整改要求', dataIndex: '整改要求', key: '整改要求', width: 120, ellipsis: true },
+  { title: '原因分析', dataIndex: '原因分析', key: '原因分析', width: 120, ellipsis: true },
 ]
 </script>
 

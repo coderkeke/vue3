@@ -94,6 +94,7 @@ const pagination = reactive<TablePaginationConfig>({
   pageSize: 10,
   showSizeChanger: true,
   showQuickJumper: true,
+  showTotal: (total: number) => `共 ${total} 条`,
 })
 
 // 保存当前的查询条件，用于翻页

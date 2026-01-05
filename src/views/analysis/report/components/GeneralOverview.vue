@@ -31,18 +31,18 @@
 
       <div class="chart-row single" style="margin-top: 20px">
         <div class="chart-item">
-          <h4>业务属性占比</h4>
+          <h4>业务属性分布</h4>
           <div class="chart-wrapper">
-            <BasicChart :options="propertyPieOption" height="100%" />
+            <BasicChart :options="propertyBarOption" height="100%" />
           </div>
         </div>
       </div>
 
       <div class="chart-row single" style="margin-top: 20px">
-        <div class="chart-item">
+        <div class="chart-item" style="height: auto">
           <h4>各业态隐患分布</h4>
           <div class="chart-wrapper">
-            <BasicChart :options="businessBarOption" height="100%" />
+            <BusinessBarChart :conditions="conditions" />
           </div>
         </div>
       </div>
@@ -53,14 +53,15 @@
 <script setup lang="ts">
 import { PieChartOutlined } from '@ant-design/icons-vue'
 import { BasicChart } from '@/components/Chart'
+import BusinessBarChart from '@/views/analysis/hidden-danger/components/BusinessBarChart.vue'
 import type { ECOption } from '@/utils/echarts'
 
 defineProps<{
   levelPieOption: ECOption | null
   sourceBarOption: ECOption | null
   wordCloudOption: ECOption | any // eslint-disable-line @typescript-eslint/no-explicit-any
-  propertyPieOption: ECOption | null
-  businessBarOption: ECOption | null
+  propertyBarOption: ECOption | null
+  conditions: Record<string, unknown>
 }>()
 </script>
 

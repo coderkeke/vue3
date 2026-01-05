@@ -1,5 +1,5 @@
 <template>
-  <a-card :bordered="false" :loading="loading">
+  <div class="business-chart-container">
     <a-row :gutter="16">
       <a-col :span="12">
         <BasicChart ref="chart1Ref" :options="option1" height="400px" @click="handleChart1Click" />
@@ -8,7 +8,7 @@
         <BasicChart :options="option2" height="400px" />
       </a-col>
     </a-row>
-  </a-card>
+  </div>
 </template>
 <script setup lang="ts">
 import { ref, watch, onMounted } from 'vue'

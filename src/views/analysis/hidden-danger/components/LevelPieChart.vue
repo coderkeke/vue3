@@ -8,7 +8,6 @@ import { ref, watch, onMounted } from 'vue'
 import { getChartStats, type ChartDataResponse } from '@/api/analysis'
 import { BasicChart } from '@/components/Chart'
 import type { ECOption } from '@/utils/echarts'
-import * as echarts from 'echarts/core'
 
 const props = defineProps<{ conditions: Record<string, unknown> }>()
 const loading = ref(false)
@@ -29,25 +28,22 @@ const fetchData = async () => {
             name: '隐患级别',
             type: 'pie',
             radius: ['40%', '70%'],
-            avoidLabelOverlap: false,
+            avoidLabelOverlap: true,
+            minAngle: 5,
             itemStyle: {
               borderRadius: 10,
               borderColor: '#fff',
               borderWidth: 2,
             },
             label: {
-              show: false,
-              position: 'center',
+              show: true,
+              formatter: '{b}: {c} ({d}%)',
             },
-            emphasis: {
-              label: {
-                show: true,
-                fontSize: 20,
-                fontWeight: 'bold',
-              },
+            labelLayout: {
+              hideOverlap: false,
             },
             labelLine: {
-              show: false,
+              show: true,
             },
             data: data.stats.map((i) => ({ value: i.count, name: String(i['隐患级别']) })),
           },

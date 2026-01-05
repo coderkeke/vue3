@@ -14,7 +14,7 @@
     </a-card>
 
     <div class="mt-4">
-      <a-card title="图表展示">
+      <a-card :body-style="{ backgroundColor: '#f5f5f5' }" title="图表展示">
         <!-- 第一行: 隐患类别词云 -->
         <a-row :gutter="[16, 16]">
           <a-col :span="24">
@@ -22,17 +22,31 @@
           </a-col>
         </a-row>
 
-        <!-- 第二行: 级别(柱) & 类别(柱) -->
+        <!-- 第二行: 隐患级别(饼图) & 整改单位(折线图) -->
         <a-row :gutter="[16, 16]" class="mt-4">
           <a-col :xs="24" :md="12">
             <LevelPieChart :conditions="searchParams" />
           </a-col>
           <a-col :xs="24" :md="12">
+            <UnitLineChart :conditions="searchParams" />
+          </a-col>
+        </a-row>
+
+        <!-- 第三行: 隐患类别(折线图) -->
+        <a-row :gutter="[16, 16]" class="mt-4">
+          <a-col :xs="24" :md="24">
             <CategoryLineChart :conditions="searchParams" />
           </a-col>
         </a-row>
 
-        <!-- 第三行: 来源(饼) & 业务属性(饼) -->
+        <!-- 第四行: 业态分布(条形图) -->
+        <a-row :gutter="[16, 16]" class="mt-4">
+          <a-col :xs="24" :lg="24">
+            <BusinessBarChart :conditions="searchParams" />
+          </a-col>
+        </a-row>
+
+        <!-- 第五行: 隐患来源(条形图) & 业务属性(条形图) -->
         <a-row :gutter="[16, 16]" class="mt-4">
           <a-col :xs="24" :md="12">
             <SourceBarChart :conditions="searchParams" />
@@ -42,17 +56,7 @@
           </a-col>
         </a-row>
 
-        <!-- 第四行: 业态(条形) & 整改单位(折线) -->
-        <a-row :gutter="[16, 16]" class="mt-4">
-          <a-col :xs="24" :lg="12">
-            <BusinessBarChart :conditions="searchParams" />
-          </a-col>
-          <a-col :xs="24" :lg="12">
-            <UnitLineChart :conditions="searchParams" />
-          </a-col>
-        </a-row>
-
-        <!-- 第五行: 发现时间(堆叠柱) -->
+        <!-- 第六行: 发现时间(堆叠柱状图) -->
         <a-row :gutter="[16, 16]" class="mt-4">
           <a-col :span="24">
             <TimeStackBarChart :conditions="searchParams" />

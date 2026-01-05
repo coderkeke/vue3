@@ -1,5 +1,5 @@
 <template>
-  <div class="business-chart-container">
+  <a-card :bordered="false" :loading="loading">
     <a-row :gutter="16">
       <a-col :span="12">
         <BasicChart ref="chart1Ref" :options="option1" height="400px" @click="handleChart1Click" />
@@ -8,7 +8,7 @@
         <BasicChart :options="option2" height="400px" />
       </a-col>
     </a-row>
-  </div>
+  </a-card>
 </template>
 <script setup lang="ts">
 import { ref, watch, onMounted } from 'vue'
@@ -26,13 +26,13 @@ const selectedLevel1 = ref<string | null>(null)
 // Fetch Level 1 Data
 const fetchLevel1Data = async () => {
   try {
-    const res = await getChartStats('业态_一级分类_', props.conditions)
+    const res = await getChartStats('业态_一级分类', props.conditions)
     const data = res.data as unknown as ChartDataResponse
     if (data && data.success) {
       // Sort to find the most frequent category
       const sortedStats = [...data.stats].sort((a, b) => b.count - a.count)
       if (sortedStats.length > 0 && !selectedLevel1.value && sortedStats[0]) {
-        selectedLevel1.value = String(sortedStats[0]['业态_一级分类_'])
+        selectedLevel1.value = String(sortedStats[0]['业态_一级分类'])
       }
 
       option1.value = {
@@ -51,8 +51,8 @@ const fetchLevel1Data = async () => {
             },
             data: data.stats.map((i) => ({
               value: i.count,
-              name: String(i['业态_一级分类_']),
-              selected: selectedLevel1.value === String(i['业态_一级分类_']),
+              name: String(i['业态_一级分类']),
+              selected: selectedLevel1.value === String(i['业态_一级分类']),
             })),
             emphasis: {
               itemStyle: {
@@ -75,10 +75,10 @@ const fetchLevel2Data = async () => {
   try {
     const conditions = { ...props.conditions }
     if (selectedLevel1.value) {
-      conditions['业态_一级分类_'] = selectedLevel1.value
+      conditions['业态_一级分类'] = selectedLevel1.value
     }
 
-    const res = await getChartStats('业态_二级分类_', conditions)
+    const res = await getChartStats('业态_二级分类', conditions)
     const data = res.data as unknown as ChartDataResponse
     if (data && data.success) {
       option2.value = {
@@ -98,7 +98,7 @@ const fetchLevel2Data = async () => {
             },
             data: data.stats.map((i) => ({
               value: i.count,
-              name: String(i['业态_二级分类_']),
+              name: String(i['业态_二级分类']),
             })),
             emphasis: {
               itemStyle: {

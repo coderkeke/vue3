@@ -28,6 +28,12 @@ const mockAsyncRoutes: BackendRoute[] = [
         meta: { title: '停用词管理' },
       },
       {
+        path: 'professional-terms',
+        name: 'AnalysisProfessionalTerms',
+        component: 'analysis/professional-terms/index',
+        meta: { title: '专业用词管理' },
+      },
+      {
         path: 'report',
         name: 'AnalysisReport',
         component: 'analysis/report/index',

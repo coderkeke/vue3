@@ -34,6 +34,12 @@ const mockAsyncRoutes: BackendRoute[] = [
         meta: { title: '专业用词管理' },
       },
       {
+        path: 'word-cloud',
+        name: 'AnalysisWordCloud',
+        component: 'analysis/word-cloud/index',
+        meta: { title: '词云管理' },
+      },
+      {
         path: 'report',
         name: 'AnalysisReport',
         component: 'analysis/report/index',

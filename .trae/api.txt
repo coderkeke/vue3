@@ -1,105 +1,8 @@
 
-
-## 分页查询专业用词
-
-
-**接口地址**:`/smart-api/api/professional-terms/page`
+## 获取词云数据分页（Raw格式）
 
 
-**请求方式**:`GET`
-
-
-**请求数据类型**:`application/x-www-form-urlencoded`
-
-
-**响应数据类型**:`*/*`
-
-
-**接口描述**:<p>支持按分类和关键词搜索的分页查询</p>
-
-
-
-**请求参数**:
-
-
-**请求参数**:
-
-
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|category|分类筛选|query|false|string||
-|keyword|关键词搜索|query|false|string||
-|page|页码，从1开始|query|false|integer(int32)||
-|size|每页数量|query|false|integer(int32)||
-
-
-**响应状态**:
-
-
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|200|OK|PageResult«ProfessionalTerm»|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
-
-
-**响应参数**:
-
-
-| 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
-|data||array|ProfessionalTerm|
-|&emsp;&emsp;category||string||
-|&emsp;&emsp;createdTime||string(date-time)||
-|&emsp;&emsp;definition||string||
-|&emsp;&emsp;description||string||
-|&emsp;&emsp;enabled||boolean||
-|&emsp;&emsp;id||integer(int64)||
-|&emsp;&emsp;synonym||string||
-|&emsp;&emsp;term||string||
-|&emsp;&emsp;updatedTime||string(date-time)||
-|page||integer(int32)|integer(int32)|
-|size||integer(int32)|integer(int32)|
-|total||integer(int64)|integer(int64)|
-|totalPages||integer(int64)|integer(int64)|
-
-
-**响应示例**:
-```javascript
-{
-	"data": [
-		{
-			"category": "",
-			"createdTime": "",
-			"definition": "",
-			"description": "",
-			"enabled": true,
-			"id": 0,
-			"synonym": "",
-			"term": "",
-			"updatedTime": ""
-		}
-	],
-	"page": 0,
-	"size": 0,
-	"total": 0,
-	"totalPages": 0
-}
-```
-
-
-
-
-
-
-
-
-
-## 快捷批量添加专业用词
-
-
-**接口地址**:`/smart-api/api/professional-terms/batch/quick`
+**接口地址**:`/smart-api/excel/dynamic/wordcloud/data/paged/raw`
 
 
 **请求方式**:`POST`
@@ -111,7 +14,7 @@
 **响应数据类型**:`*/*`
 
 
-**接口描述**:<p>支持逗号分隔的字符串批量添加专业用词，如：&#39;安全风险,安全隐患,作业规范&#39;</p>
+**接口描述**:<p>Raw JSON 格式分页获取词云数据</p>
 
 
 
@@ -123,11 +26,12 @@
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|terms|专业用词字符串，多个用逗号分隔|query|true|string||
-|category|分类名称，可选|query|false|string||
-|description|描述信息，可选|query|false|string||
-|enabled|是否启用，默认为true|query|false|boolean||
-
+|request|查询参数|body|true|object||
+|minFrequency|最小词频阈值|body|false|integer(int32)||
+|orderBy|排序字段（frequency/count/keyword）|body|false|string||
+|orderDir|排序方向（asc/desc）|body|false|string||
+|page|页码，从1开始|body|false|integer(int32)||
+|size|每页数量|body|false|integer(int32)||
 
 **响应状态**:
 
@@ -149,61 +53,31 @@
 
 **响应示例**:
 ```text
-string
-```
-
-
-
-
-
-## 删除专业用词
-
-
-**接口地址**:`/smart-api/api/professional-terms/{id}`
-
-
-**请求方式**:`DELETE`
-
-
-**请求数据类型**:`application/x-www-form-urlencoded`
-
-
-**响应数据类型**:`*/*`
-
-
-**接口描述**:<p>根据ID删除专业用词</p>
-
-
-
-**请求参数**:
-
-
-**请求参数**:
-
-
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|id|专业用词ID|path|true|integer(int64)||
-
-
-**响应状态**:
-
-
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|200|OK||
-|204|No Content||
-|401|Unauthorized||
-|403|Forbidden||
-
-
-**响应参数**:
-
-
-暂无
-
-
-**响应示例**:
-```text
-string
+{
+  "pagination": {
+    "totalPages": 449,
+    "pageSize": 50,
+    "hasPrevious": false,
+    "hasNext": true,
+    "currentPage": 1,
+    "totalCount": 22449,
+    "currentSize": 50
+  },
+  "data": [
+    {
+      "keyword": "风机",
+      "frequency": 687
+    },
+    {
+      "keyword": "号",
+      "frequency": 366
+    },
+  ],
+  "success": true,
+  "orderBy": "frequency",
+  "message": "操作成功",
+  "minFrequency": 1,
+  "orderDir": "desc",
+  "tableName": "t_hidden_dangers_keywords"
+}
 ```

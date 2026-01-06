@@ -22,8 +22,6 @@
     <a-modal
       v-model:open="addModalVisible"
       title="批量添加停用词"
-      ok-text="确定"
-      cancel-text="取消"
       :confirm-loading="addLoading"
       @ok="handleAdd"
       @cancel="closeAddModal"

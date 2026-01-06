@@ -1,21 +1,21 @@
 
 
-## 获取所有字段及分组统计
+## 快捷批量添加停用词（Raw格式）
 
 
-**接口地址**:`/smart-api/excel/dynamic/db/all-columns-stats`
+**接口地址**:`/smart-api/api/stopwords/batch/quick/raw`
 
 
-**请求方式**:`GET`
+**请求方式**:`POST`
 
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**请求数据类型**:`application/json`
 
 
 **响应数据类型**:`*/*`
 
 
-**接口描述**:<p>查询 t_field_value_stats 表的所有字段及其分组统计信息（按字段名分组显示值统计）</p>
+**接口描述**:<p>支持 JSON raw 格式批量添加停用词</p>
 
 
 
@@ -25,7 +25,9 @@
 **请求参数**:
 
 
-暂无
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|request|JSON 请求体，包含 words(必填)、category(可选)、description(可选)、enabled(可选)|body|true|object||
 
 
 **响应状态**:
@@ -34,6 +36,7 @@
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK||
+|201|Created||
 |401|Unauthorized||
 |403|Forbidden||
 |404|Not Found||
@@ -48,92 +51,27 @@
 **响应示例**:
 ```text
 {
-    "summary": {
-        "totalOccurrences": 9332,
-        "fieldCount": 7,
-        "fieldSummaries": [
-            {
-                "fieldName": "发现时间",
-                "valueCount": 13,
-                "totalCount": 6179,
-                "maxCount": 850
-            },
-            {
-                "fieldName": "隐患来源",
-                "valueCount": 10,
-                "totalCount": 524,
-                "maxCount": 346
-            },
-            {
-                "fieldName": "隐患业务属性",
-                "valueCount": 4,
-                "totalCount": 521,
-                "maxCount": 408
-            },
-            {
-                "fieldName": "隐患级别",
-                "valueCount": 4,
-                "totalCount": 487,
-                "maxCount": 445
-            }
-        ],
-        "totalRecords": 157
-    },
-    "fieldCount": 7,
-    "groupedStats": {
-        "发现时间": [
-            {
-                "field_name": "发现时间",
-                "field_value": "2025-06",
-                "count": 850,
-                "created_time": "2026-01-05 13:29:01",
-                "updated_time": "2026-01-05 13:29:01"
-            },
-            {
-                "field_name": "发现时间",
-                "field_value": "2025-10",
-                "count": 773,
-                "created_time": "2026-01-06 00:37:47",
-                "updated_time": "2026-01-06 00:37:47"
-            },
-        ],
-        "隐患级别": [
-            {
-                "field_name": "隐患级别",
-                "field_value": "较小隐患",
-                "count": 445,
-                "created_time": "2026-01-06 00:45:32",
-                "updated_time": "2026-01-06 00:45:32"
-            },
-        ],
-        "隐患业务属性": [
-            {
-                "field_name": "隐患业务属性",
-                "field_value": "生产",
-                "count": 408,
-                "created_time": "2026-01-06 00:45:32",
-                "updated_time": "2026-01-06 00:45:32"
-            },
-        ],
-        "隐患来源": [
-            {
-                "field_name": "隐患来源",
-                "field_value": "隐患排查",
-                "count": 346,
-                "created_time": "2026-01-06 00:45:32",
-                "updated_time": "2026-01-06 00:45:32"
-            },
-            {
-                "field_name": "隐患来源",
-                "field_value": "周安全检查",
-                "count": 74,
-                "created_time": "2026-01-06 00:45:32",
-                "updated_time": "2026-01-06 00:45:32"
-            },
-        ],
-    },
+    "data": [
+        {
+            "id": null,
+            "word": "等",
+            "category": "测试分类",
+            "description": "测试描述",
+            "enabled": true,
+            "createdTime": null,
+            "updatedTime": null
+        }
+    ],
     "success": true,
-    "totalStatsCount": 157,
-    "tableName": "t_field_value_stats"
+    "message": "快捷批量添加完成，成功: 1 条，跳过(已存在): 0 条"
 }
 ```
+
+
+
+删除接口-响应参数
+{
+    "data": null,
+    "success": true,
+    "message": "删除停用词成功"
+}

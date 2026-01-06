@@ -22,6 +22,12 @@ const mockAsyncRoutes: BackendRoute[] = [
         meta: { title: '隐患录入' },
       },
       {
+        path: 'stop-words',
+        name: 'AnalysisStopWords',
+        component: 'analysis/stop-words/index',
+        meta: { title: '停用词管理' },
+      },
+      {
         path: 'report',
         name: 'AnalysisReport',
         component: 'analysis/report/index',

@@ -97,11 +97,14 @@ const fetchData = async () => {
     // 根据 excelApi 的定义，res 是 UnifiedResponse，res.data 是后端返回的完整对象
     const filterData = res.data as unknown as FilterData
 
-    if (filterData && filterData.success) {
+    if (filterData && filterData.success && filterData.summary) {
       const newSchemas: FormSchema[] = []
 
-      filterData.groupColumns.forEach((col) => {
-        const options = filterData.columnStats[col] || []
+      // 遍历 summary.fieldSummaries 来获取字段名
+      filterData.summary.fieldSummaries.forEach((fieldSummary) => {
+        const col = fieldSummary.fieldName
+        // 从 groupedStats 中获取对应的选项列表
+        const options = filterData.groupedStats[col] || []
 
         newSchemas.push({
           field: col,
@@ -109,7 +112,7 @@ const fetchData = async () => {
           component: 'Select',
           componentProps: {
             options: options.map((opt) => {
-              const labelStr = opt[col]
+              const labelStr = opt.field_value
               return {
                 label: `${labelStr} (${opt.count})`,
                 value: labelStr,

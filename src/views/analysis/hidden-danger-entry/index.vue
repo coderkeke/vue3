@@ -106,19 +106,20 @@ const fetchFilterData = async () => {
     const res = await getFilterOptions()
     const filterData = res.data as unknown as FilterData
 
-    if (filterData && filterData.success) {
+    if (filterData && filterData.success && filterData.summary) {
       const newSchemas: FormSchema[] = []
 
       // 构建筛选表单
-      filterData.groupColumns.forEach((col) => {
-        const options = filterData.columnStats[col] || []
+      filterData.summary.fieldSummaries.forEach((fieldSummary) => {
+        const col = fieldSummary.fieldName
+        const options = filterData.groupedStats[col] || []
         newSchemas.push({
           field: col,
           label: col,
           component: 'Select',
           componentProps: {
             options: options.map((opt) => {
-              const labelStr = opt[col]
+              const labelStr = opt.field_value
               return {
                 label: `${labelStr} (${opt.count})`,
                 value: labelStr,
@@ -162,11 +163,11 @@ const fetchFilterData = async () => {
       schemas.value = newSchemas
 
       // 构建表格列
-      if (filterData.allColumns) {
-        columns.value = filterData.allColumns.map((col) => ({
-          title: col,
-          dataIndex: col,
-          key: col,
+      if (filterData.summary && filterData.summary.fieldSummaries) {
+        columns.value = filterData.summary.fieldSummaries.map((item) => ({
+          title: item.fieldName,
+          dataIndex: item.fieldName,
+          key: item.fieldName,
           width: 150, // 默认宽度，可根据需要调整
           ellipsis: true,
         })) as TableColumnType[]

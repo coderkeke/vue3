@@ -51,7 +51,7 @@ const renderChart1 = (keepZoom = false) => {
   if (!level1Stats.value.length) return
 
   const baseOption: ECOption = {
-    title: { text: '隐患类别一级分类', left: 'center' },
+    title: { text: '隐患类别_一级分类', left: 'center' },
     tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
     grid: { left: 50, right: 20, bottom: 80, containLabel: false },
     xAxis: {

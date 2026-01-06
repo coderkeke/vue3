@@ -36,7 +36,7 @@ const fetchLevel1Data = async () => {
       }
 
       option1.value = {
-        title: { text: '业态一级分类', left: 'center' },
+        title: { text: '业态_一级分类', left: 'center' },
         tooltip: { trigger: 'item' },
         series: [
           {

@@ -1,18 +1,34 @@
 import {smartApi} from '@/http/request'
 
-export interface FilterOption {
-    count: number
+export interface FieldSummary {
+    fieldName: string
+    valueCount: number
+    totalCount: number
+    maxCount: number
+}
 
-    [key: string]: string | number
+export interface SummaryInfo {
+    totalOccurrences: number
+    fieldCount: number
+    fieldSummaries: FieldSummary[]
+    totalRecords: number
+}
+
+export interface GroupedStatItem {
+    field_name: string
+    field_value: string
+    count: number
+    created_time: string
+    updated_time: string
 }
 
 export interface FilterData {
-    allColumnCount: number
+    summary: SummaryInfo
+    fieldCount: number
+    groupedStats: Record<string, GroupedStatItem[]>
     success: boolean
-    allColumns: string[]
-    groupColumns: string[]
-    groupColumnCount: number
-    columnStats: Record<string, FilterOption[]>
+    totalStatsCount: number
+    tableName: string
 }
 
 export const getFilterOptions = () => {

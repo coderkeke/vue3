@@ -14,11 +14,12 @@ export function useReportFilter(onSearch?: () => void) {
       const res = await getFilterOptions()
       const filterData = res.data as unknown as FilterData
 
-      if (filterData && filterData.success) {
+      if (filterData && filterData.success && filterData.summary) {
         const newSchemas: FormSchema[] = []
 
-        filterData.groupColumns.forEach((col) => {
-          const options = filterData.columnStats[col] || []
+        filterData.summary.fieldSummaries.forEach((fieldSummary) => {
+          const col = fieldSummary.fieldName
+          const options = filterData.groupedStats[col] || []
 
           newSchemas.push({
             field: col,
@@ -26,7 +27,7 @@ export function useReportFilter(onSearch?: () => void) {
             component: 'Select',
             componentProps: {
               options: options.map((opt) => {
-                const labelStr = opt[col]
+                const labelStr = opt.field_value
                 return {
                   label: `${labelStr} (${opt.count})`,
                   value: labelStr,

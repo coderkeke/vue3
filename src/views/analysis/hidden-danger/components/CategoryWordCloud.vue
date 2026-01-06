@@ -75,7 +75,7 @@ const getChartOption = (data: { name: string; value: number; textStyle?: { color
 const fetchData = async () => {
   loading.value = true
   try {
-    const res = await getWordCloudData(50)
+    const res = await getWordCloudData(50, 10)
     const data = res.data as unknown as WordCloudResponse
     if (data && data.success) {
       // 按频率降序排序

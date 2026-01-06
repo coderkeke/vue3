@@ -58,6 +58,7 @@ export const legacyApi = createService({
 // --------------------------------------------------------------------------
 export const smartApi = createService({
   baseURL: '/smart-api',
+  timeout: 10000,
   transform: {
     transformResponse: (res: unknown): UnifiedResponse => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -78,7 +78,8 @@ export const uploadExcelFile = (file: File, clearTable: boolean = false) => {
     return smartApi.post('/excel/dynamic/db/upload-and-sqlite-advanced', formData, {
         headers: {
             'Content-Type': 'multipart/form-data'
-        }
+        },
+        timeout: 10 * 60 * 1000 // 10分钟超时
     })
 }
 

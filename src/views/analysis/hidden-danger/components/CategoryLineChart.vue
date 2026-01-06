@@ -1,7 +1,7 @@
 <template>
   <a-card :bordered="false" :loading="loading">
-    <a-row :gutter="16">
-      <a-col :span="12">
+    <a-row :gutter="[16, 30]">
+      <a-col :span="24">
         <BasicChart
           ref="chart1Ref"
           :options="option1"
@@ -10,7 +10,7 @@
           @click="handleChart1Click"
         />
       </a-col>
-      <a-col :span="12">
+      <a-col :span="24">
         <BasicChart :options="option2" height="400px" />
       </a-col>
     </a-row>
@@ -53,11 +53,11 @@ const renderChart1 = (keepZoom = false) => {
   const baseOption: ECOption = {
     title: { text: '隐患类别_一级分类', left: 'center' },
     tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-    grid: { left: 50, right: 20, bottom: 80, containLabel: false },
+    grid: { left: 100, right: 20, bottom: 120, containLabel: false },
     xAxis: {
       type: 'category',
       data: level1Stats.value.map((i) => String(i['隐患类别_一级分类'])),
-      axisLabel: { interval: 0, rotate: 30 },
+      axisLabel: { interval: 'auto', rotate: 30 },
     },
     yAxis: { type: 'value' },
     series: [
@@ -83,18 +83,18 @@ const renderChart1 = (keepZoom = false) => {
         show: true,
         xAxisIndex: [0],
         start: 0,
-        end: 60, // 默认显示前 60% 的数据
+        end: 100, // 默认显示前 60% 的数据
         bottom: 10,
         height: 15, // 设置高度细一点
         left: '12%', // 距离左边 10%
         right: '10%', // 距离右边 10%
       },
-      {
-        type: 'inside',
-        xAxisIndex: [0],
-        start: 0,
-        end: 60,
-      },
+      // {
+      //   type: 'inside',
+      //   xAxisIndex: [0],
+      //   start: 0,
+      //   end: 100,
+      // },
     ]
   }
 
@@ -148,7 +148,7 @@ const fetchLevel2Data = async () => {
           left: 'center',
         },
         tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-        grid: { left: 50, right: 20, bottom: 80, containLabel: false },
+        grid: { left: 100, right: 20, bottom: 120, containLabel: false },
         // 添加数据区域缩放组件，解决数据量大时X轴标签拥挤的问题
         dataZoom: [
           {
@@ -156,18 +156,18 @@ const fetchLevel2Data = async () => {
             show: true,
             xAxisIndex: [0],
             start: 0,
-            end: 60, // 默认显示前 60% 的数据
+            end: 100, // 默认显示前 60% 的数据
             bottom: 10,
             height: 15, // 设置高度细一点
             left: '12%', // 距离左边 10%
             right: '10%', // 距离右边 10%
           },
-          {
-            type: 'inside',
-            xAxisIndex: [0],
-            start: 0,
-            end: 60,
-          },
+          // {
+          //   type: 'inside',
+          //   xAxisIndex: [0],
+          //   start: 0,
+          //   end: 100,
+          // },
         ],
         xAxis: {
           type: 'category',
@@ -179,7 +179,7 @@ const fetchLevel2Data = async () => {
           {
             name: '数量',
             type: 'bar',
-            barWidth: '60%',
+            barWidth: '50%',
             data: sortedStats.map((i) => i.count),
             itemStyle: { color: '#FAC858' },
           },

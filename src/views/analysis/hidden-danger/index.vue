@@ -1,7 +1,12 @@
 <template>
   <div class="p-4">
     <a-card title="数据筛选" :loading="loading">
-      <DynamicForm :model="selectedFilters" :schemas="schemas" :row-props="{ gutter: [16, 16] }">
+      <DynamicForm
+        :model="selectedFilters"
+        :schemas="schemas"
+        :row-props="{ gutter: [16, 16] }"
+        :label-col="{ style: { width: '130px' } }"
+      >
         <template #action>
           <div style="text-align: right">
             <a-space>

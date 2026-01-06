@@ -1,6 +1,11 @@
 <template>
   <div class="p-4">
-    <DynamicForm :model="selectedFilters" :schemas="schemas" :row-props="{ gutter: [16, 16] }">
+    <DynamicForm
+      :model="selectedFilters"
+      :schemas="schemas"
+      :row-props="{ gutter: [16, 16] }"
+      :label-col="{ style: { width: '130px' } }"
+    >
       <template #action>
         <div class="text-right">
           <a-space>
@@ -19,11 +24,24 @@
     </div>
 
     <!-- Import Modal -->
-    <a-modal v-model:open="importModalVisible" title="导入Excel数据" :footer="null" :width="500">
+    <a-modal
+      v-model:open="importModalVisible"
+      title="导入Excel数据"
+      :footer="null"
+      :width="500"
+      :mask-closable="!uploadLoading"
+      :closable="!uploadLoading"
+      :keyboard="!uploadLoading"
+    >
       <div class="p-4">
         <div class="mb-4 flex items-center">
           <span class="mr-2">是否清除旧数据：</span>
-          <a-switch v-model:checked="clearTable" checked-children="是" un-checked-children="否" />
+          <a-switch
+            v-model:checked="clearTable"
+            :disabled="uploadLoading"
+            checked-children="是"
+            un-checked-children="否"
+          />
           <span class="ml-2 text-gray-400 text-sm">
             {{ clearTable ? '将清空现有数据后导入' : '将在现有数据基础上追加' }}
           </span>

@@ -7,7 +7,7 @@
           v-if="schemas.length"
           :schemas="schemas"
           :model="selectedFilters"
-          :label-col="{ style: { width: '110px' } }"
+          :label-col="{ style: { width: '130px' } }"
         >
           <template #action>
             <div style="text-align: right">

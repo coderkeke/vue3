@@ -68,7 +68,12 @@ defineOptions({
   name: 'StopWordsManagement',
 })
 import { ref, onMounted, reactive } from 'vue'
-import { getStopWordsPage, addStopWordsBatch, deleteStopWord, type StopWord } from '@/api/analysis'
+import {
+  getStopWordsPage,
+  addStopWordsBatch,
+  deleteStopWord,
+  type StopWord,
+} from '@/api/analysis/stop-words'
 import type { TablePaginationConfig, TableColumnType } from 'ant-design-vue'
 import { PlusOutlined } from '@ant-design/icons-vue'
 import { message } from 'ant-design-vue'

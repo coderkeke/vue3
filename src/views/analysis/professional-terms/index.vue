@@ -73,7 +73,7 @@ import {
   addProfessionalTermsBatch,
   deleteProfessionalTerm,
   type ProfessionalTerm,
-} from '@/api/analysis'
+} from '@/api/analysis/professional-terms'
 import type { TablePaginationConfig, TableColumnType } from 'ant-design-vue'
 import { PlusOutlined } from '@ant-design/icons-vue'
 import { message } from 'ant-design-vue'

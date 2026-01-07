@@ -11,6 +11,7 @@ import {
   Upload,
   Rate,
   Slider,
+  AutoComplete,
 } from 'ant-design-vue';
 import type { Component } from 'vue';
 import type { ComponentType } from './types';
@@ -43,5 +44,6 @@ componentMap.set('TimePicker', TimePicker);
 componentMap.set('Upload', Upload);
 componentMap.set('Rate', Rate);
 componentMap.set('Slider', Slider);
+componentMap.set('AutoComplete', AutoComplete);
 
 export { componentMap };

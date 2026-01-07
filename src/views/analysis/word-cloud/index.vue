@@ -1,7 +1,7 @@
 <template>
   <div class="p-4">
     <div class="mb-4 bg-white p-4 rounded-lg shadow-sm">
-      <DynamicForm layout="inline" :model="searchParams" :schemas="searchSchemas">
+      <DynamicForm :model="searchParams" :schemas="searchSchemas">
         <template #action>
           <a-space>
             <a-button type="primary" @click="handleSearch">查询</a-button>

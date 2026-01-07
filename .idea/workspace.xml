@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.trae/api.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.trae/api.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/analysis/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/analysis/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger-entry/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger-entry/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/hidden-danger/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/hidden-danger/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/analysis/report/composables/useReportFilter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/analysis/report/composables/useReportFilter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
-    </list>
+    <list default="true" id="e949848e-32c3-49d5-b77d-49519d24a822" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +66,7 @@
       <workItem from="1767085672164" duration="4405000" />
       <workItem from="1767144451042" duration="10897000" />
       <workItem from="1767661794013" duration="98000" />
+      <workItem from="1767691595957" duration="46000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,7 @@
 <template>
   <div class="p-4">
     <div class="mb-4 bg-white p-4 rounded-lg shadow-sm">
-      <DynamicForm layout="inline" :model="searchParams" :schemas="searchSchemas">
+      <DynamicForm :model="searchParams" :schemas="searchSchemas">
         <template #action>
           <a-space>
             <a-button type="primary" @click="handleSearch">查询</a-button>
@@ -67,11 +67,12 @@
 defineOptions({
   name: 'ProfessionalTermsManagement',
 })
-import { ref, onMounted, reactive } from 'vue'
+import { ref, onMounted, reactive, computed } from 'vue'
 import {
   getProfessionalTermsPage,
   addProfessionalTermsBatch,
   deleteProfessionalTerm,
+  getProfessionalTermsCategories,
   type ProfessionalTerm,
 } from '@/api/analysis/professional-terms'
 import type { TablePaginationConfig, TableColumnType } from 'ant-design-vue'
@@ -88,32 +89,50 @@ const addFormRef = ref()
 // Search Params
 const searchParams = reactive({
   keyword: '',
-  category: '',
+  category: undefined as string | undefined,
 })
 
+const categoryOptions = ref<{ label: string; value: string }[]>([])
+const fetchCategoryOptions = async () => {
+  try {
+    const res = await getProfessionalTermsCategories()
+    const result = res.data
+    if (result.success) {
+      categoryOptions.value = result.data?.map((i) => ({ label: i, value: i })) || []
+    }
+  } catch (error) {
+    console.error('获取专业用词分类失败:', error)
+  }
+}
+onMounted(fetchCategoryOptions)
+
 // Search Form Schema
-const searchSchemas: FormSchema[] = [
+const searchSchemas = computed<FormSchema[]>(() => [
   {
     field: 'keyword',
     label: '关键词',
     component: 'Input',
     componentProps: { placeholder: '请输入关键词', allowClear: true },
-    colProps: { span: 8 },
+    colProps: { span: 6 },
   },
   {
     field: 'category',
     label: '分类',
-    component: 'Input',
-    componentProps: { placeholder: '请输入分类', allowClear: true },
-    colProps: { span: 8 },
+    component: 'Select',
+    componentProps: {
+      placeholder: '请选择分类',
+      allowClear: true,
+      options: categoryOptions.value,
+    },
+    colProps: { span: 6 },
   },
   {
     field: 'action',
     component: 'Input', // Dummy component, using slot
     slot: 'action',
-    colProps: { span: 8 },
+    colProps: { span: 6 },
   },
-]
+])
 
 // Add Form
 const addForm = reactive({
@@ -123,12 +142,13 @@ const addForm = reactive({
 })
 
 // Add Form Schema
-const addSchemas: FormSchema[] = [
+const addSchemas = computed<FormSchema[]>(() => [
   {
     field: 'terms',
     label: '专业用词',
     component: 'TextArea',
     componentProps: {
+      allowClear: true,
       rows: 4,
       placeholder: '请输入专业用词，多个词用英文逗号分隔。例如：安全风险,安全隐患',
     },
@@ -138,18 +158,25 @@ const addSchemas: FormSchema[] = [
   {
     field: 'category',
     label: '分类',
-    component: 'Input',
-    componentProps: { placeholder: '请输入分类（可选）' },
+    component: 'AutoComplete',
+    componentProps: {
+      placeholder: '请输入或选择分类（可选）',
+      allowClear: true,
+      options: categoryOptions.value,
+      filterOption: (inputValue: string, option: { value: string }) => {
+        return option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+      },
+    },
     colProps: { span: 24 },
   },
   {
     field: 'description',
     label: '描述',
     component: 'TextArea',
-    componentProps: { rows: 2, placeholder: '请输入描述（可选）' },
+    componentProps: { allowClear: true, rows: 2, placeholder: '请输入描述（可选）' },
     colProps: { span: 24 },
   },
-]
+])
 
 const pagination = reactive<TablePaginationConfig>({
   total: 0,
@@ -240,7 +267,7 @@ const handleSearch = () => {
 
 const handleReset = () => {
   searchParams.keyword = ''
-  searchParams.category = ''
+  searchParams.category = undefined
   handleSearch()
 }
 

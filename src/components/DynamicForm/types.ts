@@ -15,7 +15,8 @@ export type ComponentType =
   | 'TimePicker'
   | 'Upload'
   | 'Rate'
-  | 'Slider';
+  | 'Slider'
+  | 'AutoComplete';
 
 import type { Rule } from 'ant-design-vue/es/form';
 

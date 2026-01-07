@@ -22,16 +22,20 @@ export const getStopWordsPage = (params: { category?: string, keyword?: string, 
     return smartApi.get<StopWordPageResult>('/api/stopwords/page', { params })
 }
 
-export interface StopWordResponse {
-    data: StopWord[] | null
+export interface StopWordResponse<T> {
+    data: T | null
     success: boolean
     message: string
 }
 
 export const addStopWordsBatch = (data: { words: string, category?: string, description?: string, enabled?: boolean }) => {
-    return smartApi.post<StopWordResponse>('/api/stopwords/batch/quick/raw', data)
+    return smartApi.post<StopWordResponse<StopWord[]>>('/api/stopwords/batch/quick/raw', data)
 }
 
 export const deleteStopWord = (id: number) => {
-    return smartApi.delete<StopWordResponse>(`/api/stopwords/${id}`)
+    return smartApi.delete<StopWordResponse<StopWord[]>>(`/api/stopwords/${id}`)
+}
+
+export const getStopWordsCategories = () => {
+    return smartApi.get<StopWordResponse<string[]>>('/api/stopwords/categories')
 }

@@ -20,6 +20,12 @@ export interface ProfessionalTermPageResult {
     totalPages: number
 }
 
+export interface ProfessionalTermResponse<T> {
+    data: T | null
+    success: boolean
+    message: string
+}
+
 export const getProfessionalTermsPage = (params: { category?: string, keyword?: string, page?: number, size?: number }) => {
     return smartApi.get<ProfessionalTermPageResult>('/api/professional-terms/page', { params })
 }
@@ -30,4 +36,8 @@ export const addProfessionalTermsBatch = (params: { terms: string, category?: st
 
 export const deleteProfessionalTerm = (id: number) => {
     return smartApi.delete(`/api/professional-terms/${id}`)
+}
+
+export const getProfessionalTermsCategories = () => {
+    return smartApi.get<ProfessionalTermResponse<string[]>>('/api/professional-terms/categories')
 }

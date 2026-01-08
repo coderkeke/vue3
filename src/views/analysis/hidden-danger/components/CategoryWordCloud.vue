@@ -38,7 +38,7 @@ const getChartOption = (data: { name: string; value: number; textStyle?: { color
         height: '85%', // 调整高度防止溢出
         right: null,
         bottom: null,
-        sizeRange: [12, 60],
+        sizeRange: [12, 120],
         rotationRange: [0, 0],
         rotationStep: 45,
         gridSize: 8,
